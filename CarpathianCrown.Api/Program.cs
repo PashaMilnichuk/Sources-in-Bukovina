@@ -68,7 +68,7 @@ builder.Services.AddCors(opt =>
     });
 });
 
-// Swagger MUST be registered before builder.Build()
+
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(c =>
@@ -101,7 +101,6 @@ builder.Services.AddSwaggerGen(c =>
 
 builder.Services.AddControllersWithViews();
 
-
 var app = builder.Build();
 
 app.UseCors("web");
@@ -113,8 +112,6 @@ app.UseMiddleware<CarpathianCrown.Api.Middleware.ExceptionHandlingMiddleware>();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
-app.MapControllers();
 
 using (var scope = app.Services.CreateScope())
 {
@@ -131,13 +128,12 @@ builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
 app.UseStaticFiles();
 app.UseRouting();
 
-
-app.UseStaticFiles();
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapDefaultControllerRoute();
+
+app.MapControllers();
 
 app.Run();
