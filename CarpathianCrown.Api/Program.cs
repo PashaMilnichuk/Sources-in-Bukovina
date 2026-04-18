@@ -122,12 +122,6 @@ using (var scope = app.Services.CreateScope())
 
 app.UseSerilogRequestLogging();
 
-app.MapGet("/", () => Results.Ok(new
-{
-    name = "CarpathianCrown API",
-    status = "ok",
-    swagger = "/swagger"
-}));
 
 builder.Services.AddRazorPages();
 
@@ -140,6 +134,10 @@ app.UseRouting();
 builder.Services.AddControllersWithViews();
 
 app.UseStaticFiles();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapDefaultControllerRoute();
 app.MapRazorPages();
