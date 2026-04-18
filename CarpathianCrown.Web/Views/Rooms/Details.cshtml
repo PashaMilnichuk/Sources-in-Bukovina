@@ -1,0 +1,175 @@
+﻿@model CarpathianCrown.Web.Models.RoomDto
+@using CarpathianCrown.Web.Models
+
+@{
+    var lang = Context.GetLang();
+    var auth = Context.GetAuth();
+    string T(string ua, string en) => lang == "en" ? en : ua;
+
+    string Title(RoomDto r) => lang == "en" ? r.NameEn : r.NameUa;
+    string Desc(RoomDto r) => lang == "en" ? r.DescriptionEn : r.DescriptionUa;
+
+    var services = ViewBag.Services as List<ServiceItemDto> ?? new();
+    var reviews = ViewBag.Reviews as List<ReviewDto> ?? new();
+    var avg = ViewBag.AvgRating ?? 0;
+    var gallery = new List<string>();
+
+    if (!string.IsNullOrWhiteSpace(Model.CoverImageUrl)) gallery.Add(Model.CoverImageUrl);
+    if (!string.IsNullOrWhiteSpace(Model.Image2)) gallery.Add(Model.Image2!);
+    if (!string.IsNullOrWhiteSpace(Model.Image3)) gallery.Add(Model.Image3!);
+    if (!string.IsNullOrWhiteSpace(Model.Image4)) gallery.Add(Model.Image4!);
+}
+
+<div class="room-slider">
+    <div class="room-slider-main">
+        <img id="mainRoomImage"
+             src="@(gallery.Any() ? gallery[0] : "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267")"
+             alt="@Title(Model)" />
+    </div>
+
+    @if (gallery.Count > 1)
+    {
+    <div class="room-slider-thumbs">
+        @for (int i = 0; i < gallery.Count; i++)
+            {
+        <button type="button"
+                class="room-thumb @(i == 0 ? "active" : "")"
+                onclick="setRoomImage(this, '@gallery[i]')">
+            <img src="@gallery[i]" alt="" />
+        </button>
+            }
+    </div>
+    }
+</div>
+
+<script>
+    function setRoomImage(button, src) {
+        const main = document.getElementById('mainRoomImage');
+        if (main) {
+            main.src = src;
+        }
+
+        document.querySelectorAll('.room-thumb').forEach(x => x.classList.remove('active'));
+        button.classList.add('active');
+    }
+</script>
+
+<section class="room-layout">
+    <div>
+        <h1>@Title(Model)</h1>
+
+        <div class="room-rating" style="margin-bottom:16px;">
+            @if (Model.AvgRating > 0.0)
+            {
+            <span>★ @Model.AvgRating.ToString("0.0") / 5</span>
+            }
+            else
+            {
+            <span>@T("Немає рейтингу", "No rating")</span>
+            }
+        </div>
+
+        <div class="room-meta">
+            <div>
+                <span>@T("Гості", "Guests")</span>
+                <b>@Model.Capacity</b>
+            </div>
+            <div>
+                <span>@T("Ціна за ніч", "Price per night")</span>
+                <b>@Model.PricePerNight @T("у.о.","u.o.")</b>
+            </div>
+            <div>
+                <span>@T("Статус", "Status")</span>
+                <b>@Model.Status</b>
+            </div>
+        </div>
+
+        <div class="room-description">
+            <p>@Desc(Model)</p>
+        </div>
+
+        <h3>@T("Додаткові послуги", "Additional services")</h3>
+
+        @if (!services.Any())
+        {
+        <p>@T("Увійдіть щоб переглянути доступні послуги", "Login to see available services")</p>
+        }
+        else
+        {
+        <table class="services-table">
+            <thead>
+                <tr>
+                    <th>@T("Послуга", "Service")</th>
+                    <th>@T("Опис", "Description")</th>
+                    <th>@T("Ціна", "Price")</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var s in services)
+                {
+                <tr>
+                    <td>@(lang == "en" ? s.NameEn : s.NameUa)</td>
+                    <td>@(lang == "en" ? s.DescriptionEn : s.DescriptionUa)</td>
+                    <td>@s.Price @T("у.о.","u.o.")</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        }
+
+        <section class="reviews">
+            <h2>@T("Відгуки гостей", "Guest reviews")</h2>
+            <p><b>@T("Середній рейтинг", "Average rating"):</b> @avg / 5</p>
+
+            @if (!reviews.Any())
+            {
+            <p>@T("Відгуків поки немає", "No reviews yet")</p>
+            }
+            else
+            {
+            @foreach (var r in reviews)
+                {
+            <div class="review-card">
+                <div class="review-rating">
+                    @for (int i = 0; i < r.Rating; i++)
+                            {
+                    <span>★</span>
+                            }
+                </div>
+                <p>@r.Comment</p>
+                <div class="review-date">@r.CreatedAt.ToShortDateString()</div>
+            </div>
+                }
+            }
+        </section>
+    </div>
+
+    <div>
+        <div class="booking-widget">
+            <div class="booking-price">
+                <span>@T("Вартість", "Price")</span>
+                <b>@Model.PricePerNight @T("у.о.","u.o.")</b>
+                <small>@T("за ніч", "per night")</small>
+            </div>
+
+            @if (auth.IsAuthed && auth.Role != "Admin")
+            {
+            <a class="btn-primary" href="/Account/NewBooking?room=@Model.Id">
+                @T("Забронювати номер", "Book room")
+            </a>
+            }
+            else if (!auth.IsAuthed)
+            {
+            <a class="btn-outline" href="/Auth/Login">
+                @T("Увійти щоб забронювати", "Sign in to book")
+            </a>
+            }
+            else
+            {
+        <div class="muted">
+            @T("Недоступно для адміністратора", "Not available to the administrator")
+            </div>
+            }
+        </div>
+    </div>
+</section>

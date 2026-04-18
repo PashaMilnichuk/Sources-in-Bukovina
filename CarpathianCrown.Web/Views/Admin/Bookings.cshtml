@@ -1,0 +1,67 @@
+@model List<CarpathianCrown.Web.Models.AdminBookingDto>
+
+    @{
+    var selectedStatus = ViewBag.Status as string ?? "";
+
+    var lang = Context.GetLang();
+    string T(string ua, string en) => lang == "en" ? en : ua;
+    }
+
+    <h1>@T("Керування клієнтами", "Manage Customers")</h1>
+
+    <form method="get" class="admin-filter-form">
+        <div class="admin-filter-group">
+            <label>Status</label>
+            <select name="status">
+                <option value="">All</option>
+                <option value="Pending" selected="@(selectedStatus == "Pending")">Pending</option>
+                <option value="Confirmed" selected="@(selectedStatus == "Confirmed")">Confirmed</option>
+                <option value="Completed" selected="@(selectedStatus == "Completed")">Completed</option>
+                <option value="Cancelled" selected="@(selectedStatus == "Cancelled")">Cancelled</option>
+            </select>
+        </div>
+
+        <button class="btn-primary" type="submit">Filter</button>
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>User</th>
+                <th>Room</th>
+                <th>CheckIn</th>
+                <th>CheckOut</th>
+                <th>Status</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var b in Model)
+    {
+            <tr>
+                <td>@b.Id</td>
+                <td>@b.UserText</td>
+                <td>@b.RoomText</td>
+                <td>@b.CheckIn</td>
+                <td>@b.CheckOut</td>
+                <td>@b.Status</td>
+                <td>@b.GrandTotal</td>
+                <td>
+                    <form method="post" action="/Admin/Status" class="booking-status-form">
+                        <input type="hidden" name="id" value="@b.Id" />
+
+                        <select name="status" class="booking-status-select">
+                            <option value="Pending" selected="@(b.Status == "Pending")">Pending</option>
+                            <option value="Confirmed" selected="@(b.Status == "Confirmed")">Confirmed</option>
+                            <option value="Completed" selected="@(b.Status == "Completed")">Completed</option>
+                            <option value="Cancelled" selected="@(b.Status == "Cancelled")">Cancelled</option>
+                        </select>
+
+                        <button type="submit" class="btn-primary">Update</button>
+                    </form>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>

@@ -1,0 +1,6 @@
+@CarpathianCrown.Api_HostAddress = http://localhost:5253
+
+GET {{CarpathianCrown.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

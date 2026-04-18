@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/><title>Admin</title></head>
+<body>
+<select id="lang"><option value="ua">UA</option><option value="en">EN</option></select>
+<button onclick="logout()">Logout</button>
+<h1>Admin Panel</h1>
+
+<h2>Bookings</h2>
+<button onclick="loadBookings()">Reload bookings</button>
+<div id="bookings"></div>
+
+<h2>Rooms</h2>
+<button onclick="loadRooms()">Reload rooms</button>
+<div id="rooms"></div>
+
+<h2>Room CRUD</h2>
+<button onclick="loadRoomsCrud()">Reload rooms (CRUD)</button>
+<div id="roomsCrud"></div>
+
+<h3>Create room</h3>
+<div>Name UA <input id="rNameUa" style="width:520px;"></div>
+<div>Name EN <input id="rNameEn" style="width:520px;"></div>
+<div>Desc UA <input id="rDescUa" style="width:520px;"></div>
+<div>Desc EN <input id="rDescEn" style="width:520px;"></div>
+<div>Price <input id="rPrice" type="number" value="1500"></div>
+<div>Capacity <input id="rCap" type="number" value="2"></div>
+<div>Status <select id="rStatus"><option>Available</option><option>Maintenance</option></select></div>
+<div>CoverImageUrl <input id="rImg" style="width:520px;"></div>
+<button onclick="createRoom()">Create room</button>
+<pre id="roomOut"></pre>
+
+<h2>Reports</h2>
+<button onclick="loadDotNetReport()">.NET report</button>
+<button onclick="downloadBookingsCsv()">Export bookings CSV</button>
+<button onclick="downloadFinanceCsv()">Export finance by month CSV</button>
+<button onclick="loadJavaReport()">Java dashboard</button>
+<pre id="report"></pre>
+
+<h2>Content pages</h2>
+<button onclick="loadContentList()">Reload pages list</button>
+<div>
+    Slug:
+    <select id="pageSlug"></select>
+    <button onclick="loadPage()">Load</button>
+</div>
+<div style="margin-top:10px;">
+    <div>Title UA</div><input id="tUa" style="width:900px;">
+    <div>Title EN</div><input id="tEn" style="width:900px;">
+    <div>HeroImageUrl</div><input id="hero" style="width:900px;">
+    <div>HTML UA</div><textarea id="hUa" style="width:900px;height:140px;"></textarea>
+    <div>HTML EN</div><textarea id="hEn" style="width:900px;height:140px;"></textarea>
+    <button onclick="savePage()">Save (Upsert)</button>
+    <button onclick="deletePage()">Delete</button>
+    <pre id="pageOut"></pre>
+</div>
+
+<h2>Service items</h2>
+<button onclick="loadServiceItems()">Reload services</button>
+<div id="services"></div>
+
+<h3>Create service</h3>
+<div>
+    Category <input id="svcCat" value="Restaurant">
+    Price <input id="svcPrice" type="number" value="100">
+    Active <input id="svcActive" type="checkbox" checked>
+</div>
+<div>Name UA <input id="svcNameUa" style="width:420px;"></div>
+<div>Name EN <input id="svcNameEn" style="width:420px;"></div>
+<div>Desc UA <input id="svcDescUa" style="width:420px;"></div>
+<div>Desc EN <input id="svcDescEn" style="width:420px;"></div>
+<button onclick="createService()">Create</button>
+<pre id="svcOut"></pre>
+
+<script src="js/i18n.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script>
+    requireAdmin();
+    applyLangSelector();
+
+    const allowedBookingStatuses = ["Pending","Confirmed","Cancelled","Completed"];
+    const allowedRoomStatuses = ["Available","Maintenance"];
+
+    async function loadBookings(){
+      const data = await api("/api/admin/bookings", {auth:true});
+      const div = document.getElementById("bookings");
+      div.innerHTML = data.map(b => `
+        <div style="border:1px solid #ccc;padding:10px;margin:10px 0;">
+          <b>#${b.id}</b> | ${b.user.email} | RoomId ${b.room.roomId} | ${b.checkIn} → ${b.checkOut}
+          <br/>Total: ${b.grandTotal}
+          <br/>Status:
+          <select id="bst_${b.id}">
+            ${allowedBookingStatuses.map(s => `<option value="${s}" ${s===b.status?"selected":""}>${s}</option>`).join("")}
+          </select>
+          <button onclick="setBookingStatus(${b.id})">Apply</button>
+        </div>
+      `).join("");
+    }
+
+    async function setBookingStatus(id){
+      const status = document.getElementById("bst_"+id).value;
+      await api(`/api/admin/bookings/${id}/status`, {method:"PUT", auth:true, body:{status}});
+      await loadBookings();
+    }
+
+    async function loadRooms(){
+      const data = await api("/api/admin/rooms", {auth:true});
+      const div = document.getElementById("rooms");
+      div.innerHTML = data.map(r => `
+        <div style="border:1px solid #ccc;padding:10px;margin:10px 0;">
+          <b>${r.id}</b> | ${r.nameUa} / ${r.nameEn} | ${r.pricePerNight} | cap ${r.capacity}
+          <br/>Status:
+          <select id="rst_${r.id}">
+            ${allowedRoomStatuses.map(s => `<option value="${s}" ${s===r.status?"selected":""}>${s}</option>`).join("")}
+          </select>
+          <button onclick="setRoomStatus(${r.id})">Apply</button>
+        </div>
+      `).join("");
+    }
+
+    async function setRoomStatus(id){
+      const status = document.getElementById("rst_"+id).value;
+      await api(`/api/admin/rooms/${id}/status`, {method:"PUT", auth:true, body: status});
+      await loadRooms();
+    }
+
+    async function loadDotNetReport(){
+      const data = await api("/api/admin/report/dotnet", {auth:true});
+      document.getElementById("report").innerText = JSON.stringify(data, null, 2);
+    }
+
+    async function loadContentList(){
+      const list = await api("/api/admin/content", {auth:true});
+      const sel = document.getElementById("pageSlug");
+      sel.innerHTML = list.map(p => `<option value="${p.slug}">${p.slug}</option>`).join("");
+      if (!sel.value && list.length) sel.value = list[0].slug;
+    }
+
+    async function loadPage(){
+      const slug = document.getElementById("pageSlug").value;
+      const p = await api(`/api/admin/content/${slug}`, {auth:true});
+      document.getElementById("tUa").value = p.titleUa || "";
+      document.getElementById("tEn").value = p.titleEn || "";
+      document.getElementById("hero").value = p.heroImageUrl || "";
+      document.getElementById("hUa").value = p.htmlUa || "";
+      document.getElementById("hEn").value = p.htmlEn || "";
+      document.getElementById("pageOut").innerText = JSON.stringify(p, null, 2);
+    }
+
+    async function savePage(){
+      const slug = document.getElementById("pageSlug").value;
+      const body = {
+        slug,
+        titleUa: document.getElementById("tUa").value,
+        titleEn: document.getElementById("tEn").value,
+        heroImageUrl: document.getElementById("hero").value,
+        htmlUa: document.getElementById("hUa").value,
+        htmlEn: document.getElementById("hEn").value
+      };
+      await api("/api/admin/content", {method:"PUT", auth:true, body});
+      await loadContentList();
+      await loadPage();
+    }
+
+    async function deletePage(){
+      const slug = document.getElementById("pageSlug").value;
+      await api(`/api/admin/content/${slug}`, {method:"DELETE", auth:true});
+      await loadContentList();
+      document.getElementById("pageOut").innerText = "Deleted.";
+    }
+
+    async function loadServiceItems(){
+      const items = await api("/api/admin/services", {auth:true});
+      const div = document.getElementById("services");
+      div.innerHTML = items.map(s => `
+        <div style="border:1px solid #ccc;padding:10px;margin:10px 0;">
+          <b>${s.id}</b> ${s.category} | ${s.nameUa} / ${s.nameEn} | ${s.price} | active=${s.isActive}
+          <button onclick="toggleService(${s.id})">Toggle</button>
+          <button onclick="deleteService(${s.id})">Delete</button>
+        </div>
+      `).join("");
+    }
+
+    async function toggleService(id){
+      await api(`/api/admin/services/${id}/toggle`, {method:"PATCH", auth:true});
+      await loadServiceItems();
+    }
+
+    async function deleteService(id){
+      await api(`/api/admin/services/${id}`, {method:"DELETE", auth:true});
+      await loadServiceItems();
+    }
+
+    async function createService(){
+      const body = {
+        id: null,
+        nameUa: document.getElementById("svcNameUa").value,
+        nameEn: document.getElementById("svcNameEn").value,
+        descriptionUa: document.getElementById("svcDescUa").value,
+        descriptionEn: document.getElementById("svcDescEn").value,
+        category: document.getElementById("svcCat").value,
+        price: parseFloat(document.getElementById("svcPrice").value || "0"),
+        isActive: document.getElementById("svcActive").checked
+      };
+      const created = await api("/api/admin/services", {method:"POST", auth:true, body});
+      document.getElementById("svcOut").innerText = JSON.stringify(created, null, 2);
+      await loadServiceItems();
+    }
+
+    (async () => {
+      await loadBookings();
+      await loadRooms();
+      await loadContentList();
+      await loadServiceItems();
+    })();
+
+    async function loadJavaReport(){
+  const data = await api("/api/admin/report/java", {auth:true});
+  document.getElementById("report").innerText = JSON.stringify(data, null, 2);
+}
+
+function downloadBookingsCsv(){
+  window.open(API_BASE + "/api/admin/export/bookings.csv", "_blank");
+}
+function downloadFinanceCsv(){
+  window.open(API_BASE + "/api/admin/export/finance_by_month.csv", "_blank");
+}
+
+async function loadRoomsCrud(){
+  const list = await api("/api/admin/rooms-crud", {auth:true});
+  document.getElementById("roomsCrud").innerHTML = list.map(r => `
+    <div style="border:1px solid #ccc;padding:10px;margin:10px 0;">
+      <b>${r.id}</b> ${r.nameUa} / ${r.nameEn} | ${r.pricePerNight} | cap ${r.capacity} | ${r.status}
+      <button onclick="deleteRoom(${r.id})">Delete</button>
+    </div>
+  `).join("");
+}
+
+async function createRoom(){
+  const body = {
+    id: null,
+    nameUa: document.getElementById("rNameUa").value,
+    nameEn: document.getElementById("rNameEn").value,
+    descriptionUa: document.getElementById("rDescUa").value,
+    descriptionEn: document.getElementById("rDescEn").value,
+    pricePerNight: parseFloat(document.getElementById("rPrice").value || "0"),
+    capacity: parseInt(document.getElementById("rCap").value || "1", 10),
+    status: document.getElementById("rStatus").value,
+    coverImageUrl: document.getElementById("rImg").value
+  };
+  const created = await api("/api/admin/rooms-crud", {method:"POST", auth:true, body});
+  document.getElementById("roomOut").innerText = JSON.stringify(created, null, 2);
+  await loadRoomsCrud();
+}
+
+async function deleteRoom(id){
+  try{
+    await api(`/api/admin/rooms-crud/${id}`, {method:"DELETE", auth:true});
+    await loadRoomsCrud();
+  }catch(e){
+    document.getElementById("roomOut").innerText = String(e.message || e);
+  }
+}
+
+</script>
+</body>
+</html>

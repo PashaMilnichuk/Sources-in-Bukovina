@@ -1,0 +1,46 @@
+@model CarpathianCrown.Web.Models.AdminBookingDetailsDto
+
+<h1>Admin — Booking #@Model.Id</h1>
+
+<div class="card">
+    <div class="card-body">
+        <h3>User</h3>
+        <p><b>Email:</b> @Model.User.Email</p>
+        <p><b>Login:</b> @Model.User.Login</p>
+        <p><b>Name:</b> @Model.User.FirstName @Model.User.LastName</p>
+        <p><b>Phone:</b> @Model.User.Phone</p>
+
+        <h3>Room</h3>
+        <p><b>Name:</b> @Model.Room.NameEn</p>
+        <p><b>Capacity:</b> @Model.Room.Capacity</p>
+        <p><b>Price/night:</b> @Model.Room.PricePerNight u.o.</p>
+
+        <h3>Booking</h3>
+        <p><b>Status:</b> @Model.Status</p>
+        <p><b>Check-in:</b> @Model.CheckIn</p>
+        <p><b>Check-out:</b> @Model.CheckOut</p>
+        <p><b>Created:</b> @Model.CreatedAt</p>
+        <p><b>Room total:</b> @Model.RoomTotal u.o.</p>
+        <p><b>Services total:</b> @Model.ServicesTotal u.o.</p>
+        <p><b>Grand total:</b> @Model.GrandTotal u.o.</p>
+
+        <h3>Services</h3>
+        @if (!Model.Services.Any())
+        {
+        <p>No services</p>
+        }
+        else
+        {
+        <ul>
+            @foreach (var s in Model.Services)
+            {
+            <li>@s.NameEn — Qty: @s.Quantity — @s.LineTotal u.o.</li>
+            }
+        </ul>
+        }
+
+        <div style="margin-top:16px;">
+            <a class="btn-outline" href="/Admin/Bookings">Back</a>
+        </div>
+    </div>
+</div>

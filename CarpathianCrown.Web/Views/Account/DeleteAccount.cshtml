@@ -1,0 +1,31 @@
+@model CarpathianCrown.Web.Models.DeleteAccountVm
+
+@{
+    var lang = Context.GetLang();
+    string T(string ua, string en) => lang == "en" ? en : ua;
+}
+
+<h1>@T("Видалення акаунта", "Delete account")</h1>
+
+@if (ViewBag.Error != null)
+{
+<div class="alert">@ViewBag.Error</div>
+}
+
+<div class="card" style="padding:24px;">
+    <p>
+        <b>@T("Увага! Ця дія незворотна.", "Warning:")</b>
+        @T("Перед видаленням акаунта скасуйте активні бронювання.",
+           "Cancel active bookings before deleting the account.")
+    </p>
+
+    <form method="post" onsubmit="return confirm('@T("Ви точно хочете видалити акаунт?", "Are you sure you want to delete the account?")')">
+        <label>@T("Введіть пароль для підтвердження", "Enter password to confirm")</label>
+        <input asp-for="Password" type="password" />
+
+        <div class="form-actions">
+            <button class="btn-danger" type="submit">@T("Видалити акаунт", "Delete account")</button>
+            <a class="btn-outline" href="/Account">@T("Скасувати", "Cancel")</a>
+        </div>
+    </form>
+</div>

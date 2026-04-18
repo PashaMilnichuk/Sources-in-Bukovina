@@ -1,0 +1,93 @@
+﻿@model List<CarpathianCrown.Web.Models.RoomDto>
+    @using CarpathianCrown.Web.Models
+
+    @{
+    var lang = Context.GetLang();
+    string T(string ua, string en) => lang == "en" ? en : ua;
+
+    string RoomTitle(RoomDto r) => lang == "en" ? r.NameEn : r.NameUa;
+    string RoomDesc(RoomDto r) => lang == "en" ? r.DescriptionEn : r.DescriptionUa;
+
+    var checkIn = ViewBag.CheckIn?.ToString() ?? "";
+    var checkOut = ViewBag.CheckOut?.ToString() ?? "";
+    var guests = ViewBag.Guests as int?;
+    }
+
+    <h1>@T("Номери готелю", "Hotel rooms")</h1>
+
+    <form method="get" class="room-filter">
+
+        <div class="filter-field">
+            <label>@T("Заїзд", "Check-in")</label>
+            <div class="date-input-wrap">
+                <input type="date" name="checkIn" value="@checkIn" />
+                <span class="date-input-icon">📅</span>
+            </div>
+        </div>
+
+        <div class="filter-field">
+            <label>@T("Виїзд", "Check-out")</label>
+            <div class="date-input-wrap">
+                <input type="date" name="checkOut" value="@checkOut" />
+                <span class="date-input-icon">📅</span>
+            </div>
+        </div>
+
+        <div class="filter-field">
+            <label>@T("Кількість гостей", "Guests")</label>
+            <select name="guests">
+                <option value="">@T("Будь-яка", "Any")</option>
+                <option value="1" selected="@(guests == 1)">1</option>
+                <option value="2" selected="@(guests == 2)">2</option>
+                <option value="3" selected="@(guests == 3)">3</option>
+                <option value="4" selected="@(guests == 4)">4</option>
+            </select>
+        </div>
+
+        <div class="filter-buttons">
+            <button type="submit" class="btn-primary">@T("Знайти", "Search")</button>
+            <a class="btn-outline" href="/Rooms">@T("Скинути", "Reset")</a>
+        </div>
+
+    </form>
+
+    <div class="grid">
+        @foreach (var r in Model)
+    {
+        <div class="card">
+            <img src="@r.CoverImageUrl"
+                 onerror="this.src='https://images.unsplash.com/photo-1522708323590-d24dbb6b0267';"
+                 alt="@RoomTitle(r)" />
+
+            <div class="card-body room-card-body">
+                <div class="title">@RoomTitle(r)</div>
+
+                <div class="room-rating">
+                    @if (r.AvgRating > 0.0)
+                     {
+                    <span>★ @r.AvgRating.ToString("0.0")</span>
+                        }
+                            else
+                        {
+                    <span>@T("Немає рейтингу", "No rating")</span>
+                    }
+                </div>
+
+                <div class="muted">@RoomDesc(r)</div>
+
+                <div class="room-card-meta">
+                    <div>@T("Ціна/ніч", "Price/night"): <b>@r.PricePerNight @T("у.о.","u.o.")</b></div>
+                    <div>@T("Осіб", "Guests"): <b>@r.Capacity</b></div>
+                </div>
+
+                <div class="room-card-actions">
+                    <a class="btn-outline" href="/Rooms/@r.Id">@T("Детальніше", "Details")</a>
+                    @if (Context.GetAuth().IsAuthed && Context.GetAuth().Role != "Admin")
+                    {
+                    <a class="btn-primary" href="/Account/NewBooking?room=@r.Id&checkIn=@checkIn&checkOut=@checkOut">@T("Забронювати", "Book now")</a>
+                    }
+                </div>
+            </div>
+        </div>
+           }
+    </div>

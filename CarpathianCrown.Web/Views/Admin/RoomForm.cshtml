@@ -1,0 +1,53 @@
+@model CarpathianCrown.Web.Models.AdminRoomFormVm
+
+@{
+    var isEdit = Model.Id > 0;
+}
+
+<h1>@(isEdit ? "Edit room" : "Create room")</h1>
+
+<form method="post" action="@(isEdit ? "/Admin/EditRoom" : "/Admin/CreateRoom")">
+    <input type="hidden" asp-for="Id" />
+
+    <label>Name UA</label>
+    <input asp-for="NameUa" />
+
+    <label>Name EN</label>
+    <input asp-for="NameEn" />
+
+    <label>Description UA</label>
+    <textarea asp-for="DescriptionUa"></textarea>
+
+    <label>Description EN</label>
+    <textarea asp-for="DescriptionEn"></textarea>
+
+    <label>Price per night</label>
+    <input asp-for="PricePerNight" type="number" step="0.01" />
+
+    <label>Capacity</label>
+    <input asp-for="Capacity" type="number" />
+
+    <label>Status</label>
+    <select asp-for="Status">
+        <option value="Available">Available</option>
+        <option value="Occupied">Occupied</option>
+        <option value="Maintenance">Maintenance</option>
+    </select>
+
+    <label>Cover image URL</label>
+    <input asp-for="CoverImageUrl" />
+
+    <label>Image 2 URL</label>
+    <input asp-for="Image2" />
+
+    <label>Image 3 URL</label>
+    <input asp-for="Image3" />
+
+    <label>Image 4 URL</label>
+    <input asp-for="Image4" />
+
+    <div style="margin-top:16px; display:flex; gap:10px;">
+        <button class="btn-primary" type="submit">Save</button>
+        <a class="btn-outline" href="/Admin/Rooms">Back</a>
+    </div>
+</form>

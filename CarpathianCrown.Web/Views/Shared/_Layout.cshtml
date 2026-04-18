@@ -1,0 +1,120 @@
+﻿@using CarpathianCrown.Web.Models
+@{
+    var auth = ViewBag.Auth as WebAuth ?? Context.GetAuth();
+    var lang = Context.GetLang();
+    string T(string ua, string en) => lang == "en" ? en : ua;
+}
+<!doctype html>
+<html lang="@lang">
+
+@if (TempData["Success"] != null)
+{
+<div class="toast toast-success">
+    @TempData["Success"]
+</div>
+}
+
+@if (TempData["Error"] != null)
+{
+<div class="toast toast-error">
+    @TempData["Error"]
+</div>
+}
+
+<script>
+    setTimeout(() => {
+        const toast = document.getElementById('toast');
+        if (toast) toast.style.opacity = '0';
+    }, 2500);
+</script>
+
+<head>
+    <meta charset="utf-8" />
+    <title>@T("Буковинські джерела — преміальний готель", "Sources in Bukovina — Premium Hotel")</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="brand">
+                <span class="brand-mark">SiB</span>
+                <span class="brand-text">Sources in Bukovina</span>
+            </a>
+
+            <nav class="main-nav">
+                <a href="/Rooms">@T("Номери", "Rooms")</a>
+                <a href="/Public/About">@T("Про нас", "About")</a>
+                <a href="/Public/Restaurant">@T("Ресторан", "Restaurant")</a>
+                <a href="/Public/Services">@T("Сервіси", "Services")</a>
+                <a href="/Public/Contacts">@T("Контакти", "Contacts")</a>
+            </nav>
+
+            <div class="header-actions">
+                <form method="post" action="/Lang/Set" class="lang-switch">
+                    <input type="hidden" name="returnUrl" value="@Context.Request.Path@Context.Request.QueryString" />
+                    <button type="submit" name="lang" value="ua" class="lang-btn @(lang == "ua" ? "active" : "")">UA</button>
+                    <button type="submit" name="lang" value="en" class="lang-btn @(lang == "en" ? "active" : "")">EN</button>
+                </form>
+
+                @if (auth.IsAuthed)
+                {
+                @if (string.Equals(auth.Role, "Admin", StringComparison.OrdinalIgnoreCase))
+                    {
+                <a class="btn-outline" href="/Admin/Dashboard">Admin</a>
+                    }
+                        else
+                    {
+                <a class="btn-outline" href="/Account">@T("Кабінет", "Account")</a>
+                    }
+
+                <form method="post" action="/Auth/Logout">
+                    <button type="submit" class="btn-primary">@T("Вийти", "Logout")</button>
+                </form>
+                }
+                    else
+                {
+                <a class="btn-outline" href="/Auth/Login">@T("Увійти", "Login")</a>
+                <a class="btn-primary" href="/Auth/Register">@T("Реєстрація", "Register")</a>
+                }
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <div class="footer-brand">@T("Буковинські джерела", "Sources in Bukovina")</div>
+                <p>@T("Преміальний відпочинок, сучасні номери, ресторан і wellness-сервіси.", "Premium stay, elegant rooms, restaurant and wellness services.")</p>
+            </div>
+
+            <div>
+                <div class="footer-title">@T("Навігація", "Navigation")</div>
+                <a href="/Rooms">@T("Номери", "Rooms")</a>
+                <a href="/Public/About">@T("Про нас", "About")</a>
+                <a href="/Public/Restaurant">@T("Ресторан", "Restaurant")</a>
+                <a href="/Public/Services">@T("Сервіси", "Services")</a>
+                <a href="/Public/Contacts">@T("Контакти", "Contacts")</a>
+            </div>
+
+            <div>
+                <div class="footer-title">@T("Контакти", "Contacts")</div>
+                <p>+380 66 381 03 58</p>
+                <p>info@sourcesbukovina.com</p>
+                <p>@T("Чернівці, Україна", "Chernivtsi, Ukraine")</p>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            © @DateTime.Now.Year @T("Буковинські джерела", "Sources in Bukovina")
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,69 @@
+@model CarpathianCrown.Web.Models.CreateRoomOrderVm
+@using CarpathianCrown.Web.Models
+
+@{
+    var lang = Context.GetLang();
+    string T(string ua, string en) => lang == "en" ? en : ua;
+
+    var booking = ViewBag.Booking as BookingDetailsDto;
+    var services = ViewBag.Services as List<ServiceItemDto> ?? new();
+
+    string ServiceTitle(ServiceItemDto s) => lang == "en" ? s.NameEn : s.NameUa;
+    string ServiceDesc(ServiceItemDto s) => lang == "en" ? s.DescriptionEn : s.DescriptionUa;
+}
+
+<h1>@T("Замовлення в номер", "Order to room")</h1>
+
+@if (ViewBag.Error != null)
+{
+<div class="alert">@ViewBag.Error</div>
+}
+
+@if (booking != null)
+{
+<div class="card" style="padding:20px; margin-bottom:20px;">
+    <p><b>@T("Бронювання", "Booking"):</b> #@booking.Id</p>
+    <p><b>@T("Номер", "Room"):</b> @booking.RoomTitle</p>
+    <p><b>@T("Статус", "Status"):</b> @booking.Status</p>
+</div>
+}
+
+<form method="post" class="card" style="padding:24px;">
+    <input type="hidden" asp-for="BookingId" />
+
+    <table class="services-table">
+        <thead>
+            <tr>
+                <th>@T("Послуга / позиція", "Service / item")</th>
+                <th>@T("Опис", "Description")</th>
+                <th>@T("Ціна", "Price")</th>
+                <th>@T("Кількість", "Quantity")</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < services.Count; i++)
+        {
+            <tr>
+                <td>
+                    @ServiceTitle(services[i])
+                    <input type="hidden" name="Lines[@i].ServiceItemId" value="@services[i].Id" />
+                </td>
+                <td>@ServiceDesc(services[i])</td>
+                <td>@services[i].Price @T("у.о.","u.o.")</td>
+                <td style="width:120px;">
+                    <input type="number"
+                           name="Lines[@i].Quantity"
+                           value="@(Model.Lines.Count > i ? Model.Lines[i].Quantity : 0)"
+                           min="0"
+                           style="margin:0;" />
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+    <div class="form-actions">
+        <button class="btn-primary" type="submit">@T("Підтвердити замовлення", "Confirm order")</button>
+        <a class="btn-outline" href="/Account/Booking?id=@Model.BookingId">@T("Назад", "Back")</a>
+    </div>
+</form>

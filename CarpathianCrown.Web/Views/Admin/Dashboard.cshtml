@@ -1,0 +1,230 @@
+﻿@model CarpathianCrown.Web.Models.AdminDashboardDto
+@using System.Text.Json
+@using CarpathianCrown.Web.Models
+
+@{
+    var chart = ViewBag.Chart as List<RevenueHourlyDto> ?? new();
+    var topRooms = ViewBag.TopRooms as List<TopRoomDto> ?? new();
+    var occupancy = ViewBag.Occupancy as OccupancyDto ?? new();
+    var lang = Context.GetLang();
+
+    var labelsJson = JsonSerializer.Serialize(chart.Select(x => x.Label));
+    var revenueJson = JsonSerializer.Serialize(chart.Select(x => x.Revenue));
+    var bookingsJson = JsonSerializer.Serialize(chart.Select(x => x.Bookings));
+    string T(string ua, string en) => lang == "en" ? en : ua;
+    var chartData = ViewBag.Chart as List<CarpathianCrown.Web.Models.RevenueHourlyDto> ?? new();
+    var maxRev = ViewBag.MaxRevenue ?? 0.0;
+}
+
+<div class="admin-section-title fade-up">
+    <div>
+        <h1 style="margin-bottom:8px;">@T("Панель адміністратора", "Admin Dashboard")</h1>
+        <div class="admin-note">@T("Робота готелю, огляд доходів та заповнюваність номерів.", "Hotel operations, revenue overview and room occupancy.")</div>
+            </div>
+
+    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn-outline" href="/Admin/Bookings">@T("Управління бронюваннями", "Manage bookings")</a>
+        <a class="btn-outline" href="/Admin/Rooms">@T("Управління кімнатами", "Manage rooms")</a>
+        <a class="btn-outline" href="/Admin/Services">@T("Управління послугами", "Manage services")</a>
+        <a class="btn-outline" href="/Admin/Availability">@T("Наявність", "Availability")</a>
+        <a class="btn-outline" href="/Admin/RoomOrders">@T("Замовлення номерів", "Room orders")</a>
+</div>
+</div>
+
+<div class="metric-strip fade-up">
+    <div class="metric-chip">
+        <span class="label">@T("Бронювання", "Bookings")</span>
+        <div class="value">@Model.TotalBookings</div>
+    </div>
+    <div class="metric-chip">
+        <span class="label">@T("Активний", "Active")</span>
+        <div class="value">@Model.ActiveBookings</div>
+    </div>
+    <div class="metric-chip">
+        <span class="label">@T("Завершено", "Completed")</span>
+        <div class="value">@Model.CompletedBookings</div>
+    </div>
+    <div class="metric-chip">
+        <span class="label">@T("Дохід", "Revenue")</span>
+        <div class="value">@Model.TotalRevenue @T("у.о.","u.o.")</div>
+    </div>
+</div>
+
+<div class="admin-section-title fade-up">
+    <h2 style="margin:0;">@T("Дохід за останні 24 години", "Revenue last 24 hours")</h2>
+</div>
+
+<div class="card fade-up" style="padding:20px;">
+    @if (!chart.Any())
+    {
+    <div class="empty-state-card">
+        <p>@T("Дані про доходи за вибраний період відсутні.", "No revenue data available for the selected period.")</p>
+     </div>
+    }
+    else
+    {
+    <div class="revenue-chart-wrap">
+        <canvas id="revenueChart" height="120"></canvas>
+    </div>
+    }
+</div>
+
+<div class="admin-section-title fade-up">
+    <h2 style="margin:0;">@T("Зайнятість", "Occupancy")</h2>
+</div>
+
+<div class="grid fade-up" style="margin-bottom:24px;">
+    <div class="card">
+        <div class="card-body">
+            <div class="kpi-card-label">@T("Зайняті номери", "Occupied rooms")</div>
+                        <div class="kpi-card-value">@occupancy.OccupiedRooms / @occupancy.TotalRooms</div>
+                    </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="kpi-card-label">@T("Коефіцієнт заповнюваності", "Occupancy rate")</div>
+                        <div class="kpi-card-value">@occupancy.OccupancyRate%</div>
+                    </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="kpi-card-label">@T("Бронювання за період", "Bookings in period")</div>
+                        <div class="kpi-card-value">@occupancy.Bookings</div>
+                    </div>
+    </div>
+</div>
+
+<div class="admin-section-title fade-up">
+    <h2 style="margin:0;">@T("Кращі номери", "Top rooms")</h2>
+        <div class="admin-note">@T("Найпопулярніші та найприбутковіші категорії номерів.", "Most booked and highest-performing room categories.")</div>
+</div>
+
+<table class="table top-rooms-table fade-up">
+    <thead>
+        <tr>
+            <th>@T("Кімната", "Room")</th>
+            <th>@T("Бронювання","Bookings")</th>
+            <th>@T("Дохід", "Revenue")</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var r in topRooms)
+    {
+        <tr>
+            <td>@(lang == "en" ? r.NameEn : r.NameUa)</td>
+            <td>@r.Bookings</td>
+            <td>@r.Revenue @T("у.о.","u.o.")</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@if (chartData.Any())
+{
+<script>
+(function () {
+    const rawData = @Html.Raw(JsonSerializer.Serialize(chartData, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }));
+    const apiMax = @Html.Raw(maxRev);
+
+    const canvas = document.getElementById('revenueChart');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio || 1;
+    const cssWidth = canvas.parentElement.clientWidth;
+    const cssHeight = 320;
+
+    canvas.width = cssWidth * dpr;
+    canvas.height = cssHeight * dpr;
+    canvas.style.width = cssWidth + 'px';
+    canvas.style.height = cssHeight + 'px';
+    ctx.scale(dpr, dpr);
+
+    const padding = { top: 40, right: 50, bottom: 50, left: 60 };
+    const chartWidth = cssWidth - padding.left - padding.right;
+    const chartHeight = cssHeight - padding.top - padding.bottom;
+
+    const displayMax = Math.max(apiMax * 1.2, 1000);
+
+    ctx.clearRect(0, 0, cssWidth, cssHeight);
+    
+    ctx.strokeStyle = '#eee6dc';
+    ctx.lineWidth = 1;
+    ctx.font = '11px Arial';
+    ctx.fillStyle = '#999';
+    ctx.textAlign = 'right';
+
+    for (let i = 0; i <= 4; i++) {
+        const y = padding.top + (chartHeight / 4) * i;
+        ctx.beginPath();
+        ctx.moveTo(padding.left, y);
+        ctx.lineTo(cssWidth - padding.right, y);
+        ctx.stroke();
+        const val = Math.round(displayMax - (displayMax / 4) * i);
+        ctx.fillText(val.toLocaleString(), padding.left - 10, y + 4);
+    }
+
+    const count = rawData.length;
+    const stepX = count > 1 ? chartWidth / (count - 1) : chartWidth;
+
+    const getX = (i) => padding.left + (i * stepX);
+    const getY = (val) => padding.top + chartHeight - (val / displayMax) * chartHeight;
+
+    const grad = ctx.createLinearGradient(0, padding.top, 0, padding.top + chartHeight);
+    grad.addColorStop(0, 'rgba(176, 138, 87, 0.15)');
+    grad.addColorStop(1, 'rgba(176, 138, 87, 0)');
+
+    ctx.beginPath();
+    ctx.moveTo(getX(0), padding.top + chartHeight);
+    rawData.forEach((item, i) => ctx.lineTo(getX(i), getY(item.revenue)));
+    ctx.lineTo(getX(count - 1), padding.top + chartHeight);
+    ctx.fillStyle = grad;
+    ctx.fill();
+
+    ctx.setLineDash([]);
+    ctx.strokeStyle = '#b08a57';
+    ctx.lineWidth = 2.5;
+    ctx.lineJoin = 'round';
+
+    ctx.beginPath();
+    rawData.forEach((item, i) => {
+        const x = getX(i);
+        const y = getY(item.revenue);
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+
+    ctx.textAlign = 'center';
+    rawData.forEach((item, i) => {
+        const x = getX(i);
+        const y = getY(item.revenue);
+
+        if (item.revenue > 0) {
+            ctx.beginPath();
+            ctx.strokeStyle = 'rgba(176, 138, 87, 0.2)';
+            ctx.lineWidth = 1;
+            ctx.moveTo(x, padding.top + chartHeight);
+            ctx.lineTo(x, y);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.arc(x, y, 4, 0, Math.PI * 2);
+            ctx.fillStyle = '#b08a57';
+            ctx.fill();
+            ctx.strokeStyle = '#fff';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+        }
+
+        if (count < 10 || i % Math.ceil(count / 6) === 0 || i === count - 1) {
+            ctx.fillStyle = '#6f695f';
+            // Використовуємо item.label (з малої літери, бо ми налаштували CamelCase)
+            ctx.fillText(item.label || '', x, cssHeight - 15);
+        }
+    });
+
+})();
+</script>
+}

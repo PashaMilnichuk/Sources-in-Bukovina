@@ -1,0 +1,51 @@
+@model CarpathianCrown.Web.Models.BookingDetailsDto
+
+@{
+    var lang = Context.GetLang();
+    string T(string ua, string en) => lang == "en" ? en : ua;
+}
+
+<h1>Booking #@Model.Id</h1>
+
+<div class="card">
+    <div class="card-body">
+        <p><b>Room:</b> @Model.RoomTitle</p>
+        <p><b>Status:</b> @Model.Status</p>
+        <p><b>Check-in:</b> @Model.CheckIn</p>
+        <p><b>Check-out:</b> @Model.CheckOut</p>
+        <p><b>Created:</b> @Model.CreatedAt</p>
+        <p><b>Room total:</b> @Model.RoomTotal @T("у.о.","u.o.")</p>
+        <p><b>Services total:</b> @Model.ServicesTotal @T("у.о.","u.o.")</p>
+        <p><b>Grand total:</b> @Model.GrandTotal @T("у.о.","u.o.")</p>
+
+        <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn-outline" href="/Account">@T("Назад", "Back")</a>
+
+            @if (Model.Status == "Confirmed" || Model.Status == "Completed")
+             {
+            <a class="btn-primary" href="/Account/OrderToRoom?bookingId=@Model.Id">
+                @T("Замовити в номер", "Order to room")
+            </a>
+             }
+        </div>
+
+        <h3>Services</h3>
+        @if (!Model.Services.Any())
+        {
+        <p>No services</p>
+        }
+        else
+        {
+        <ul>
+            @foreach (var s in Model.Services)
+            {
+            <li>@s.Title — Qty: @s.Quantity — @s.LineTotal @T("у.о.","u.o.")</li>
+            }
+        </ul>
+        }
+
+        <div style="margin-top:16px;">
+            <a class="btn-outline" href="/Account">Back</a>
+        </div>
+    </div>
+</div>

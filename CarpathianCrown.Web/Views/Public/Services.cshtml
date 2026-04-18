@@ -1,0 +1,103 @@
+@model List<CarpathianCrown.Web.Models.ServiceItemDto>
+    @using CarpathianCrown.Web.Models
+
+    @{
+    var lang = ViewContext.HttpContext.GetLang();
+    string T(string ua, string en) => lang == "en" ? en : ua;
+    var pageData = ViewBag.Page as ContentPageDto;
+    var auth = Context.GetAuth();
+    }
+
+    @if (pageData != null)
+    {
+    <section class="page-hero fade-up" style="background-image: url('https://images.unsplash.com/photo-1634513874637-6e1e626d8d71?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
+        <div class="page-hero-inner">
+            <div class="public-hero-overlay-card">
+                <div class="hero-badge">@T("Сервіси", "Services")</div>
+                <h1>@pageData.Title</h1>
+                <p>
+                    @T(
+                        "Додаткові послуги для комфортного, спокійного та зручного перебування.",
+                        "Additional services for a comfortable, calm and seamless stay."
+                    )
+                </p>
+            </div>
+        </div>
+    </section>
+    }
+
+    <section class="page-shell fade-up">
+        <div class="page-main-card">
+            <div class="section-kicker">@T("Доступні сервіси", "Available services")</div>
+            <h2>@T("Послуги готелю", "Hotel services")</h2>
+
+            @if (!Model.Any())
+        {
+            <div class="empty-state-card">
+                <p>@T("Наразі сервісів немає.", "No services available at the moment.")</p>
+            </div>
+        }
+        else
+        {
+        <div class="grid">
+            @foreach (var item in Model)
+            {
+            <div class="card">
+                <img src="@item.ImageUrl" />
+
+                <div class="card-body">
+                    <div class="title">@item.NameUa</div>
+
+                    <div class="muted">@item.DescriptionUa</div>
+
+                    <div class="price">
+                        @T("Ціна:", "Price:") <b>@item.Price @T("у.о.","u.o.")</b>
+                    </div>
+
+                    @if (Context.GetAuth().IsAuthed && auth.Role != "Admin")
+                        {
+                    <form method="post" action="/Account/QuickOrder" class="order-form">
+                        <input type="hidden" name="serviceItemId" value="@item.Id" />
+
+                        <div class="order-row">
+                            <input type="number" name="quantity" value="1" min="1" />
+
+                            <button class="btn-primary order-btn" type="submit">@T("Замовити", "Order")</button>
+                        </div>
+                    </form>
+                        }
+                        else if (!auth.IsAuthed)
+                        {
+                    <a href="/Auth/Login" class="btn-outline">@T("Увійти", "Login")</a>
+                    }
+                    else
+                    {
+                    <div class="muted">@T("Недоступно для адміністратора", "Not available to the administrator")</div>
+                    }
+                </div>
+
+                <script>
+                        document.querySelectorAll('.order-form').forEach(form => {
+                            form.addEventListener('submit', function () {
+                                const btn = this.querySelector('.order-btn');
+                                if (btn) {
+                                    btn.disabled = true;
+                                    btn.innerText = '...';
+                                }
+                            });
+                        });
+                </script>
+
+            </div>
+            }
+        </div>
+        }
+
+            @if (pageData != null)
+        {
+            <div class="rich-content" style="margin-top:28px;">
+                @Html.Raw(pageData.Html)
+            </div>
+        }
+        </div>
+    </section>

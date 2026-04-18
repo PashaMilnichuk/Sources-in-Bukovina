@@ -1,0 +1,194 @@
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\bin\Debug\net10.0\appsettings.Development.json
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\bin\Debug\net10.0\appsettings.json
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\bin\Debug\net10.0\CarpathianCrown.Web.staticwebassets.runtime.json
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\bin\Debug\net10.0\CarpathianCrown.Web.staticwebassets.endpoints.json
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\bin\Debug\net10.0\CarpathianCrown.Web.exe
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\bin\Debug\net10.0\CarpathianCrown.Web.deps.json
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\bin\Debug\net10.0\CarpathianCrown.Web.runtimeconfig.json
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\bin\Debug\net10.0\CarpathianCrown.Web.dll
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\bin\Debug\net10.0\CarpathianCrown.Web.pdb
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\CarpathianCrown.Web.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\CarpathianCrown.Web.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\CarpathianCrown.Web.AssemblyInfo.cs
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\CarpathianCrown.Web.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\CarpathianCrown.Web.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\CarpathianCrown.Web.RazorAssemblyInfo.cache
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\CarpathianCrown.Web.RazorAssemblyInfo.cs
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\scopedcss\bundle\CarpathianCrown.Web.styles.css
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\scopedcss\projectbundle\CarpathianCrown.Web.bundle.scp.css
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\r2qqdqolde-{0}-61n19gt1b8-61n19gt1b8.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\9fucr3v4r6-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\80naw8phxq-{0}-bqjiyaj88i-bqjiyaj88i.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\as4ty8gv4l-{0}-c2jlpeoesf-c2jlpeoesf.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\8tr9ieapf4-{0}-erw9l3u2r3-erw9l3u2r3.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\a1whwfj1st-{0}-aexeepp0ev-aexeepp0ev.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\5mr9bjmxsq-{0}-d7shbmvgxk-d7shbmvgxk.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\g9lbd8hr1r-{0}-ausgxo2sd3-ausgxo2sd3.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\8z4r50yhg3-{0}-k8d9w2qqmf-k8d9w2qqmf.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\47lihafh64-{0}-cosvhxvwiu-cosvhxvwiu.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\8ih2wrxnh4-{0}-ub07r2b239-ub07r2b239.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\eilgqylh0o-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\5nuv7rnznq-{0}-b7pk76d08c-b7pk76d08c.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\dp9z0kda8h-{0}-fsbi9cje9m-fsbi9cje9m.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\q1mzld5ei3-{0}-rzd6atqjts-rzd6atqjts.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\60heku0mvd-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\d76qvy09i1-{0}-dxx9fxp4il-dxx9fxp4il.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\ig48yn0lta-{0}-jd9uben2k1-jd9uben2k1.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\6jyjn39225-{0}-khv3u5hwcm-khv3u5hwcm.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\0pgkqircgq-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\vxd90zh4yl-{0}-lcd1t2u6c8-lcd1t2u6c8.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\od1wczq9mj-{0}-c2oey78nd0-c2oey78nd0.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\baxy8kddit-{0}-tdbxkamptv-tdbxkamptv.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\lnbdtrjvi4-{0}-j5mq2jizvt-j5mq2jizvt.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\n3u4ujwoib-{0}-06098lyss8-06098lyss8.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\xoqmduniu8-{0}-nvvlpmu67g-nvvlpmu67g.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\g47ck8dmmb-{0}-s35ty4nyc5-s35ty4nyc5.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\ptbxid4s93-{0}-pj5nd1wqec-pj5nd1wqec.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\tzw8jz25vm-{0}-46ein0sx1k-46ein0sx1k.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\rvnzhddqts-{0}-v0zj4ognzu-v0zj4ognzu.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\pogjiqjcvd-{0}-37tfw0ft22-37tfw0ft22.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\zq5g012gw4-{0}-hrwsygsryq-hrwsygsryq.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\oetxhk9z6q-{0}-pk9g2wxc8p-pk9g2wxc8p.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\i6e9j87zko-{0}-ft3s53vfgj-ft3s53vfgj.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\mgmwkmw79k-{0}-6cfz1n2cew-6cfz1n2cew.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\nrd66dlzg4-{0}-6pdc2jztkx-6pdc2jztkx.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\d01ra6zmue-{0}-493y06b0oq-493y06b0oq.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\077fmsqoj1-{0}-iovd86k7lj-iovd86k7lj.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\64bn3gm1vg-{0}-vr1egmr9el-vr1egmr9el.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\vxirkt8fjt-{0}-kbrnm935zg-kbrnm935zg.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\32sqobj895-{0}-jj8uyg4cgr-jj8uyg4cgr.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\7ownibig1c-{0}-y7v9cxd14o-y7v9cxd14o.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\0g0osmzlw5-{0}-notf2xhcfb-notf2xhcfb.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\s0kghoocyj-{0}-h1s4sie4z3-h1s4sie4z3.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\5x0nhgiqmo-{0}-63fj8s7r0e-63fj8s7r0e.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\xqravcl9yq-{0}-0j3bgjxly4-0j3bgjxly4.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\dse9f8kwdr-{0}-47otxtyo56-47otxtyo56.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\xl7s4cbl6t-{0}-4v8eqarkd7-4v8eqarkd7.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\5br0tbvyv5-{0}-356vix0kms-356vix0kms.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\v5fk12t7oh-{0}-83jwlth58m-83jwlth58m.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\crb1th7mi3-{0}-mrlpezrjn3-mrlpezrjn3.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\ap8m58bvnt-{0}-lzl9nlhx6b-lzl9nlhx6b.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\8mv7snixkw-{0}-ag7o75518u-ag7o75518u.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\zmuxueewzo-{0}-x0q3zqp4vz-x0q3zqp4vz.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\znbnkazvmn-{0}-0i3buxo5is-0i3buxo5is.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\kddou4638a-{0}-o1o13a6vjx-o1o13a6vjx.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\5gk4ls1us6-{0}-ttgo8qnofa-ttgo8qnofa.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\cgqt82k028-{0}-2z0ns9nrw6-2z0ns9nrw6.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\swo6i9wjtw-{0}-muycvpuwrr-muycvpuwrr.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\i2ner1a5bm-{0}-87fc7y1x7t-87fc7y1x7t.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\rsr4kybkdg-{0}-mlv21k5csn-mlv21k5csn.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\m69cixa647-{0}-ee7d88wd1e-ee7d88wd1e.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\7fhoq3yrwt-{0}-ee7d88wd1e-ee7d88wd1e.gz
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\staticwebassets.build.json
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\staticwebassets.development.json
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\CarpathianCrown.Web.dll
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\refint\CarpathianCrown.Web.dll
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\CarpathianCrown.Web.pdb
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\CarpathianCrown.Web.genruntimeconfig.cache
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\ref\CarpathianCrown.Web.dll
+C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Web\obj\Debug\net10.0\compressed\rl2zw2lmtn-{0}-gvdme397ot-gvdme397ot.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\bin\Debug\net10.0\appsettings.Development.json
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\bin\Debug\net10.0\appsettings.json
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\bin\Debug\net10.0\CarpathianCrown.Web.staticwebassets.endpoints.json
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\bin\Debug\net10.0\CarpathianCrown.Web.staticwebassets.runtime.json
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\bin\Debug\net10.0\CarpathianCrown.Web.exe
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\bin\Debug\net10.0\CarpathianCrown.Web.deps.json
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\bin\Debug\net10.0\CarpathianCrown.Web.runtimeconfig.json
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\bin\Debug\net10.0\CarpathianCrown.Web.dll
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\bin\Debug\net10.0\CarpathianCrown.Web.pdb
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\CarpathianCrown.Web.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\CarpathianCrown.Web.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\CarpathianCrown.Web.AssemblyInfo.cs
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\CarpathianCrown.Web.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\CarpathianCrown.Web.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\CarpathianCrown.Web.RazorAssemblyInfo.cache
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\CarpathianCrown.Web.RazorAssemblyInfo.cs
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\scopedcss\bundle\CarpathianCrown.Web.styles.css
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\scopedcss\projectbundle\CarpathianCrown.Web.bundle.scp.css
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\rl2zw2lmtn-{0}-gvdme397ot-gvdme397ot.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\r2qqdqolde-{0}-61n19gt1b8-61n19gt1b8.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\9fucr3v4r6-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\80naw8phxq-{0}-bqjiyaj88i-bqjiyaj88i.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\as4ty8gv4l-{0}-c2jlpeoesf-c2jlpeoesf.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\8tr9ieapf4-{0}-erw9l3u2r3-erw9l3u2r3.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\a1whwfj1st-{0}-aexeepp0ev-aexeepp0ev.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\5mr9bjmxsq-{0}-d7shbmvgxk-d7shbmvgxk.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\g9lbd8hr1r-{0}-ausgxo2sd3-ausgxo2sd3.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\8z4r50yhg3-{0}-k8d9w2qqmf-k8d9w2qqmf.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\47lihafh64-{0}-cosvhxvwiu-cosvhxvwiu.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\8ih2wrxnh4-{0}-ub07r2b239-ub07r2b239.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\eilgqylh0o-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\5nuv7rnznq-{0}-b7pk76d08c-b7pk76d08c.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\dp9z0kda8h-{0}-fsbi9cje9m-fsbi9cje9m.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\q1mzld5ei3-{0}-rzd6atqjts-rzd6atqjts.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\60heku0mvd-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\d76qvy09i1-{0}-dxx9fxp4il-dxx9fxp4il.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\ig48yn0lta-{0}-jd9uben2k1-jd9uben2k1.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\6jyjn39225-{0}-khv3u5hwcm-khv3u5hwcm.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\0pgkqircgq-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\vxd90zh4yl-{0}-lcd1t2u6c8-lcd1t2u6c8.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\od1wczq9mj-{0}-c2oey78nd0-c2oey78nd0.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\baxy8kddit-{0}-tdbxkamptv-tdbxkamptv.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\lnbdtrjvi4-{0}-j5mq2jizvt-j5mq2jizvt.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\n3u4ujwoib-{0}-06098lyss8-06098lyss8.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\xoqmduniu8-{0}-nvvlpmu67g-nvvlpmu67g.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\g47ck8dmmb-{0}-s35ty4nyc5-s35ty4nyc5.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\ptbxid4s93-{0}-pj5nd1wqec-pj5nd1wqec.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\tzw8jz25vm-{0}-46ein0sx1k-46ein0sx1k.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\rvnzhddqts-{0}-v0zj4ognzu-v0zj4ognzu.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\pogjiqjcvd-{0}-37tfw0ft22-37tfw0ft22.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\zq5g012gw4-{0}-hrwsygsryq-hrwsygsryq.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\oetxhk9z6q-{0}-pk9g2wxc8p-pk9g2wxc8p.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\i6e9j87zko-{0}-ft3s53vfgj-ft3s53vfgj.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\mgmwkmw79k-{0}-6cfz1n2cew-6cfz1n2cew.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\nrd66dlzg4-{0}-6pdc2jztkx-6pdc2jztkx.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\d01ra6zmue-{0}-493y06b0oq-493y06b0oq.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\077fmsqoj1-{0}-iovd86k7lj-iovd86k7lj.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\64bn3gm1vg-{0}-vr1egmr9el-vr1egmr9el.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\vxirkt8fjt-{0}-kbrnm935zg-kbrnm935zg.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\32sqobj895-{0}-jj8uyg4cgr-jj8uyg4cgr.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\7ownibig1c-{0}-y7v9cxd14o-y7v9cxd14o.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\0g0osmzlw5-{0}-notf2xhcfb-notf2xhcfb.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\s0kghoocyj-{0}-h1s4sie4z3-h1s4sie4z3.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\5x0nhgiqmo-{0}-63fj8s7r0e-63fj8s7r0e.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\xqravcl9yq-{0}-0j3bgjxly4-0j3bgjxly4.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\dse9f8kwdr-{0}-47otxtyo56-47otxtyo56.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\xl7s4cbl6t-{0}-4v8eqarkd7-4v8eqarkd7.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\5br0tbvyv5-{0}-356vix0kms-356vix0kms.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\v5fk12t7oh-{0}-83jwlth58m-83jwlth58m.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\crb1th7mi3-{0}-mrlpezrjn3-mrlpezrjn3.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\ap8m58bvnt-{0}-lzl9nlhx6b-lzl9nlhx6b.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\8mv7snixkw-{0}-ag7o75518u-ag7o75518u.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\zmuxueewzo-{0}-x0q3zqp4vz-x0q3zqp4vz.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\znbnkazvmn-{0}-0i3buxo5is-0i3buxo5is.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\kddou4638a-{0}-o1o13a6vjx-o1o13a6vjx.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\5gk4ls1us6-{0}-ttgo8qnofa-ttgo8qnofa.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\cgqt82k028-{0}-2z0ns9nrw6-2z0ns9nrw6.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\swo6i9wjtw-{0}-muycvpuwrr-muycvpuwrr.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\i2ner1a5bm-{0}-87fc7y1x7t-87fc7y1x7t.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\rsr4kybkdg-{0}-mlv21k5csn-mlv21k5csn.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\m69cixa647-{0}-ee7d88wd1e-ee7d88wd1e.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\compressed\7fhoq3yrwt-{0}-ee7d88wd1e-ee7d88wd1e.gz
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\staticwebassets.build.json
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\staticwebassets.development.json
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\CarpathianCrown.Web.dll
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\refint\CarpathianCrown.Web.dll
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\CarpathianCrown.Web.pdb
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\CarpathianCrown.Web.genruntimeconfig.cache
+C:\Users\Admin\Desktop\CarpathianCrown — копия\CarpathianCrown.Web\obj\Debug\net10.0\ref\CarpathianCrown.Web.dll

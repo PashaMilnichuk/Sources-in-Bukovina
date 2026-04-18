@@ -1,0 +1,33 @@
+@model CarpathianCrown.Web.Models.LoginViewModel
+@using CarpathianCrown.Web.Models
+
+@{
+    var lang = Context.GetLang();
+    string T(string ua, string en) => lang == "en" ? en : ua;
+}
+
+<div class="auth-shell">
+    <div class="auth-card">
+        <h1>@T("Вхід у систему", "Sign in")</h1>
+
+        @if (ViewBag.Error != null)
+        {
+        <div class="alert">@ViewBag.Error</div>
+        }
+
+        <form method="post">
+            <label>Email</label>
+            <input asp-for="Identifier" />
+
+            <label>@T("Пароль", "Password")</label>
+            <input asp-for="Password" type="password" />
+
+            <button class="btn-primary">@T("Увійти", "Login")</button>
+        </form>
+
+        <div class="auth-alt">
+            @T("Немає акаунту?", "No account?")
+            <a href="/Auth/Register">@T("Реєстрація", "Register")</a>
+        </div>
+    </div>
+</div>

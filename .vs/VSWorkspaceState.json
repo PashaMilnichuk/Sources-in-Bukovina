@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\CarpathianCrown.Api",
+    "\\CarpathianCrown.Api\\Controllers",
+    "\\CarpathianCrown.Api\\DTOs",
+    "\\CarpathianCrown.Web",
+    "\\CarpathianCrown.Web\\Controllers",
+    "\\CarpathianCrown.Web\\Models",
+    "\\CarpathianCrown.Web\\Views",
+    "\\CarpathianCrown.Web\\Views\\Admin",
+    "\\CarpathianCrown.Web\\Views\\Auth"
+  ],
+  "SelectedNode": "\\CarpathianCrown.Web",
+  "PreviewInSolutionExplorer": false
+}

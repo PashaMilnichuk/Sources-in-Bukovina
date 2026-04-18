@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/><title>Rooms</title></head>
+<body>
+<div>
+    <select id="lang"><option value="ua">UA</option><option value="en">EN</option></select>
+    <a href="index.html">Home</a>
+    <a href="page.html?slug=about">About</a>
+    <a href="page.html?slug=restaurant">Restaurant</a>
+    <a href="page.html?slug=services">Services</a>
+    <a href="page.html?slug=contacts">Contacts</a>
+    <a href="dashboard.html">Dashboard</a>
+</div>
+
+<h1>Rooms</h1>
+
+<div>
+    Check-in: <input id="ci" type="date">
+    Check-out: <input id="co" type="date">
+    <button id="btnAvail">Show available</button>
+    <button id="btnAll">Show all</button>
+</div>
+
+<div id="rooms"></div>
+
+<script src="js/i18n.js"></script>
+<script src="js/api.js"></script>
+<script>
+    applyLangSelector();
+
+    async function render(list){
+      const div = document.getElementById("rooms");
+      div.innerHTML = list.map(r => `
+        <div style="border:1px solid #ccc;padding:10px;margin:10px 0;">
+          <img src="${r.coverImageUrl}" style="max-width:320px; display:block;">
+          <b>${r.name}</b><br/>
+          ${r.description}<br/>
+          Price: ${r.pricePerNight} UAH/night<br/>
+          Capacity: ${r.capacity}<br/>
+          <a href="room.html?id=${r.id}">Details</a>
+        </div>
+      `).join("");
+    }
+
+    async function loadAll(){
+      const L = lang();
+      const list = await api(`/api/rooms?lang=${L}`);
+      await render(list);
+    }
+
+    async function loadAvailable(){
+      const L = lang();
+      const ci = document.getElementById("ci").value;
+      const co = document.getElementById("co").value;
+      const list = await api(`/api/rooms/available?checkIn=${ci}&checkOut=${co}&lang=${L}`);
+      await render(list);
+    }
+
+    document.getElementById("btnAll").onclick = loadAll;
+    document.getElementById("btnAvail").onclick = loadAvailable;
+
+    loadAll();
+</script>
+</body>
+</html>

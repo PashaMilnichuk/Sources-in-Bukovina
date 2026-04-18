@@ -1,0 +1,143 @@
+﻿@model List<CarpathianCrown.Web.Models.RoomDto>
+    @using CarpathianCrown.Web.Models
+
+    @{
+    var lang = Context.GetLang();
+    var auth = Context.GetAuth();
+    string T(string ua, string en) => lang == "en" ? en : ua;
+    string RoomTitle(RoomDto r) => lang == "en" ? r.NameEn : r.NameUa;
+    string RoomDesc(RoomDto r) => lang == "en" ? r.DescriptionEn : r.DescriptionUa;
+    }
+
+    <section class="hero-home">
+        <div class="hero-content">
+            <div class="hero-badge">@T("Преміальний готель у Чернівцях", "Premium hotel in Chernivtsi")</div>
+            <h1>@T("Буковинські джерела — простір спокою, комфорту та бездоганного сервісу", "Sources in Bukovina — a space of calm, comfort and impeccable service")</h1>
+            <p>@T("Стильні номери, ресторан авторської кухні, wellness-зона та сервіс, який формує відчуття справжнього відпочинку.", "Elegant rooms, signature cuisine, wellness area and service that creates a true sense of relaxation.")</p>
+
+            <div class="hero-actions">
+                <a class="btn-primary" href="/Rooms">@T("Переглянути номери", "Browse rooms")</a>
+                <a class="btn-outline" href="/Public/About">@T("Дізнатись більше", "Learn more")</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-section home-rooms">
+        <div class="section-head">
+            <div>
+                <h2>@T("Популярні номери", "Popular rooms")</h2>
+                <p>@T("Найкращі категорії номерів для комфортного перебування.", "The best room categories for a comfortable stay.")</p>
+            </div>
+            <a class="btn-outline" href="/Rooms">@T("Усі номери", "All rooms")</a>
+        </div>
+
+        <div class="grid">
+            @foreach (var r in Model.Take(3))
+        {
+            <div class="card">
+                <img src="@r.CoverImageUrl"
+                     onerror="this.src='https://images.unsplash.com/photo-1522708323590-d24dbb6b0267';"
+                     alt="@RoomTitle(r)" />
+
+                <div class="card-body">
+                    <div class="title">@RoomTitle(r)</div>
+
+                    <div class="room-rating">
+                        @if (r.AvgRating > 0.0)
+                        {
+                        <span>★ @r.AvgRating.ToString("0.0")</span>
+                        }
+                        else
+                        {
+                        <span>@T("Немає рейтингу", "No rating")</span>
+                        }
+                    </div>
+
+                    <div class="muted">@RoomDesc(r)</div>
+
+                    <div class="row" style="margin-bottom:14px;">
+                        <div>@r.PricePerNight @T("у.о.","u.o.")</div>
+                        <div>@r.Capacity @T("осіб", "guests")</div>
+                    </div>
+
+                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                        <a class="btn-outline" href="/Rooms/@r.Id">@T("Детальніше", "Details")</a>
+                        @if (auth.IsAuthed && auth.Role != "Admin")
+                        {
+                        <a class="btn-primary" href="/Account/NewBooking?room=@r.Id">@T("Забронювати", "Book now")</a>
+                        }
+                        else if (!auth.IsAuthed)
+                        {
+                        <a class="btn-outline" href="/Auth/Login">@T("Увійти", "Login")</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+        </div>
+    </section>
+
+    <section class="home-section">
+        <div class="section-head">
+            <div>
+                <h2>@T("Чому обирають Sources in Bukovina", "Why guests choose Sources in Bukovina")</h2>
+                <p>@T("Ми поєднуємо сучасний комфорт, стриману естетику та сервіс високого рівня.", "We combine modern comfort, refined aesthetics, and high-level hospitality.")</p>
+            </div>
+        </div>
+
+        <div class="feature-grid-home">
+            <div class="feature-box">
+                <div class="feature-icon">01</div>
+                <h3>@T("Комфортні номери", "Elegant rooms")</h3>
+                <p>@T("12 номерів різних категорій із продуманим дизайном, якісними меблями та атмосферою приватності.", "12 room categories with thoughtful design, quality furnishings and a sense of privacy.")</p>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">02</div>
+                <h3>@T("Ресторан і сніданки", "Restaurant & breakfast")</h3>
+                <p>@T("Авторська кухня, сучасна подача страв та затишний простір для сніданків, вечері й ділових зустрічей.", "Signature cuisine, modern presentation and a warm space for breakfast, dinner and business meetings.")</p>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">03</div>
+                <h3>@T("Wellness і сервіси", "Wellness & services")</h3>
+                <p>@T("Сауна, басейн, пральня, трансфер і додаткові сервіси для комфортного перебування без зайвого клопоту.", "Sauna, pool, laundry, transfer and extra services for a smooth and comfortable stay.")</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="split-showcase">
+        <div class="split-image" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0')"></div>
+
+        <div class="split-content">
+            <div class="section-tag">@T("Ресторан", "Restaurant")</div>
+            <h2>@T("Гастрономія, що доповнює відпочинок", "Cuisine that completes the stay")</h2>
+            <p>@T("Ресторан Sources in Bukovina — це збалансоване меню української та європейської кухні, сніданки, вечірня атмосфера та якісний сервіс.", "The Sources in Bukovina restaurant offers balanced Ukrainian and European cuisine, breakfast service, evening ambience and attentive hospitality.")</p>
+            <a class="btn-primary" href="/Public/Restaurant">@T("Перейти до ресторану", "Explore restaurant")</a>
+        </div>
+    </section>
+
+    <section class="split-showcase reverse">
+        <div class="split-image" style="background-image: url('https://images.unsplash.com/photo-1634513874637-6e1e626d8d71?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"></div>
+
+        <div class="split-content">
+            <div class="section-tag">@T("Сервіси", "Services")</div>
+            <h2>@T("Все необхідне для комфортного перебування", "Everything needed for a seamless stay")</h2>
+            <p>@T("Від wellness-послуг до трансферу та пральні — ми продумали додаткові сервіси, які роблять перебування зручним і спокійним.", "From wellness facilities to transfer and laundry, we provide services that make every stay easy and comfortable.")</p>
+            <a class="btn-primary" href="/Public/Services">@T("Переглянути сервіси", "View services")</a>
+        </div>
+    </section>
+
+    <section class="cta-banner">
+        <div class="cta-banner-inner">
+            <div>
+                <div class="hero-badge">@T("Бронювання", "Booking")</div>
+                <h2>@T("Оберіть номер для вашого наступного перебування", "Choose your room for the next stay")</h2>
+                <p>@T("Забронюйте номер зараз і перегляньте доступні категорії, ціни та додаткові послуги.", "Book now and explore available categories, prices and additional services.")</p>
+            </div>
+
+            <div>
+                <a class="btn-primary" href="/Rooms">@T("Забронювати зараз", "Book now")</a>
+            </div>
+        </div>
+    </section>

@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "dgSpecHash": "BdS40UPzOQY=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Admin\\Desktop\\CarpathianCrown — копия\\CarpathianCrown.Web\\CarpathianCrown.Web.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.http\\10.0.3\\microsoft.extensions.http.10.0.3.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1510",
+      "level": "Warning",
+      "message": "PackageReference Microsoft.Extensions.Http не будет урезано. Рассмотрите возможность удаления этого пакета из зависимостей, так как он, вероятно, не требуется.",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\CarpathianCrown — копия\\CarpathianCrown.Web\\CarpathianCrown.Web.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\Admin\\Desktop\\CarpathianCrown — копия\\CarpathianCrown.Web\\CarpathianCrown.Web.csproj",
+      "libraryId": "Microsoft.Extensions.Http",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
+}

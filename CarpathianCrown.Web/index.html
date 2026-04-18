@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Sources in Bukovina Hotel</title>
+</head>
+<body>
+<div>
+    <select id="lang">
+        <option value="ua">UA</option>
+        <option value="en">EN</option>
+    </select>
+
+    <a href="page.html?slug=about">About</a>
+    <a href="rooms.html">Rooms</a>
+    <a href="page.html?slug=restaurant">Restaurant</a>
+    <a href="page.html?slug=services">Services</a>
+    <a href="page.html?slug=contacts">Contacts</a>
+
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
+    <a href="dashboard.html">Cabinet</a>
+    <a href="admin.html">Admin</a>
+</div>
+
+<h1>Sources in Bukovina Hotel</h1>
+
+<h2 id="aboutTitle"></h2>
+<div id="aboutHtml"></div>
+
+<h2>Rooms</h2>
+<div id="rooms"></div>
+
+<script src="js/i18n.js"></script>
+<script src="js/api.js"></script>
+<script>
+    applyLangSelector();
+
+    (async () => {
+      const L = lang();
+
+      const about = await api(`/api/content/about?lang=${L}`);
+      document.getElementById("aboutTitle").innerText = about.title;
+      document.getElementById("aboutHtml").innerHTML = about.html;
+
+      const rooms = await api(`/api/rooms?lang=${L}`);
+      document.getElementById("rooms").innerHTML = rooms.map(r => `
+        <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+          <img src="${r.coverImageUrl}" style="max-width:320px; display:block;">
+          <b>${r.name}</b><br/>
+          ${r.description}<br/>
+          Price: ${r.pricePerNight} UAH<br/>
+          Capacity: ${r.capacity}<br/>
+          Status: ${r.status}
+        </div>
+      `).join("");
+    })();
+</script>
+</body>
+</html>

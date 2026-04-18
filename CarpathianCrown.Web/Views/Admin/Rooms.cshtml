@@ -1,0 +1,31 @@
+@model List<CarpathianCrown.Web.Models.RoomDto>
+
+    <h1>Admin — Rooms</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Capacity</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var r in Model)
+    {
+            <tr>
+                <td>@r.Id</td>
+                <td>@r.NameEn</td>
+                <td>@r.PricePerNight</td>
+                <td>@r.Capacity</td>
+                <td>@r.Status</td>
+                <td style="display:flex; gap:8px;">
+                    <a class="btn-outline" href="/Admin/EditRoom?id=@r.Id">Edit</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>

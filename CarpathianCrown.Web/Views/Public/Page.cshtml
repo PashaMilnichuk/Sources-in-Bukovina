@@ -1,0 +1,134 @@
+@model CarpathianCrown.Web.Models.ContentPageDto
+@using CarpathianCrown.Web.Models
+
+@{
+    var slug = (ViewBag.Slug as string ?? "").ToLowerInvariant();
+    var lang = Context.GetLang();
+    string T(string ua, string en) => lang == "en" ? en : ua;
+
+    string intro = slug switch
+    {
+        "about" => T("Сучасний готельний простір із преміальною атмосферою та увагою до деталей.", "A contemporary hotel space with a premium atmosphere and attention to detail."),
+        "restaurant" => T("Кухня, яка поєднує локальні смаки, сучасну подачу та спокійну елегантність.", "Cuisine that blends local flavors, modern presentation and quiet elegance."),
+        "services" => T("Сервіси, що роблять перебування комфортним, легким і по-справжньому продуманим.", "Services that make every stay comfortable, seamless and truly thoughtful."),
+        "contacts" => T("Уся ключова інформація для бронювання, зв’язку та зручного прибуття до готелю.", "All key information for booking, communication and convenient arrival to the hotel."),
+        _ => T("Буковинські джерела", "Sources in Bukovina")
+    };
+}
+
+<section class="page-hero fade-up" style="background-image:url('@Model.HeroImageUrl')">
+    <div class="page-hero-inner">
+        <div class="public-hero-overlay-card">
+            <div class="hero-badge">
+                @switch (slug)
+                {
+                    case "about":
+                @T("Готель та атмосфера", "Hotel & atmosphere")
+                        break;
+                    case "restaurant":
+                @T("Авторська кухня", "Signature cuisine")
+                        break;
+                    case "services":
+                @T("Додатковий комфорт", "Additional comfort")
+                        break;
+                    case "contacts":
+                @T("Зв'язок з нами", "Get in touch")
+                        break;
+                    default:
+                @T("Буковинські джерела", "Sources in Bukovina")
+                        break;
+                }
+            </div>
+            <h1>@Model.Title</h1>
+            <p>@intro</p>
+        </div>
+    </div>
+</section>
+
+<section class="page-shell fade-up">
+    <div class="page-main-card">
+        @if (slug == "about")
+        {
+        <div class="section-kicker">@T("Про готель", "About the hotel")</div>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-title">@T("Преміальний комфорт", "Premium comfort")</div>
+                <p>@T("Просторі номери, якісні матеріали, м’які кольори та спокійна атмосфера для повноцінного відпочинку.", "Spacious rooms, quality materials, soft tones and a calm atmosphere for a complete stay.")</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-title">@T("Сервіс", "Service")</div>
+                <p>@T("Уважне обслуговування, швидка підтримка та зручні сервіси для різних форматів перебування.", "Attentive hospitality, quick support and convenient services for different types of stays.")</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-title">@T("Локація", "Location")</div>
+                <p>@T("Зручне розташування для відпочинку, ділових поїздок та знайомства з регіоном.", "Convenient location for leisure, business trips and discovering the region.")</p>
+            </div>
+        </div>
+        }
+
+        @if (slug == "restaurant")
+        {
+        <div class="section-kicker">@T("Гастрономія", "Gastronomy")</div>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-title">@T("Сніданки", "Breakfast")</div>
+                <p>@T("Різноманітні ранкові страви, гарячі позиції, десерти, фрукти та напої щодня.", "A varied morning selection with hot dishes, desserts, fruits and drinks every day.")</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-title">@T("Основне меню", "Main menu")</div>
+                <p>@T("Поєднання української та європейської кухні з сучасною подачею та якісними продуктами.", "A combination of Ukrainian and European cuisine with modern presentation and quality ingredients.")</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-title">@T("Атмосфера", "Atmosphere")</div>
+                <p>@T("Елегантний зал для вечері, неспішних зустрічей та комфортного завершення дня.", "An elegant dining space for dinner, relaxed meetings and a refined end to the day.")</p>
+            </div>
+        </div>
+        }
+
+        @if (slug == "services")
+        {
+        <div class="section-kicker">@T("Доступні сервіси", "Available services")</div>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-title">@T("Wellness", "Wellness")</div>
+                <p>@T("Басейн, сауна та сервіси для відновлення сил після дороги або активного дня.", "Pool, sauna and recovery services after travel or a busy day.")</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-title">@T("Транспорт", "Transport")</div>
+                <p>@T("Паркінг та індивідуальний трансфер для зручного прибуття й пересування.", "Parking and private transfer for convenient arrival and mobility.")</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-title">@T("Комфорт побуту", "Everyday comfort")</div>
+                <p>@T("Пральня, хімчистка та інші сервіси, які спрощують тривале перебування.", "Laundry, dry cleaning and extra services that make long stays easier.")</p>
+            </div>
+        </div>
+        }
+
+        @if (slug == "contacts")
+        {
+        <div class="section-kicker">@T("Контактна інформація", "Contact information")</div>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="feature-title">@T("Телефон", "Phone")</div>
+                <p>+380 66 381 03 58</p>
+            </div>
+            <div class="contact-card">
+                <div class="feature-title">Email</div>
+                <p>info@sourcesbukovina.com</p>
+            </div>
+            <div class="contact-card">
+                <div class="feature-title">@T("Локація", "Location")</div>
+                <p>@T("Чернівці, Україна", "Chernivtsi, Ukraine")</p>
+            </div>
+        </div>
+        }
+
+        <div class="rich-content">
+            @Html.Raw(Model.Html)
+        </div>
+    </div>
+</section>

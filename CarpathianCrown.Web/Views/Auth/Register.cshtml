@@ -1,0 +1,48 @@
+@model CarpathianCrown.Web.Models.RegisterViewModel
+@using CarpathianCrown.Web.Models
+
+@{
+    var lang = Context.GetLang();
+    string T(string ua, string en) => lang == "en" ? en : ua;
+}
+
+<div class="auth-shell">
+    <div class="auth-card">
+        <h1>@T("Створити акаунт", "Create account")</h1>
+
+        @if (ViewBag.Error != null)
+        {
+        <div class="alert">@ViewBag.Error</div>
+        }
+
+    <form method="post">
+        <label>Email</label>
+        <input asp-for="Email" />
+
+        <label>@T("Ім'я", "First name")</label>
+        <input asp-for="FirstName" />
+
+        <label>@T("Прізвище", "Last name")</label>
+        <input asp-for="LastName" />
+
+
+        <label>@T("Пароль", "Password")</label>
+        <input asp-for="Password" type="password" />
+
+        <div class="consent-row">
+            @Html.CheckBoxFor(x => x.AcceptPersonalData, new { id = "accept" })
+
+            <label for="accept" class="consent-label">
+                @T("Згода на обробку персональних даних", "Consent to the Processing of Personal Data")
+            </label>
+        </div>
+
+        <button class="btn-primary">@T("Створити акаунт", "Create account")</button>
+    </form>
+
+        <div class="auth-alt">
+            @T("Вже маєте акаунт?", "Already have an account?")
+            <a href="/Auth/Login">@T("Увійти", "Login")</a>
+        </div>
+    </div>
+</div>

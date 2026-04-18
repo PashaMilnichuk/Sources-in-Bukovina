@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sources in Bukovina Hotel</title>
+</head>
+<body>
+    <h1>Sources in Bukovina Hotel</h1>
+<a href="login.html">Login</a>
+<a href="register.html">Register</a>
+
+<h2>Rooms</h2>
+<div id="rooms"></div>
+
+<script>
+    fetch("https://localhost:5001/api/rooms")
+    .then(r => r.json())
+    .then(data => {
+        const div = document.getElementById("rooms");
+        data.forEach(room => {
+            div.innerHTML += `<p>${room.name} - ${room.pricePerNight} UAH</p>`;
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+@model CarpathianCrown.Web.Models.BookingCreateRequest
+@using CarpathianCrown.Web.Models
+
+@{
+    var lang = Context.GetLang();
+    string T(string ua, string en) => lang == "en" ? en : ua;
+
+    var rooms = ViewBag.Rooms as List<RoomDto> ?? new();
+    var services = ViewBag.Services as List<ServiceItemDto> ?? new();
+
+    string RoomTitle(RoomDto r) => lang == "en" ? r.NameEn : r.NameUa;
+    string ServiceTitle(ServiceItemDto s) => lang == "en" ? s.NameEn : s.NameUa;
+    string ServiceDesc(ServiceItemDto s) => lang == "en" ? s.DescriptionEn : s.DescriptionUa;
+}
+
+<h1>@T("Нове бронювання", "New booking")</h1>
+
+@if (ViewBag.Error != null)
+{
+<div class="alert">@ViewBag.Error</div>
+}
+
+<form method="post" class="card" style="padding:24px;">
+    <label>@T("Оберіть номер", "Choose a room")</label>
+    <select name="RoomId" id="roomSelect">
+        @foreach (var room in rooms)
+        {
+        <option value="@room.Id" data-price="@room.PricePerNight" selected="@(Model.RoomId == room.Id)">
+            @RoomTitle(room) — @room.PricePerNight @T("y.o.","u.o.")
+        </option>
+        }
+    </select>
+
+    <div class="grid" style="grid-template-columns:1fr 1fr; gap:16px;">
+        <div>
+            <label>@T("Дата заїзду", "Check-in date")</label>
+            <input asp-for="CheckIn" type="date" />
+        </div>
+
+        <div>
+            <label>@T("Дата виїзду", "Check-out date")</label>
+            <input asp-for="CheckOut" type="date" />
+        </div>
+    </div>
+
+    <div class="card" style="padding:18px; margin:10px 0 18px;">
+        <div>@T("Ночей", "Nights"): <b id="nightsCount">1</b></div>
+        <div>@T("Ціна номера", "Room total"): <b id="roomTotal">0 @T("y.o.","u.o.")</b></div>
+        <div>@T("Послуги", "Services total"): <b id="servicesTotal">0 @T("y.o.","u.o.")</b></div>
+        <hr style="border:none; border-top:1px solid #eee; margin:12px 0;" />
+        <div style="font-size:20px; font-weight:700;">@T("Разом", "Grand total"): <b id="grandTotal">0 @T("y.o.","u.o.")</b></div>
+    </div>
+
+    <h2>@T("Додаткові послуги", "Additional services")</h2>
+
+    @if (!services.Any())
+    {
+    <p>@T("Послуг поки немає.", "No services available.")</p>
+    }
+    else
+    {
+    <table class="services-table">
+        <thead>
+            <tr>
+                <th>@T("Послуга", "Service")</th>
+                <th>@T("Опис", "Description")</th>
+                <th>@T("Ціна", "Price")</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var s in services)
+            {
+            <tr>
+                <td>@ServiceTitle(s)</td>
+                <td>@ServiceDesc(s)</td>
+                <td>@s.Price @T("у.о.","u.o.")</td>
+                <td>
+                    <input type="checkbox"
+                           class="serviceCheck"
+                           name="ServiceItemIds"
+                           value="@s.Id"
+                           data-price="@s.Price"
+                           @(Model.ServiceItemIds.Contains(s.Id) ? "checked" : null)
+                           style="width:auto; margin:0;" />
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    }
+
+    <div style="margin-top:16px;">
+        <button type="submit" class="btn-primary">@T("Підтвердити бронювання", "Confirm booking")</button>
+    </div>
+</form>
+
+<script>
+(function () {
+    function parseDate(value) {
+        if (!value) return null;
+        const d = new Date(value);
+        return isNaN(d.getTime()) ? null : d;
+    }
+
+    function calcBooking() {
+        const roomSelect = document.getElementById("roomSelect");
+        const checkInInput = document.querySelector('[name="CheckIn"]');
+        const checkOutInput = document.querySelector('[name="CheckOut"]');
+
+        if (!roomSelect || !checkInInput || !checkOutInput) return;
+        if (!roomSelect.selectedOptions.length) return;
+
+        const selectedOption = roomSelect.selectedOptions[0];
+        const roomPrice = parseFloat(selectedOption.dataset.price || "0");
+
+        const start = parseDate(checkInInput.value);
+        const end = parseDate(checkOutInput.value);
+
+        let nights = 1;
+        if (start && end) {
+            const diff = (end - start) / (1000 * 60 * 60 * 24);
+            if (diff >= 1) nights = diff;
+        }
+
+        const roomTotal = nights * roomPrice;
+
+        let servicesTotal = 0;
+        document.querySelectorAll(".serviceCheck").forEach(cb => {
+            if (cb.checked) servicesTotal += parseFloat(cb.dataset.price || "0");
+        });
+
+        const grandTotal = roomTotal + servicesTotal;
+
+        document.getElementById("nightsCount").innerText = nights;
+        document.getElementById("roomTotal").innerText = roomTotal + " @T("y.o.","u.o.")";
+        document.getElementById("servicesTotal").innerText = servicesTotal + " @T("y.o.","u.o.")";
+        document.getElementById("grandTotal").innerText = grandTotal + " @T("y.o.","u.o.")";
+    }
+
+    document.addEventListener("change", function (e) {
+        if (
+            e.target.id === "roomSelect" ||
+            e.target.name === "CheckIn" ||
+            e.target.name === "CheckOut" ||
+            e.target.classList.contains("serviceCheck")
+        ) {
+            calcBooking();
+        }
+    });
+
+    document.querySelector("form").addEventListener("submit", function (e) {
+        const checkIn = new Date(document.querySelector("[name='CheckIn']").value);
+        const checkOut = new Date(document.querySelector("[name='CheckOut']").value);
+
+        if (checkOut <= checkIn) {
+            alert("Check-out must be after check-in");
+            e.preventDefault();
+        }
+    });
+
+    calcBooking();
+})();
+</script>

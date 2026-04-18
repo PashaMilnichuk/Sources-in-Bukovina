@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/><title>Login</title></head>
+<body>
+<select id="lang"><option value="ua">UA</option><option value="en">EN</option></select>
+<h1>Login</h1>
+
+<div>
+    <label>Identifier (email or login)</label><br/>
+    <input id="identifier" type="text" style="width:320px;">
+</div>
+<div>
+    <label>Password</label><br/>
+    <input id="password" type="password" style="width:320px;">
+</div>
+<button id="btn">Login</button>
+<pre id="out"></pre>
+
+<script src="js/i18n.js"></script>
+<script src="js/api.js"></script>
+<script>
+    applyLangSelector();
+
+    document.getElementById("btn").onclick = async () => {
+      const identifier = document.getElementById("identifier").value.trim();
+      const password = document.getElementById("password").value;
+
+      try {
+        const res = await api("/api/auth/login", { method:"POST", body:{ identifier, password } });
+        localStorage.setItem("token", res.token);
+        localStorage.setItem("role", res.role);
+        localStorage.setItem("userId", String(res.userId));
+
+        location.href = (res.role === "Admin") ? "admin.html" : "dashboard.html";
+      } catch (e) {
+        document.getElementById("out").innerText = String(e.message || e);
+      }
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\.mvn",
+    "\\.mvn\\wrapper",
+    "\\src",
+    "\\src\\main",
+    "\\src\\main\\java",
+    "\\src\\main\\java\\com",
+    "\\src\\main\\java\\com\\carpathiancrown",
+    "\\src\\main\\java\\com\\carpathiancrown\\analytics"
+  ],
+  "SelectedNode": "\\.mvn\\wrapper\\maven-wrapper.properties",
+  "PreviewInSolutionExplorer": false
+}

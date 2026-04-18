@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/><title>Dashboard</title></head>
+<body>
+<select id="lang"><option value="ua">UA</option><option value="en">EN</option></select>
+<button onclick="logout()">Logout</button>
+<h1>Dashboard</h1>
+
+<h2>Profile</h2>
+<pre id="profile"></pre>
+
+<h2>Find available rooms</h2>
+Check-in: <input id="ci" type="date">
+Check-out: <input id="co" type="date">
+<button id="btnSearch">Search</button>
+<div id="avail"></div>
+
+<h2>My bookings</h2>
+<button id="btnMine">Reload</button>
+<div id="mine"></div>
+
+<script src="js/i18n.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script>
+    requireAuth();
+    applyLangSelector();
+
+    async function loadProfile() {
+      const p = await api("/api/me", {auth:true});
+      document.getElementById("profile").innerText = JSON.stringify(p, null, 2);
+    }
+
+    async function searchRooms() {
+      const L = lang();
+      const ci = document.getElementById("ci").value;
+      const co = document.getElementById("co").value;
+      const rooms = await api(`/api/rooms/available?checkIn=${ci}&checkOut=${co}&lang=${L}`);
+
+      document.getElementById("avail").innerHTML = rooms.map(r => `
+        <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+          <b>${r.name}</b> (${r.pricePerNight} UAH/night)<br/>
+          <button onclick="createBooking(${r.id})">Book</button>
+        </div>
+      `).join("");
+    }
+
+    async function createBooking(roomId) {
+      const ci = document.getElementById("ci").value;
+      const co = document.getElementById("co").value;
+      const b = await api("/api/bookings", {method:"POST", auth:true, body:{roomId, checkIn:ci, checkOut:co}});
+      alert("Created booking #" + b.id + " (Pending).");
+      await loadMine();
+    }
+
+    async function loadMine() {
+      const data = await api("/api/bookings/mine", {auth:true});
+      const L = lang();
+      const services = await api(`/api/services?lang=${L}`, {auth:true});
+
+      document.getElementById("mine").innerHTML = data.map(b => {
+        const roomName = (L==="en") ? b.room.nameEn : b.room.nameUa;
+
+        const reviewBlock = (() => {
+          if (b.review) {
+            return `<div><b>Review:</b> ${b.review.rating}/5<br/>${b.review.comment}</div>`;
+          }
+          if (b.status === "Completed") {
+            return `
+              <details>
+                <summary>Leave review</summary>
+                Rating (1-5): <input id="rv_r_${b.id}" type="number" min="1" max="5" value="5" style="width:60px;">
+                <br/>
+                Comment:<br/>
+                <textarea id="rv_c_${b.id}" style="width:520px;height:80px;"></textarea><br/>
+                <button onclick="createReview(${b.id})">Submit</button>
+              </details>
+            `;
+          }
+          return `<div>Review available after status = Completed</div>`;
+        })();
+
+        return `
+          <div style="border:1px solid #aaa; padding:10px; margin:10px 0;">
+            <b>Booking #${b.id}</b> | ${b.status}<br/>
+            Room: ${roomName}<br/>
+            Dates: ${b.checkIn} → ${b.checkOut}<br/>
+            Totals: room ${b.roomTotal} + services ${b.servicesTotal} = ${b.grandTotal}<br/>
+
+            <details>
+              <summary>Add services</summary>
+              ${services.map(s => `
+                <div>
+                  ${s.category} - ${s.name} (${s.price})
+                  qty <input id="q_${b.id}_${s.id}" type="number" min="1" value="1" style="width:60px;">
+                  <button onclick="addService(${b.id}, ${s.id})">Add</button>
+                </div>
+              `).join("")}
+            </details>
+
+            ${reviewBlock}
+          </div>
+        `;
+      }).join("");
+    }
+
+    async function addService(bookingId, serviceItemId) {
+      const qty = parseInt(document.getElementById(`q_${bookingId}_${serviceItemId}`).value || "1");
+      await api("/api/bookings/services", {
+        method:"POST", auth:true,
+        body:{ bookingId, lines:[{ serviceItemId, quantity: qty}] }
+      });
+      await loadMine();
+    }
+
+    async function createReview(bookingId) {
+      const rating = parseInt(document.getElementById(`rv_r_${bookingId}`).value || "5");
+      const comment = document.getElementById(`rv_c_${bookingId}`).value || "";
+      await api("/api/reviews", { method:"POST", auth:true, body:{ bookingId, rating, comment }});
+      await loadMine();
+    }
+
+    document.getElementById("btnSearch").onclick = searchRooms;
+    document.getElementById("btnMine").onclick = loadMine;
+
+    (async () => {
+      await loadProfile();
+      await loadMine();
+    })();
+</script>
+</body>
+</html>

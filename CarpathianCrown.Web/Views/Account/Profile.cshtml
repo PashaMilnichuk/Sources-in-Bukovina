@@ -1,0 +1,26 @@
+@model CarpathianCrown.Web.Models.MeDto
+
+@{
+    var lang = Context.GetLang();
+    string T(string ua, string en) => lang == "en" ? en : ua;
+}
+
+<h1>@T("Мій профіль", "My profile")</h1>
+
+@if (TempData["Success"] != null)
+{
+<div class="alert">@TempData["Success"]</div>
+}
+
+<div class="card" style="padding:24px;">
+    <p><b>Email:</b> @Model.Email</p>
+    <p><b>@T("Ім'я", "First name"):</b> @Model.FirstName</p>
+    <p><b>@T("Прізвище", "Last name"):</b> @Model.LastName</p>
+    <p><b>@T("Телефон", "Phone"):</b> @Model.Phone</p>
+    <p><b>@T("Кількість бронювань", "Bookings count"):</b> @Model.BookingsCount</p>
+
+    <div class="form-actions">
+        <a class="btn-outline" href="/Account/ChangePassword">@T("Змінити пароль", "Change password")</a>
+        <a class="btn-danger" href="/Account/DeleteAccount">@T("Видалити акаунт", "Delete account")</a>
+    </div>
+</div>

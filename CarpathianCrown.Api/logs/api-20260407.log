@@ -1,0 +1,998 @@
+2026-04-07 18:57:12.537 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-04-07 18:57:12.740 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-04-07 18:57:12.809 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2026-04-07 18:57:12.829 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-04-07 18:57:12.833 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-04-07 18:57:12.840 +03:00 [INF] No migrations were applied. The database is already up to date.
+2026-04-07 18:57:13.043 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u
+    WHERE u."Role" = 'Admin')
+2026-04-07 18:57:13.058 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Bookings" AS b)
+2026-04-07 18:57:13.067 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ContentPages" AS c)
+2026-04-07 18:57:13.103 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."HeroImageUrl", c."HtmlEn", c."HtmlUa", c."Slug", c."TitleEn", c."TitleUa"
+FROM "ContentPages" AS c
+2026-04-07 18:57:13.208 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "ContentPages"
+WHERE "Id" = @p0;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p1;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p2;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p3;
+2026-04-07 18:57:13.252 +03:00 [INF] Executed DbCommand (17ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?', @p14='?', @p15='?', @p16='?', @p17='?', @p18='?', @p19='?', @p20='?', @p21='?', @p22='?', @p23='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p12, @p13, @p14, @p15, @p16, @p17)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p18, @p19, @p20, @p21, @p22, @p23)
+RETURNING "Id";
+2026-04-07 18:57:13.281 +03:00 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-07 18:57:13.409 +03:00 [INF] Now listening on: https://localhost:5001
+2026-04-07 18:57:13.411 +03:00 [INF] Now listening on: http://localhost:5000
+2026-04-07 18:57:13.413 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-07 18:57:13.414 +03:00 [INF] Hosting environment: Development
+2026-04-07 18:57:13.416 +03:00 [INF] Content root path: C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Api
+2026-04-07 18:58:18.628 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/rooms?lang=ua - null null
+2026-04-07 18:58:18.699 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api)'
+2026-04-07 18:58:18.714 +03:00 [INF] Route matched with {action = "List", controller = "Rooms"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] List(System.String) on controller CarpathianCrown.Api.Controllers.RoomsController (CarpathianCrown.Api).
+2026-04-07 18:58:18.848 +03:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."NameUa", r."NameEn", r."DescriptionUa", r."DescriptionEn", r."PricePerNight", r."Capacity", r."Status", r."CoverImageUrl", r."Image2", r."Image3", r."Image4", COALESCE((
+    SELECT avg(r0."Rating"::double precision)
+    FROM "Reviews" AS r0
+    INNER JOIN "Bookings" AS b ON r0."BookingId" = b."Id"
+    WHERE b."RoomId" = r."Id"), 0.0) AS "AvgRating"
+FROM "Rooms" AS r
+ORDER BY r."Id"
+2026-04-07 18:58:18.862 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType40`13[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], CarpathianCrown.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-07 18:58:18.898 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api) in 179.5005ms
+2026-04-07 18:58:18.901 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api)'
+2026-04-07 18:58:18.904 +03:00 [INF] HTTP GET /api/rooms responded 200 in 205.1223 ms
+2026-04-07 18:58:18.913 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/api/rooms?lang=ua - 200 null application/json; charset=utf-8 286.6671ms
+2026-04-07 18:58:28.283 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/rooms?lang=ua - null null
+2026-04-07 18:58:28.291 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api)'
+2026-04-07 18:58:28.293 +03:00 [INF] Route matched with {action = "List", controller = "Rooms"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] List(System.String) on controller CarpathianCrown.Api.Controllers.RoomsController (CarpathianCrown.Api).
+2026-04-07 18:58:28.351 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."NameUa", r."NameEn", r."DescriptionUa", r."DescriptionEn", r."PricePerNight", r."Capacity", r."Status", r."CoverImageUrl", r."Image2", r."Image3", r."Image4", COALESCE((
+    SELECT avg(r0."Rating"::double precision)
+    FROM "Reviews" AS r0
+    INNER JOIN "Bookings" AS b ON r0."BookingId" = b."Id"
+    WHERE b."RoomId" = r."Id"), 0.0) AS "AvgRating"
+FROM "Rooms" AS r
+ORDER BY r."Id"
+2026-04-07 18:58:28.354 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType40`13[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], CarpathianCrown.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-07 18:58:28.358 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api) in 61.3064ms
+2026-04-07 18:58:28.360 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api)'
+2026-04-07 18:58:28.361 +03:00 [INF] HTTP GET /api/rooms responded 200 in 69.9986 ms
+2026-04-07 18:58:28.364 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/api/rooms?lang=ua - 200 null application/json; charset=utf-8 80.82ms
+2026-04-07 18:58:48.879 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/auth/register - application/json; charset=utf-8 104
+2026-04-07 18:58:48.886 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 18:58:48.894 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CarpathianCrown.Api.DTOs.AuthResponse]] Register(CarpathianCrown.Api.DTOs.RegisterRequest) on controller CarpathianCrown.Api.Controllers.AuthController (CarpathianCrown.Api).
+2026-04-07 18:58:48.911 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-07 18:58:48.926 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api) in 29.1431ms
+2026-04-07 18:58:48.928 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 18:58:48.929 +03:00 [INF] HTTP POST /api/auth/register responded 400 in 43.2885 ms
+2026-04-07 18:58:48.932 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/auth/register - 400 null application/problem+json; charset=utf-8 53.1707ms
+2026-04-07 18:58:58.569 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/auth/register - application/json; charset=utf-8 104
+2026-04-07 18:58:58.574 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 18:58:58.576 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CarpathianCrown.Api.DTOs.AuthResponse]] Register(CarpathianCrown.Api.DTOs.RegisterRequest) on controller CarpathianCrown.Api.Controllers.AuthController (CarpathianCrown.Api).
+2026-04-07 18:58:58.581 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-07 18:58:58.584 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api) in 4.0109ms
+2026-04-07 18:58:58.587 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 18:58:58.588 +03:00 [INF] HTTP POST /api/auth/register responded 400 in 14.0776 ms
+2026-04-07 18:58:58.592 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/auth/register - 400 null application/problem+json; charset=utf-8 22.3313ms
+2026-04-07 18:59:01.083 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/auth/register - application/json; charset=utf-8 104
+2026-04-07 18:59:01.086 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 18:59:01.088 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CarpathianCrown.Api.DTOs.AuthResponse]] Register(CarpathianCrown.Api.DTOs.RegisterRequest) on controller CarpathianCrown.Api.Controllers.AuthController (CarpathianCrown.Api).
+2026-04-07 18:59:01.092 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-07 18:59:01.095 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api) in 3.5237ms
+2026-04-07 18:59:01.097 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 18:59:01.098 +03:00 [INF] HTTP POST /api/auth/register responded 400 in 11.7172 ms
+2026-04-07 18:59:01.101 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/auth/register - 400 null application/problem+json; charset=utf-8 18.0409ms
+2026-04-07 18:59:25.177 +03:00 [INF] Application is shutting down...
+2026-04-07 19:24:55.730 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-04-07 19:24:55.890 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-04-07 19:24:55.936 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2026-04-07 19:24:55.953 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-04-07 19:24:55.957 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-04-07 19:24:55.963 +03:00 [INF] No migrations were applied. The database is already up to date.
+2026-04-07 19:24:56.125 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u
+    WHERE u."Role" = 'Admin')
+2026-04-07 19:24:56.137 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Bookings" AS b)
+2026-04-07 19:24:56.144 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ContentPages" AS c)
+2026-04-07 19:24:56.178 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."HeroImageUrl", c."HtmlEn", c."HtmlUa", c."Slug", c."TitleEn", c."TitleUa"
+FROM "ContentPages" AS c
+2026-04-07 19:24:56.274 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "ContentPages"
+WHERE "Id" = @p0;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p1;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p2;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p3;
+2026-04-07 19:24:56.299 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?', @p14='?', @p15='?', @p16='?', @p17='?', @p18='?', @p19='?', @p20='?', @p21='?', @p22='?', @p23='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p12, @p13, @p14, @p15, @p16, @p17)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p18, @p19, @p20, @p21, @p22, @p23)
+RETURNING "Id";
+2026-04-07 19:24:56.326 +03:00 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-07 19:24:56.409 +03:00 [INF] Now listening on: https://localhost:5001
+2026-04-07 19:24:56.410 +03:00 [INF] Now listening on: http://localhost:5000
+2026-04-07 19:24:56.412 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-07 19:24:56.414 +03:00 [INF] Hosting environment: Development
+2026-04-07 19:24:56.415 +03:00 [INF] Content root path: C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Api
+2026-04-07 19:25:09.158 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/rooms?lang=ua - null null
+2026-04-07 19:25:09.208 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api)'
+2026-04-07 19:25:09.224 +03:00 [INF] Route matched with {action = "List", controller = "Rooms"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] List(System.String) on controller CarpathianCrown.Api.Controllers.RoomsController (CarpathianCrown.Api).
+2026-04-07 19:25:09.343 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."NameUa", r."NameEn", r."DescriptionUa", r."DescriptionEn", r."PricePerNight", r."Capacity", r."Status", r."CoverImageUrl", r."Image2", r."Image3", r."Image4", COALESCE((
+    SELECT avg(r0."Rating"::double precision)
+    FROM "Reviews" AS r0
+    INNER JOIN "Bookings" AS b ON r0."BookingId" = b."Id"
+    WHERE b."RoomId" = r."Id"), 0.0) AS "AvgRating"
+FROM "Rooms" AS r
+ORDER BY r."Id"
+2026-04-07 19:25:09.357 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType40`13[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], CarpathianCrown.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-07 19:25:09.388 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api) in 159.1651ms
+2026-04-07 19:25:09.391 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api)'
+2026-04-07 19:25:09.394 +03:00 [INF] HTTP GET /api/rooms responded 200 in 185.9320 ms
+2026-04-07 19:25:09.402 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/api/rooms?lang=ua - 200 null application/json; charset=utf-8 245.4157ms
+2026-04-07 19:25:38.999 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/auth/register - application/json; charset=utf-8 108
+2026-04-07 19:25:39.006 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:25:39.012 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CarpathianCrown.Api.DTOs.AuthResponse]] Register(CarpathianCrown.Api.DTOs.RegisterRequest) on controller CarpathianCrown.Api.Controllers.AuthController (CarpathianCrown.Api).
+2026-04-07 19:25:39.033 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-07 19:25:39.046 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api) in 30.8273ms
+2026-04-07 19:25:39.048 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:25:39.049 +03:00 [INF] HTTP POST /api/auth/register responded 400 in 43.8208 ms
+2026-04-07 19:25:39.053 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/auth/register - 400 null application/problem+json; charset=utf-8 53.7196ms
+2026-04-07 19:25:48.622 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/auth/register - application/json; charset=utf-8 226
+2026-04-07 19:25:48.630 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:25:48.632 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CarpathianCrown.Api.DTOs.AuthResponse]] Register(CarpathianCrown.Api.DTOs.RegisterRequest) on controller CarpathianCrown.Api.Controllers.AuthController (CarpathianCrown.Api).
+2026-04-07 19:25:48.637 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-07 19:25:48.639 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api) in 4.0683ms
+2026-04-07 19:25:48.641 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:25:48.642 +03:00 [INF] HTTP POST /api/auth/register responded 400 in 12.5059 ms
+2026-04-07 19:25:48.645 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/auth/register - 400 null application/problem+json; charset=utf-8 22.7345ms
+2026-04-07 19:25:52.373 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/auth/register - application/json; charset=utf-8 108
+2026-04-07 19:25:52.378 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:25:52.379 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CarpathianCrown.Api.DTOs.AuthResponse]] Register(CarpathianCrown.Api.DTOs.RegisterRequest) on controller CarpathianCrown.Api.Controllers.AuthController (CarpathianCrown.Api).
+2026-04-07 19:25:52.384 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-07 19:25:52.386 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api) in 3.5396ms
+2026-04-07 19:25:52.388 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:25:52.389 +03:00 [INF] HTTP POST /api/auth/register responded 400 in 11.5498 ms
+2026-04-07 19:25:52.392 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/auth/register - 400 null application/problem+json; charset=utf-8 18.826ms
+2026-04-07 19:25:55.846 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/auth/register - application/json; charset=utf-8 108
+2026-04-07 19:25:55.850 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:25:55.852 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CarpathianCrown.Api.DTOs.AuthResponse]] Register(CarpathianCrown.Api.DTOs.RegisterRequest) on controller CarpathianCrown.Api.Controllers.AuthController (CarpathianCrown.Api).
+2026-04-07 19:25:55.855 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-07 19:25:55.857 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api) in 2.7931ms
+2026-04-07 19:25:55.859 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:25:55.861 +03:00 [INF] HTTP POST /api/auth/register responded 400 in 10.7073 ms
+2026-04-07 19:25:55.863 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/auth/register - 400 null application/problem+json; charset=utf-8 17.5427ms
+2026-04-07 19:29:35.623 +03:00 [INF] Application is shutting down...
+2026-04-07 19:29:40.106 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-04-07 19:29:40.264 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-04-07 19:29:40.309 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2026-04-07 19:29:40.324 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-04-07 19:29:40.328 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-04-07 19:29:40.335 +03:00 [INF] No migrations were applied. The database is already up to date.
+2026-04-07 19:29:40.501 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u
+    WHERE u."Role" = 'Admin')
+2026-04-07 19:29:40.512 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Bookings" AS b)
+2026-04-07 19:29:40.519 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ContentPages" AS c)
+2026-04-07 19:29:40.550 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."HeroImageUrl", c."HtmlEn", c."HtmlUa", c."Slug", c."TitleEn", c."TitleUa"
+FROM "ContentPages" AS c
+2026-04-07 19:29:40.646 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "ContentPages"
+WHERE "Id" = @p0;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p1;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p2;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p3;
+2026-04-07 19:29:40.680 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?', @p14='?', @p15='?', @p16='?', @p17='?', @p18='?', @p19='?', @p20='?', @p21='?', @p22='?', @p23='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p12, @p13, @p14, @p15, @p16, @p17)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p18, @p19, @p20, @p21, @p22, @p23)
+RETURNING "Id";
+2026-04-07 19:29:40.707 +03:00 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-07 19:29:40.785 +03:00 [INF] Now listening on: https://localhost:5001
+2026-04-07 19:29:40.786 +03:00 [INF] Now listening on: http://localhost:5000
+2026-04-07 19:29:40.789 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-07 19:29:40.790 +03:00 [INF] Hosting environment: Development
+2026-04-07 19:29:40.791 +03:00 [INF] Content root path: C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Api
+2026-04-07 19:29:44.747 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/auth/register - application/json; charset=utf-8 108
+2026-04-07 19:29:44.799 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:29:44.815 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CarpathianCrown.Api.DTOs.AuthResponse]] Register(CarpathianCrown.Api.DTOs.RegisterRequest) on controller CarpathianCrown.Api.Controllers.AuthController (CarpathianCrown.Api).
+2026-04-07 19:29:44.852 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-07 19:29:44.888 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api) in 67.4203ms
+2026-04-07 19:29:44.890 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:29:44.893 +03:00 [INF] HTTP POST /api/auth/register responded 400 in 93.6929 ms
+2026-04-07 19:29:44.898 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/auth/register - 400 null application/problem+json; charset=utf-8 151.4758ms
+2026-04-07 19:30:06.903 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/auth/register - application/json; charset=utf-8 108
+2026-04-07 19:30:06.910 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:30:06.912 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CarpathianCrown.Api.DTOs.AuthResponse]] Register(CarpathianCrown.Api.DTOs.RegisterRequest) on controller CarpathianCrown.Api.Controllers.AuthController (CarpathianCrown.Api).
+2026-04-07 19:30:06.919 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-07 19:30:06.921 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api) in 6.1437ms
+2026-04-07 19:30:06.923 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:30:06.925 +03:00 [INF] HTTP POST /api/auth/register responded 400 in 14.8096 ms
+2026-04-07 19:30:06.928 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/auth/register - 400 null application/problem+json; charset=utf-8 24.8145ms
+2026-04-07 19:31:45.218 +03:00 [INF] Application is shutting down...
+2026-04-07 19:31:48.527 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-04-07 19:31:48.695 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-04-07 19:31:48.740 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2026-04-07 19:31:48.754 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-04-07 19:31:48.759 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-04-07 19:31:48.765 +03:00 [INF] No migrations were applied. The database is already up to date.
+2026-04-07 19:31:48.924 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u
+    WHERE u."Role" = 'Admin')
+2026-04-07 19:31:48.935 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Bookings" AS b)
+2026-04-07 19:31:48.941 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ContentPages" AS c)
+2026-04-07 19:31:48.976 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."HeroImageUrl", c."HtmlEn", c."HtmlUa", c."Slug", c."TitleEn", c."TitleUa"
+FROM "ContentPages" AS c
+2026-04-07 19:31:49.074 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "ContentPages"
+WHERE "Id" = @p0;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p1;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p2;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p3;
+2026-04-07 19:31:49.102 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?', @p14='?', @p15='?', @p16='?', @p17='?', @p18='?', @p19='?', @p20='?', @p21='?', @p22='?', @p23='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p12, @p13, @p14, @p15, @p16, @p17)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p18, @p19, @p20, @p21, @p22, @p23)
+RETURNING "Id";
+2026-04-07 19:31:49.128 +03:00 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-07 19:31:49.206 +03:00 [INF] Now listening on: https://localhost:5001
+2026-04-07 19:31:49.207 +03:00 [INF] Now listening on: http://localhost:5000
+2026-04-07 19:31:49.210 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-07 19:31:49.211 +03:00 [INF] Hosting environment: Development
+2026-04-07 19:31:49.212 +03:00 [INF] Content root path: C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Api
+2026-04-07 19:31:57.808 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/rooms?lang=ua - null null
+2026-04-07 19:31:57.859 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api)'
+2026-04-07 19:31:57.874 +03:00 [INF] Route matched with {action = "List", controller = "Rooms"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] List(System.String) on controller CarpathianCrown.Api.Controllers.RoomsController (CarpathianCrown.Api).
+2026-04-07 19:31:57.986 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."NameUa", r."NameEn", r."DescriptionUa", r."DescriptionEn", r."PricePerNight", r."Capacity", r."Status", r."CoverImageUrl", r."Image2", r."Image3", r."Image4", COALESCE((
+    SELECT avg(r0."Rating"::double precision)
+    FROM "Reviews" AS r0
+    INNER JOIN "Bookings" AS b ON r0."BookingId" = b."Id"
+    WHERE b."RoomId" = r."Id"), 0.0) AS "AvgRating"
+FROM "Rooms" AS r
+ORDER BY r."Id"
+2026-04-07 19:31:58.000 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType40`13[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], CarpathianCrown.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-07 19:31:58.032 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api) in 153.436ms
+2026-04-07 19:31:58.035 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api)'
+2026-04-07 19:31:58.038 +03:00 [INF] HTTP GET /api/rooms responded 200 in 179.5088 ms
+2026-04-07 19:31:58.047 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/api/rooms?lang=ua - 200 null application/json; charset=utf-8 239.4117ms
+2026-04-07 19:32:23.912 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/auth/register - application/json; charset=utf-8 112
+2026-04-07 19:32:23.919 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:32:23.926 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CarpathianCrown.Api.DTOs.AuthResponse]] Register(CarpathianCrown.Api.DTOs.RegisterRequest) on controller CarpathianCrown.Api.Controllers.AuthController (CarpathianCrown.Api).
+2026-04-07 19:32:23.946 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-07 19:32:23.959 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api) in 30.5973ms
+2026-04-07 19:32:23.962 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:32:23.963 +03:00 [INF] HTTP POST /api/auth/register responded 400 in 44.6334 ms
+2026-04-07 19:32:23.966 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/auth/register - 400 null application/problem+json; charset=utf-8 54.2554ms
+2026-04-07 19:34:10.562 +03:00 [INF] Application is shutting down...
+2026-04-07 19:34:15.207 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-04-07 19:34:15.369 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-04-07 19:34:15.419 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2026-04-07 19:34:15.435 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-04-07 19:34:15.439 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-04-07 19:34:15.445 +03:00 [INF] No migrations were applied. The database is already up to date.
+2026-04-07 19:34:15.605 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u
+    WHERE u."Role" = 'Admin')
+2026-04-07 19:34:15.615 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Bookings" AS b)
+2026-04-07 19:34:15.622 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ContentPages" AS c)
+2026-04-07 19:34:15.654 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."HeroImageUrl", c."HtmlEn", c."HtmlUa", c."Slug", c."TitleEn", c."TitleUa"
+FROM "ContentPages" AS c
+2026-04-07 19:34:15.748 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "ContentPages"
+WHERE "Id" = @p0;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p1;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p2;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p3;
+2026-04-07 19:34:15.781 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?', @p14='?', @p15='?', @p16='?', @p17='?', @p18='?', @p19='?', @p20='?', @p21='?', @p22='?', @p23='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p12, @p13, @p14, @p15, @p16, @p17)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p18, @p19, @p20, @p21, @p22, @p23)
+RETURNING "Id";
+2026-04-07 19:34:15.809 +03:00 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-07 19:34:15.894 +03:00 [INF] Now listening on: https://localhost:5001
+2026-04-07 19:34:15.895 +03:00 [INF] Now listening on: http://localhost:5000
+2026-04-07 19:34:15.898 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-07 19:34:15.899 +03:00 [INF] Hosting environment: Development
+2026-04-07 19:34:15.900 +03:00 [INF] Content root path: C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Api
+2026-04-07 19:34:25.837 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/rooms?lang=ua - null null
+2026-04-07 19:34:25.907 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api)'
+2026-04-07 19:34:25.923 +03:00 [INF] Route matched with {action = "List", controller = "Rooms"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] List(System.String) on controller CarpathianCrown.Api.Controllers.RoomsController (CarpathianCrown.Api).
+2026-04-07 19:34:26.032 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."NameUa", r."NameEn", r."DescriptionUa", r."DescriptionEn", r."PricePerNight", r."Capacity", r."Status", r."CoverImageUrl", r."Image2", r."Image3", r."Image4", COALESCE((
+    SELECT avg(r0."Rating"::double precision)
+    FROM "Reviews" AS r0
+    INNER JOIN "Bookings" AS b ON r0."BookingId" = b."Id"
+    WHERE b."RoomId" = r."Id"), 0.0) AS "AvgRating"
+FROM "Rooms" AS r
+ORDER BY r."Id"
+2026-04-07 19:34:26.044 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType40`13[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], CarpathianCrown.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-07 19:34:26.080 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api) in 151.5055ms
+2026-04-07 19:34:26.083 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api)'
+2026-04-07 19:34:26.086 +03:00 [INF] HTTP GET /api/rooms responded 200 in 179.2460 ms
+2026-04-07 19:34:26.095 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/api/rooms?lang=ua - 200 null application/json; charset=utf-8 258.3404ms
+2026-04-07 19:34:37.985 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/auth/register - application/json; charset=utf-8 98
+2026-04-07 19:34:37.993 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:34:38.002 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CarpathianCrown.Api.DTOs.AuthResponse]] Register(CarpathianCrown.Api.DTOs.RegisterRequest) on controller CarpathianCrown.Api.Controllers.AuthController (CarpathianCrown.Api).
+2026-04-07 19:34:38.027 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-07 19:34:38.044 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api) in 38.7121ms
+2026-04-07 19:34:38.046 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:34:38.048 +03:00 [INF] HTTP POST /api/auth/register responded 400 in 54.6610 ms
+2026-04-07 19:34:38.051 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/auth/register - 400 null application/problem+json; charset=utf-8 65.6296ms
+2026-04-07 19:34:51.328 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/auth/register - application/json; charset=utf-8 98
+2026-04-07 19:34:51.335 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:34:51.337 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CarpathianCrown.Api.DTOs.AuthResponse]] Register(CarpathianCrown.Api.DTOs.RegisterRequest) on controller CarpathianCrown.Api.Controllers.AuthController (CarpathianCrown.Api).
+2026-04-07 19:34:51.341 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-07 19:34:51.344 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api) in 3.6024ms
+2026-04-07 19:34:51.346 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:34:51.347 +03:00 [INF] HTTP POST /api/auth/register responded 400 in 11.8263 ms
+2026-04-07 19:34:51.350 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/auth/register - 400 null application/problem+json; charset=utf-8 21.8134ms
+2026-04-07 19:35:50.890 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/rooms?lang=ua - null null
+2026-04-07 19:35:50.895 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api)'
+2026-04-07 19:35:50.897 +03:00 [INF] Route matched with {action = "List", controller = "Rooms"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] List(System.String) on controller CarpathianCrown.Api.Controllers.RoomsController (CarpathianCrown.Api).
+2026-04-07 19:35:50.961 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."NameUa", r."NameEn", r."DescriptionUa", r."DescriptionEn", r."PricePerNight", r."Capacity", r."Status", r."CoverImageUrl", r."Image2", r."Image3", r."Image4", COALESCE((
+    SELECT avg(r0."Rating"::double precision)
+    FROM "Reviews" AS r0
+    INNER JOIN "Bookings" AS b ON r0."BookingId" = b."Id"
+    WHERE b."RoomId" = r."Id"), 0.0) AS "AvgRating"
+FROM "Rooms" AS r
+ORDER BY r."Id"
+2026-04-07 19:35:50.965 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType40`13[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], CarpathianCrown.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-07 19:35:50.968 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api) in 67.9031ms
+2026-04-07 19:35:50.970 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api)'
+2026-04-07 19:35:50.971 +03:00 [INF] HTTP GET /api/rooms responded 200 in 76.4858 ms
+2026-04-07 19:35:50.975 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/api/rooms?lang=ua - 200 null application/json; charset=utf-8 84.5431ms
+2026-04-07 19:36:09.779 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/auth/register - application/json; charset=utf-8 100
+2026-04-07 19:36:09.783 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:36:09.784 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CarpathianCrown.Api.DTOs.AuthResponse]] Register(CarpathianCrown.Api.DTOs.RegisterRequest) on controller CarpathianCrown.Api.Controllers.AuthController (CarpathianCrown.Api).
+2026-04-07 19:36:09.788 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-07 19:36:09.790 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api) in 3.2913ms
+2026-04-07 19:36:09.792 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:36:09.794 +03:00 [INF] HTTP POST /api/auth/register responded 400 in 11.3591 ms
+2026-04-07 19:36:09.796 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/auth/register - 400 null application/problem+json; charset=utf-8 17.4126ms
+2026-04-07 19:36:27.335 +03:00 [INF] Application is shutting down...
+2026-04-07 19:36:44.122 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-04-07 19:36:44.278 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-04-07 19:36:44.323 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2026-04-07 19:36:44.338 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-04-07 19:36:44.342 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-04-07 19:36:44.348 +03:00 [INF] No migrations were applied. The database is already up to date.
+2026-04-07 19:36:44.509 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u
+    WHERE u."Role" = 'Admin')
+2026-04-07 19:36:44.520 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Bookings" AS b)
+2026-04-07 19:36:44.526 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ContentPages" AS c)
+2026-04-07 19:36:44.557 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."HeroImageUrl", c."HtmlEn", c."HtmlUa", c."Slug", c."TitleEn", c."TitleUa"
+FROM "ContentPages" AS c
+2026-04-07 19:36:44.654 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "ContentPages"
+WHERE "Id" = @p0;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p1;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p2;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p3;
+2026-04-07 19:36:44.680 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?', @p14='?', @p15='?', @p16='?', @p17='?', @p18='?', @p19='?', @p20='?', @p21='?', @p22='?', @p23='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p12, @p13, @p14, @p15, @p16, @p17)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p18, @p19, @p20, @p21, @p22, @p23)
+RETURNING "Id";
+2026-04-07 19:36:44.707 +03:00 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-07 19:36:44.787 +03:00 [INF] Now listening on: https://localhost:5001
+2026-04-07 19:36:44.788 +03:00 [INF] Now listening on: http://localhost:5000
+2026-04-07 19:36:44.790 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-07 19:36:44.791 +03:00 [INF] Hosting environment: Development
+2026-04-07 19:36:44.793 +03:00 [INF] Content root path: C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Api
+2026-04-07 19:36:55.786 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/auth/register - application/json; charset=utf-8 100
+2026-04-07 19:36:55.835 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:36:55.849 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CarpathianCrown.Api.DTOs.AuthResponse]] Register(CarpathianCrown.Api.DTOs.RegisterRequest) on controller CarpathianCrown.Api.Controllers.AuthController (CarpathianCrown.Api).
+2026-04-07 19:36:55.882 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-07 19:36:55.915 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api) in 61.2941ms
+2026-04-07 19:36:55.917 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:36:55.920 +03:00 [INF] HTTP POST /api/auth/register responded 400 in 84.8302 ms
+2026-04-07 19:36:55.925 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/auth/register - 400 null application/problem+json; charset=utf-8 139.375ms
+2026-04-07 19:39:27.680 +03:00 [INF] Application is shutting down...
+2026-04-07 19:39:35.993 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-04-07 19:39:36.155 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-04-07 19:39:36.203 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2026-04-07 19:39:36.219 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-04-07 19:39:36.224 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-04-07 19:39:36.230 +03:00 [INF] No migrations were applied. The database is already up to date.
+2026-04-07 19:39:36.398 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u
+    WHERE u."Role" = 'Admin')
+2026-04-07 19:39:36.409 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Bookings" AS b)
+2026-04-07 19:39:36.416 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ContentPages" AS c)
+2026-04-07 19:39:36.447 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."HeroImageUrl", c."HtmlEn", c."HtmlUa", c."Slug", c."TitleEn", c."TitleUa"
+FROM "ContentPages" AS c
+2026-04-07 19:39:36.543 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "ContentPages"
+WHERE "Id" = @p0;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p1;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p2;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p3;
+2026-04-07 19:39:36.571 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?', @p14='?', @p15='?', @p16='?', @p17='?', @p18='?', @p19='?', @p20='?', @p21='?', @p22='?', @p23='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p12, @p13, @p14, @p15, @p16, @p17)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p18, @p19, @p20, @p21, @p22, @p23)
+RETURNING "Id";
+2026-04-07 19:39:36.599 +03:00 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-07 19:39:36.682 +03:00 [INF] Now listening on: https://localhost:5001
+2026-04-07 19:39:36.683 +03:00 [INF] Now listening on: http://localhost:5000
+2026-04-07 19:39:36.685 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-07 19:39:36.686 +03:00 [INF] Hosting environment: Development
+2026-04-07 19:39:36.687 +03:00 [INF] Content root path: C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Api
+2026-04-07 19:39:50.913 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/auth/register - application/json; charset=utf-8 100
+2026-04-07 19:39:50.962 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:39:50.979 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CarpathianCrown.Api.DTOs.AuthResponse]] Register(CarpathianCrown.Api.DTOs.RegisterRequest) on controller CarpathianCrown.Api.Controllers.AuthController (CarpathianCrown.Api).
+2026-04-07 19:39:51.015 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-07 19:39:51.055 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api) in 69.5508ms
+2026-04-07 19:39:51.057 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:39:51.061 +03:00 [INF] HTTP POST /api/auth/register responded 400 in 98.5234 ms
+2026-04-07 19:39:51.066 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/auth/register - 400 null application/problem+json; charset=utf-8 154.4213ms
+2026-04-07 19:40:14.810 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/auth/register - application/json; charset=utf-8 108
+2026-04-07 19:40:14.817 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:40:14.819 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CarpathianCrown.Api.DTOs.AuthResponse]] Register(CarpathianCrown.Api.DTOs.RegisterRequest) on controller CarpathianCrown.Api.Controllers.AuthController (CarpathianCrown.Api).
+2026-04-07 19:40:14.825 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-07 19:40:14.827 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api) in 5.7923ms
+2026-04-07 19:40:14.829 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:40:14.831 +03:00 [INF] HTTP POST /api/auth/register responded 400 in 13.8808 ms
+2026-04-07 19:40:14.834 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/auth/register - 400 null application/problem+json; charset=utf-8 24.1445ms
+2026-04-07 19:41:33.025 +03:00 [INF] Application is shutting down...
+2026-04-07 19:41:38.238 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-04-07 19:41:38.437 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-04-07 19:41:38.487 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2026-04-07 19:41:38.502 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-04-07 19:41:38.507 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-04-07 19:41:38.513 +03:00 [INF] No migrations were applied. The database is already up to date.
+2026-04-07 19:41:38.674 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u
+    WHERE u."Role" = 'Admin')
+2026-04-07 19:41:38.685 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Bookings" AS b)
+2026-04-07 19:41:38.691 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ContentPages" AS c)
+2026-04-07 19:41:38.724 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."HeroImageUrl", c."HtmlEn", c."HtmlUa", c."Slug", c."TitleEn", c."TitleUa"
+FROM "ContentPages" AS c
+2026-04-07 19:41:38.829 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "ContentPages"
+WHERE "Id" = @p0;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p1;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p2;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p3;
+2026-04-07 19:41:38.861 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?', @p14='?', @p15='?', @p16='?', @p17='?', @p18='?', @p19='?', @p20='?', @p21='?', @p22='?', @p23='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p12, @p13, @p14, @p15, @p16, @p17)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p18, @p19, @p20, @p21, @p22, @p23)
+RETURNING "Id";
+2026-04-07 19:41:38.893 +03:00 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-07 19:41:38.986 +03:00 [INF] Now listening on: https://localhost:5001
+2026-04-07 19:41:38.988 +03:00 [INF] Now listening on: http://localhost:5000
+2026-04-07 19:41:38.990 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-07 19:41:38.991 +03:00 [INF] Hosting environment: Development
+2026-04-07 19:41:38.993 +03:00 [INF] Content root path: C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Api
+2026-04-07 19:41:50.111 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/rooms?lang=ua - null null
+2026-04-07 19:41:50.169 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api)'
+2026-04-07 19:41:50.187 +03:00 [INF] Route matched with {action = "List", controller = "Rooms"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] List(System.String) on controller CarpathianCrown.Api.Controllers.RoomsController (CarpathianCrown.Api).
+2026-04-07 19:41:50.370 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."NameUa", r."NameEn", r."DescriptionUa", r."DescriptionEn", r."PricePerNight", r."Capacity", r."Status", r."CoverImageUrl", r."Image2", r."Image3", r."Image4", COALESCE((
+    SELECT avg(r0."Rating"::double precision)
+    FROM "Reviews" AS r0
+    INNER JOIN "Bookings" AS b ON r0."BookingId" = b."Id"
+    WHERE b."RoomId" = r."Id"), 0.0) AS "AvgRating"
+FROM "Rooms" AS r
+ORDER BY r."Id"
+2026-04-07 19:41:50.387 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType40`13[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], CarpathianCrown.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-07 19:41:50.425 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api) in 232.1556ms
+2026-04-07 19:41:50.428 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api)'
+2026-04-07 19:41:50.432 +03:00 [INF] HTTP GET /api/rooms responded 200 in 262.8537 ms
+2026-04-07 19:41:50.441 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/api/rooms?lang=ua - 200 null application/json; charset=utf-8 331.87ms
+2026-04-07 19:41:56.842 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/auth/register - application/json; charset=utf-8 81
+2026-04-07 19:41:56.849 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:41:56.857 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CarpathianCrown.Api.DTOs.AuthResponse]] Register(CarpathianCrown.Api.DTOs.RegisterRequest) on controller CarpathianCrown.Api.Controllers.AuthController (CarpathianCrown.Api).
+2026-04-07 19:41:56.882 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-07 19:41:56.900 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api) in 39.7922ms
+2026-04-07 19:41:56.902 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:41:56.903 +03:00 [INF] HTTP POST /api/auth/register responded 400 in 54.6103 ms
+2026-04-07 19:41:56.907 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/auth/register - 400 null application/problem+json; charset=utf-8 64.8378ms
+2026-04-07 19:42:30.046 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/auth/register - application/json; charset=utf-8 81
+2026-04-07 19:42:30.053 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:42:30.055 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CarpathianCrown.Api.DTOs.AuthResponse]] Register(CarpathianCrown.Api.DTOs.RegisterRequest) on controller CarpathianCrown.Api.Controllers.AuthController (CarpathianCrown.Api).
+2026-04-07 19:42:30.059 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-07 19:42:30.061 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api) in 3.3925ms
+2026-04-07 19:42:30.063 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:42:30.064 +03:00 [INF] HTTP POST /api/auth/register responded 400 in 11.2828 ms
+2026-04-07 19:42:30.067 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/auth/register - 400 null application/problem+json; charset=utf-8 21.1047ms
+2026-04-07 19:44:20.750 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/auth/register - application/json; charset=utf-8 81
+2026-04-07 19:44:20.754 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:44:20.756 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CarpathianCrown.Api.DTOs.AuthResponse]] Register(CarpathianCrown.Api.DTOs.RegisterRequest) on controller CarpathianCrown.Api.Controllers.AuthController (CarpathianCrown.Api).
+2026-04-07 19:44:20.760 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-07 19:44:20.762 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api) in 3.6968ms
+2026-04-07 19:44:20.765 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:44:20.766 +03:00 [INF] HTTP POST /api/auth/register responded 400 in 11.8639 ms
+2026-04-07 19:44:20.769 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/auth/register - 400 null application/problem+json; charset=utf-8 18.4593ms
+2026-04-07 19:44:23.188 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/auth/register - application/json; charset=utf-8 81
+2026-04-07 19:44:23.192 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:44:23.193 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CarpathianCrown.Api.DTOs.AuthResponse]] Register(CarpathianCrown.Api.DTOs.RegisterRequest) on controller CarpathianCrown.Api.Controllers.AuthController (CarpathianCrown.Api).
+2026-04-07 19:44:23.197 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-07 19:44:23.199 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api) in 2.5532ms
+2026-04-07 19:44:23.201 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:44:23.203 +03:00 [INF] HTTP POST /api/auth/register responded 400 in 11.1164 ms
+2026-04-07 19:44:23.206 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/auth/register - 400 null application/problem+json; charset=utf-8 17.8389ms
+2026-04-07 19:44:26.409 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/rooms?lang=ua - null null
+2026-04-07 19:44:26.414 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api)'
+2026-04-07 19:44:26.416 +03:00 [INF] Route matched with {action = "List", controller = "Rooms"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] List(System.String) on controller CarpathianCrown.Api.Controllers.RoomsController (CarpathianCrown.Api).
+2026-04-07 19:44:26.469 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."NameUa", r."NameEn", r."DescriptionUa", r."DescriptionEn", r."PricePerNight", r."Capacity", r."Status", r."CoverImageUrl", r."Image2", r."Image3", r."Image4", COALESCE((
+    SELECT avg(r0."Rating"::double precision)
+    FROM "Reviews" AS r0
+    INNER JOIN "Bookings" AS b ON r0."BookingId" = b."Id"
+    WHERE b."RoomId" = r."Id"), 0.0) AS "AvgRating"
+FROM "Rooms" AS r
+ORDER BY r."Id"
+2026-04-07 19:44:26.473 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType40`13[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], CarpathianCrown.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-07 19:44:26.475 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api) in 56.8224ms
+2026-04-07 19:44:26.477 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api)'
+2026-04-07 19:44:26.478 +03:00 [INF] HTTP GET /api/rooms responded 200 in 64.6566 ms
+2026-04-07 19:44:26.481 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/api/rooms?lang=ua - 200 null application/json; charset=utf-8 71.9783ms
+2026-04-07 19:44:45.163 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/auth/register - application/json; charset=utf-8 81
+2026-04-07 19:44:45.167 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:44:45.168 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CarpathianCrown.Api.DTOs.AuthResponse]] Register(CarpathianCrown.Api.DTOs.RegisterRequest) on controller CarpathianCrown.Api.Controllers.AuthController (CarpathianCrown.Api).
+2026-04-07 19:44:45.172 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-07 19:44:45.174 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api) in 3.1288ms
+2026-04-07 19:44:45.176 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:44:45.177 +03:00 [INF] HTTP POST /api/auth/register responded 400 in 10.5648 ms
+2026-04-07 19:44:45.180 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/auth/register - 400 null application/problem+json; charset=utf-8 16.8555ms
+2026-04-07 19:47:31.262 +03:00 [INF] Application is shutting down...
+2026-04-07 19:47:44.430 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-04-07 19:47:44.587 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-04-07 19:47:44.632 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2026-04-07 19:47:44.647 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-04-07 19:47:44.651 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-04-07 19:47:44.657 +03:00 [INF] No migrations were applied. The database is already up to date.
+2026-04-07 19:47:44.821 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u
+    WHERE u."Role" = 'Admin')
+2026-04-07 19:47:44.831 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Bookings" AS b)
+2026-04-07 19:47:44.838 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ContentPages" AS c)
+2026-04-07 19:47:44.870 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."HeroImageUrl", c."HtmlEn", c."HtmlUa", c."Slug", c."TitleEn", c."TitleUa"
+FROM "ContentPages" AS c
+2026-04-07 19:47:44.961 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "ContentPages"
+WHERE "Id" = @p0;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p1;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p2;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p3;
+2026-04-07 19:47:45.000 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?', @p14='?', @p15='?', @p16='?', @p17='?', @p18='?', @p19='?', @p20='?', @p21='?', @p22='?', @p23='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p12, @p13, @p14, @p15, @p16, @p17)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p18, @p19, @p20, @p21, @p22, @p23)
+RETURNING "Id";
+2026-04-07 19:47:45.027 +03:00 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-07 19:47:45.116 +03:00 [INF] Now listening on: https://localhost:5001
+2026-04-07 19:47:45.117 +03:00 [INF] Now listening on: http://localhost:5000
+2026-04-07 19:47:45.119 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-07 19:47:45.120 +03:00 [INF] Hosting environment: Development
+2026-04-07 19:47:45.122 +03:00 [INF] Content root path: C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Api
+2026-04-07 19:47:55.768 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/rooms?lang=ua - null null
+2026-04-07 19:47:55.818 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api)'
+2026-04-07 19:47:55.831 +03:00 [INF] Route matched with {action = "List", controller = "Rooms"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] List(System.String) on controller CarpathianCrown.Api.Controllers.RoomsController (CarpathianCrown.Api).
+2026-04-07 19:47:55.925 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."NameUa", r."NameEn", r."DescriptionUa", r."DescriptionEn", r."PricePerNight", r."Capacity", r."Status", r."CoverImageUrl", r."Image2", r."Image3", r."Image4", COALESCE((
+    SELECT avg(r0."Rating"::double precision)
+    FROM "Reviews" AS r0
+    INNER JOIN "Bookings" AS b ON r0."BookingId" = b."Id"
+    WHERE b."RoomId" = r."Id"), 0.0) AS "AvgRating"
+FROM "Rooms" AS r
+ORDER BY r."Id"
+2026-04-07 19:47:55.937 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType40`13[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], CarpathianCrown.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-07 19:47:55.967 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api) in 131.5309ms
+2026-04-07 19:47:55.969 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api)'
+2026-04-07 19:47:55.972 +03:00 [INF] HTTP GET /api/rooms responded 200 in 154.7130 ms
+2026-04-07 19:47:55.981 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/api/rooms?lang=ua - 200 null application/json; charset=utf-8 213.7614ms
+2026-04-07 19:48:11.211 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/auth/register - application/json; charset=utf-8 69
+2026-04-07 19:48:11.218 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:48:11.226 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CarpathianCrown.Api.DTOs.AuthResponse]] Register(CarpathianCrown.Api.DTOs.RegisterRequest) on controller CarpathianCrown.Api.Controllers.AuthController (CarpathianCrown.Api).
+2026-04-07 19:48:11.246 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-07 19:48:11.261 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api) in 32.3472ms
+2026-04-07 19:48:11.264 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:48:11.265 +03:00 [INF] HTTP POST /api/auth/register responded 400 in 47.4633 ms
+2026-04-07 19:48:11.269 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/auth/register - 400 null application/problem+json; charset=utf-8 57.8505ms
+2026-04-07 19:49:57.398 +03:00 [INF] Application is shutting down...
+2026-04-07 19:50:03.556 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-04-07 19:50:03.709 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-04-07 19:50:03.756 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2026-04-07 19:50:03.771 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-04-07 19:50:03.775 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-04-07 19:50:03.782 +03:00 [INF] No migrations were applied. The database is already up to date.
+2026-04-07 19:50:03.949 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u
+    WHERE u."Role" = 'Admin')
+2026-04-07 19:50:03.959 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Bookings" AS b)
+2026-04-07 19:50:03.966 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ContentPages" AS c)
+2026-04-07 19:50:03.996 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."HeroImageUrl", c."HtmlEn", c."HtmlUa", c."Slug", c."TitleEn", c."TitleUa"
+FROM "ContentPages" AS c
+2026-04-07 19:50:04.089 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "ContentPages"
+WHERE "Id" = @p0;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p1;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p2;
+DELETE FROM "ContentPages"
+WHERE "Id" = @p3;
+2026-04-07 19:50:04.116 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?', @p14='?', @p15='?', @p16='?', @p17='?', @p18='?', @p19='?', @p20='?', @p21='?', @p22='?', @p23='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p12, @p13, @p14, @p15, @p16, @p17)
+RETURNING "Id";
+INSERT INTO "ContentPages" ("HeroImageUrl", "HtmlEn", "HtmlUa", "Slug", "TitleEn", "TitleUa")
+VALUES (@p18, @p19, @p20, @p21, @p22, @p23)
+RETURNING "Id";
+2026-04-07 19:50:04.142 +03:00 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-07 19:50:04.220 +03:00 [INF] Now listening on: https://localhost:5001
+2026-04-07 19:50:04.221 +03:00 [INF] Now listening on: http://localhost:5000
+2026-04-07 19:50:04.224 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-07 19:50:04.225 +03:00 [INF] Hosting environment: Development
+2026-04-07 19:50:04.226 +03:00 [INF] Content root path: C:\Users\Admin\Desktop\CarpathianCrown\CarpathianCrown.Api
+2026-04-07 19:50:11.423 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/rooms?lang=ua - null null
+2026-04-07 19:50:11.476 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api)'
+2026-04-07 19:50:11.491 +03:00 [INF] Route matched with {action = "List", controller = "Rooms"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] List(System.String) on controller CarpathianCrown.Api.Controllers.RoomsController (CarpathianCrown.Api).
+2026-04-07 19:50:11.606 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."NameUa", r."NameEn", r."DescriptionUa", r."DescriptionEn", r."PricePerNight", r."Capacity", r."Status", r."CoverImageUrl", r."Image2", r."Image3", r."Image4", COALESCE((
+    SELECT avg(r0."Rating"::double precision)
+    FROM "Reviews" AS r0
+    INNER JOIN "Bookings" AS b ON r0."BookingId" = b."Id"
+    WHERE b."RoomId" = r."Id"), 0.0) AS "AvgRating"
+FROM "Rooms" AS r
+ORDER BY r."Id"
+2026-04-07 19:50:11.620 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType40`13[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], CarpathianCrown.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-07 19:50:11.651 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api) in 154.2636ms
+2026-04-07 19:50:11.653 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.RoomsController.List (CarpathianCrown.Api)'
+2026-04-07 19:50:11.656 +03:00 [INF] HTTP GET /api/rooms responded 200 in 180.6598 ms
+2026-04-07 19:50:11.665 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/api/rooms?lang=ua - 200 null application/json; charset=utf-8 243.907ms
+2026-04-07 19:50:22.569 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/auth/register - application/json; charset=utf-8 152
+2026-04-07 19:50:22.576 +03:00 [INF] Executing endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:50:22.584 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[CarpathianCrown.Api.DTOs.AuthResponse]] Register(CarpathianCrown.Api.DTOs.RegisterRequest) on controller CarpathianCrown.Api.Controllers.AuthController (CarpathianCrown.Api).
+2026-04-07 19:50:22.653 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@email='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u
+    WHERE u."Email" = @email)
+2026-04-07 19:50:22.663 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@login='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u
+    WHERE u."Login" = @login)
+2026-04-07 19:50:22.936 +03:00 [INF] Executed DbCommand (28ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("CreatedAt", "Email", "FirstName", "LastName", "Login", "PasswordHash", "Phone", "Role")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+RETURNING "Id";
+2026-04-07 19:50:22.966 +03:00 [INF] Executing OkObjectResult, writing value of type 'CarpathianCrown.Api.DTOs.AuthResponse'.
+2026-04-07 19:50:22.970 +03:00 [INF] Executed action CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api) in 383.8179ms
+2026-04-07 19:50:22.973 +03:00 [INF] Executed endpoint 'CarpathianCrown.Api.Controllers.AuthController.Register (CarpathianCrown.Api)'
+2026-04-07 19:50:22.974 +03:00 [INF] HTTP POST /api/auth/register responded 200 in 398.0887 ms
+2026-04-07 19:50:22.978 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/auth/register - 200 null application/json; charset=utf-8 408.4134ms
+2026-04-07 19:50:30.398 +03:00 [INF] Application is shutting down...

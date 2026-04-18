@@ -1,0 +1,53 @@
+﻿@model List<CarpathianCrown.Web.Models.RoomOrderDto>
+
+    @{
+    var lang = Context.GetLang();
+    string T(string ua, string en) => lang == "en" ? en : ua;
+    }
+
+    <h1>@T("Мої замовлення в номер", "My room orders")</h1>
+
+    @if (TempData["Success"] != null)
+{
+    <div class="alert">@TempData["Success"]</div>
+}
+
+    @if (!Model.Any())
+{
+    <div class="empty-state-card">
+        <p>@T("Замовлень у номер поки немає.", "No room orders yet.")</p>
+    </div>
+}
+else
+{
+    <div class="booking-grid">
+        @foreach (var order in Model)
+        {
+        <div class="booking-card">
+            <div class="booking-card-top">
+                <div>
+                    <div class="booking-room">@order.RoomTitle</div>
+                    <div class="booking-dates">@T("Бронювання", "Booking") #@order.BookingId</div>
+                </div>
+
+                <div class="booking-status status-@order.Status.ToLower()">
+                    @order.Status
+                </div>
+            </div>
+
+            <div class="booking-card-body">
+                <p><b>@T("Створено", "Created"):</b> @order.CreatedAt</p>
+                <p><b>@T("Сума", "Total"):</b> @order.Total @T("у.о.","u.o.")</p>
+
+                <h3>@T("Позиції", "Items")</h3>
+                <ul>
+                    @foreach (var item in order.Items)
+                        {
+                    <li>@item.Title — @item.Quantity × @item.UnitPrice = @item.LineTotal @T("у.о.","u.o.")</li>
+                        }
+                </ul>
+            </div>
+        </div>
+        }
+    </div>
+}

@@ -1,0 +1,136 @@
+﻿@model List<CarpathianCrown.Web.Models.BookingDto>
+    @using CarpathianCrown.Web.Models
+
+    @{
+    var lang = Context.GetLang();
+    string T(string ua, string en) => lang == "en" ? en : ua;
+    var me = ViewBag.Me as CarpathianCrown.Web.Models.MeDto;
+    }
+
+    <section class="account-header">
+        <div>
+            <h1>@T("Мій кабінет", "My account")</h1>
+            <p>@T("Ваші бронювання та історія перебувань у готелі Sources in Bukovina.", "Your bookings and stay history at Sources in Bukovina.")</p>
+        </div>
+        <a class="btn-primary" href="/Account/NewBooking">@T("Нове бронювання", "New booking")</a>
+    </section>
+
+    @if (me != null)
+{
+    <section class="account-profile-panel">
+        <div class="account-profile-head">
+            <div>
+                <h2>@T("Інформація про акаунт", "Account information")</h2>
+                <p>@T("Ваші персональні дані та швидкі дії для керування акаунтом.", "Your personal data and quick account actions.")</p>
+            </div>
+        </div>
+
+        <div class="account-profile-grid">
+            <div class="account-profile-item">
+                <span>Email</span>
+                <b>@me.Email</b>
+            </div>
+
+            <div class="account-profile-item">
+                <span>@T("Ім'я", "First name")</span>
+                <b>@me.FirstName</b>
+            </div>
+
+            <div class="account-profile-item">
+                <span>@T("Прізвище", "Last name")</span>
+                <b>@me.LastName</b>
+            </div>
+
+            <div class="account-profile-item">
+                <span>@T("Телефон", "Phone")</span>
+                <b>@me.Phone</b>
+            </div>
+
+            <div class="account-profile-item account-profile-stat">
+                <span>@T("Кількість бронювань", "Bookings count")</span>
+                <b>@me.BookingsCount</b>
+            </div>
+        </div>
+
+        <div class="account-profile-actions">
+            <a class="btn-outline" href="/Account/ChangePassword">@T("Змінити пароль", "Change password")</a>
+            <a class="btn-outline" href="/Account/RoomOrders">@T("Замовлення в номер", "Room orders")</a>
+            <a class="btn-danger" href="/Account/DeleteAccount">@T("Видалити акаунт", "Delete account")</a>
+        </div>
+    </section>
+}
+
+    @if (TempData["Error"] != null)
+    {
+    <div class="alert">@TempData["Error"]</div>
+    }
+
+    @if (TempData["Success"] != null)
+    {
+    <div class="alert">@TempData["Success"]</div>
+    }
+
+    @if (!Model.Any())
+    {
+    <div class="empty-bookings">
+        <h3>@T("Бронювань поки немає", "No bookings yet")</h3>
+        <p>@T("Забронюйте номер щоб почати користуватись сервісом.", "Book a room to start using the service.")</p>
+        <a class="btn-primary" href="/Rooms">@T("Переглянути номери", "Browse rooms")</a>
+    </div>
+    }
+        else
+    {
+
+    <div class="booking-grid">
+        @foreach (var b in Model)
+        {
+        <div class="booking-card">
+            <div class="booking-card-top">
+                <div>
+                    <div class="booking-room">@b.RoomTitle</div>
+                    <div class="booking-dates">@b.CheckIn → @b.CheckOut</div>
+                </div>
+
+                <div class="booking-status status-@b.Status.ToLower()">
+                    @b.Status
+                </div>
+            </div>
+
+            <div class="booking-card-body">
+                <div class="booking-meta">
+                    <div>
+                        <span>@T("Бронювання", "Booking")</span>
+                        <b>#@b.Id</b>
+                    </div>
+
+                    <div>
+                        <span>@T("Дата створення", "Created")</span>
+                        <b>@b.CreatedAt.ToShortDateString()</b>
+                    </div>
+
+                    <div>
+                        <span>@T("Сума", "Total")</span>
+                        <b>@b.GrandTotal @T("у.о.","u.o.")</b>
+                    </div>
+                </div>
+
+                <div class="booking-actions">
+                    <a class="btn-outline" href="/Account/Booking?id=@b.Id">@T("Деталі", "Details")</a>
+
+                    @if (b.Status == "Completed")
+                        {
+                    <a class="btn-outline" href="/Account/Review?id=@b.Id">@T("Залишити відгук", "Leave review")</a>
+                        }
+
+                    @if (b.Status == "Pending" || b.Status == "Confirmed")
+                        {
+                    <form method="post" action="/Account/Cancel/@b.Id" onsubmit="return confirm('@T("Скасувати це бронювання?", "Cancel this booking?")')">
+                        <button class="btn-danger">@T("Скасувати", "Cancel")</button>
+                    </form>
+                        }
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+}

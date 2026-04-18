@@ -1,0 +1,80 @@
+@model CarpathianCrown.Web.Models.CreateRoomOrderVm
+@using CarpathianCrown.Web.Models
+
+@{
+    var lang = Context.GetLang();
+    string T(string ua, string en) => lang == "en" ? en : ua;
+
+    var items = ViewBag.Items as List<ServiceItemDto> ?? new();
+    var activeBookings = ViewBag.ActiveBookings as List<ActiveBookingDto> ?? new();
+    var category = (ViewBag.Category as string ?? "").ToLowerInvariant();
+
+    string ServiceTitle(ServiceItemDto s) => lang == "en" ? s.NameEn : s.NameUa;
+    string ServiceDesc(ServiceItemDto s) => lang == "en" ? s.DescriptionEn : s.DescriptionUa;
+    var pageTitle = category == "restaurant"
+        ? T("Замовлення з ресторану", "Restaurant order")
+        : T("Замовлення сервісів", "Service order");
+}
+
+<h1>@pageTitle</h1>
+
+@if (ViewBag.Error != null)
+{
+<div class="alert">@ViewBag.Error</div>
+}
+
+<form method="post" class="card" style="padding:24px;">
+    <input type="hidden" name="category" value="@category" />
+
+    <label>@T("Оберіть активне бронювання", "Choose active booking")</label>
+    <select asp-for="BookingId">
+        <option value="">@T("Оберіть бронювання", "Choose booking")</option>
+        @foreach (var b in activeBookings)
+        {
+        <option value="@b.Id" selected="@(Model.BookingId == b.Id)">
+            #@b.Id — @b.RoomTitle (@b.CheckIn - @b.CheckOut)
+        </option>
+        }
+    </select>
+
+    @if (!items.Any())
+    {
+    <div class="empty-state-card">
+        <p>@T("Доступних позицій поки немає.", "No items available yet.")</p>
+    </div>
+    }
+    else
+    {
+    <div class="catalog-order-grid">
+        @for (int i = 0; i < items.Count; i++)
+            {
+        <div class="catalog-order-card">
+            <img src="@(string.IsNullOrWhiteSpace(items[i].ImageUrl) ? "https://images.unsplash.com/photo-1551887373-6c5bd05a07bb" : items[i].ImageUrl)" alt="@ServiceTitle(items[i])" />
+
+            <div class="catalog-order-body">
+                <div class="title">@ServiceTitle(items[i])</div>
+                <div class="muted">@ServiceDesc(items[i])</div>
+
+                <div class="catalog-order-meta">
+                    <span>@items[i].Price @T("у.о.","u.o.")</span>
+                    <span>@items[i].Category</span>
+                </div>
+
+                <input type="hidden" name="Lines[@i].ServiceItemId" value="@items[i].Id" />
+
+                <label>@T("Кількість", "Quantity")</label>
+                <input type="number"
+                       name="Lines[@i].Quantity"
+                       value="@(Model.Lines.Count > i ? Model.Lines[i].Quantity : 0)"
+                       min="0" />
+            </div>
+        </div>
+            }
+    </div>
+    }
+
+    <div class="form-actions">
+        <button class="btn-primary" type="submit">@T("Оформити замовлення", "Place order")</button>
+        <a class="btn-outline" href="/Account/RoomOrders">@T("Мої замовлення", "My room orders")</a>
+    </div>
+</form>
