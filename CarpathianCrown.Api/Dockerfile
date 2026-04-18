@@ -3,7 +3,7 @@ WORKDIR /src
 
 COPY . .
 
-WORKDIR /src/CarpathianCrown.Api
+WORKDIR /src/Sources-in-Bukovina/CarpathianCrown.Api
 RUN dotnet restore
 RUN dotnet publish -c Release -o /app
 
