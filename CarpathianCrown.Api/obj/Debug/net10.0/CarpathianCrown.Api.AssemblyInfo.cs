@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CarpathianCrown.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+198615204683ae008367979705d659caea48d924")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d088593ab702a9a7006e5bf6bde64b370eb4e550")]
 [assembly: System.Reflection.AssemblyProductAttribute("CarpathianCrown.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CarpathianCrown.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
