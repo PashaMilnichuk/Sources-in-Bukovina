@@ -3,8 +3,8 @@ WORKDIR /src
 
 COPY . .
 
-WORKDIR /src/CarpathianCrown.Api
-RUN dotnet publish -c Release -o /app
+RUN dotnet restore "CarpathianCrown.Api/CarpathianCrown.Api.csproj"
+RUN dotnet publish "CarpathianCrown.Api/CarpathianCrown.Api.csproj" -c Release -o /app
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
