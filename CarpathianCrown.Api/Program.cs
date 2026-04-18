@@ -30,18 +30,19 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 builder.Services.AddScoped<JwtService>();
 builder.Services.AddScoped<BookingDomainService>();
 
-builder.Services.AddHttpClient<AnalyticsClient>(client =>
+var analyticsUrl = builder.Configuration["Analytics:BaseUrl"];
+if (!string.IsNullOrEmpty(analyticsUrl))
 {
-    client.BaseAddress = new Uri(builder.Configuration["Analytics:BaseUrl"]!);
-    client.Timeout = TimeSpan.FromSeconds(5);
-});
+    builder.Services.AddHttpClient<AnalyticsClient>(client =>
+    {
+        client.BaseAddress = new Uri(analyticsUrl);
+        client.Timeout = TimeSpan.FromSeconds(5);
+    });
+}
 
 var jwtKey = builder.Configuration["Jwt:Key"];
 if (string.IsNullOrWhiteSpace(jwtKey))
-    throw new InvalidOperationException("JWT key is missing. Set Jwt:Key in appsettings or env var.");
-
-if (string.IsNullOrWhiteSpace(jwtKey))
-    throw new InvalidOperationException("JWT key is missing. Set CARPATHIAN_JWT_KEY env var.");
+    throw new InvalidOperationException("JWT key is missing.");
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(o =>
@@ -115,6 +116,7 @@ app.MapControllers();
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate();
     await SeedData.Ensure(db);
 }
 
@@ -126,5 +128,8 @@ app.MapGet("/", () => Results.Ok(new
     status = "ok",
     swagger = "/swagger"
 }));
+
+var port = Environment.GetEnvironmentVariable("PORT") ?? "10000";
+app.Urls.Add($"http://*:{port}");
 
 app.Run();
