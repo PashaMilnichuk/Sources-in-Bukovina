@@ -94,8 +94,13 @@ builder.Services.AddCors(opt =>
 {
     opt.AddPolicy("web", p =>
     {
-        var origins = builder.Configuration.GetSection("AllowedCorsOrigins").Get<string[]>() ?? Array.Empty<string>();
-        p.WithOrigins(origins).AllowAnyHeader().AllowAnyMethod();
+        var origins = builder.Configuration.GetSection("AllowedCorsOrigins").Get<string[]>()
+                      ?? new[] { "https://carpathiancrown-web.onrender.com" };
+
+        p.WithOrigins(origins)
+         .AllowAnyHeader()
+         .AllowAnyMethod()
+         .AllowCredentials();
     });
 });
 
