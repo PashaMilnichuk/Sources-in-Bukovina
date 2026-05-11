@@ -24,8 +24,14 @@ builder.Services.AddControllers();
 
 builder.Services.AddTransient<CarpathianCrown.Api.Middleware.ExceptionHandlingMiddleware>();
 
+var connectionString = builder.Configuration.GetValue<string>("DATABASE_URL")
+                    ?? builder.Configuration.GetConnectionString("DefaultConnection");
+
+if (string.IsNullOrEmpty(connectionString))
+    throw new InvalidOperationException("Database connection string is missing!");
+
 builder.Services.AddDbContext<AppDbContext>(opt =>
-    opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+    opt.UseNpgsql(connectionString));
 
 builder.Services.AddScoped<JwtService>();
 builder.Services.AddScoped<BookingDomainService>();
