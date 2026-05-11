@@ -146,9 +146,6 @@ app.UseSwaggerUI();
 
 app.UseMiddleware<CarpathianCrown.Api.Middleware.ExceptionHandlingMiddleware>();
 
-app.UseAuthentication();
-app.UseAuthorization();
-
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
@@ -163,5 +160,8 @@ app.Urls.Add($"http://0.0.0.0:{port}");
 
 app.UseRouting();
 app.MapControllers();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.Run();
