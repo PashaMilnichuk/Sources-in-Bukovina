@@ -1,4 +1,4 @@
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using BCrypt.Net;
 using CarpathianCrown.Api.Data;
 using Microsoft.AspNetCore.Authorization;

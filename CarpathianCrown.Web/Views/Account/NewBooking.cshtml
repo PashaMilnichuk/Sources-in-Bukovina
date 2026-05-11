@@ -1,4 +1,4 @@
-@model CarpathianCrown.Web.Models.BookingCreateRequest
+п»ї@model CarpathianCrown.Web.Models.BookingCreateRequest
 @using CarpathianCrown.Web.Models
 
 @{
@@ -13,7 +13,7 @@
     string ServiceDesc(ServiceItemDto s) => lang == "en" ? s.DescriptionEn : s.DescriptionUa;
 }
 
-<h1>@T("Нове бронювання", "New booking")</h1>
+<h1>@T("РќРѕРІРµ Р±СЂРѕРЅСЋРІР°РЅРЅСЏ", "New booking")</h1>
 
 @if (ViewBag.Error != null)
 {
@@ -21,50 +21,50 @@
 }
 
 <form method="post" class="card" style="padding:24px;">
-    <label>@T("Оберіть номер", "Choose a room")</label>
+    <label>@T("РћР±РµСЂС–С‚СЊ РЅРѕРјРµСЂ", "Choose a room")</label>
     <select name="RoomId" id="roomSelect">
         @foreach (var room in rooms)
         {
         <option value="@room.Id" data-price="@room.PricePerNight" selected="@(Model.RoomId == room.Id)">
-            @RoomTitle(room) — @room.PricePerNight @T("y.o.","u.o.")
+            @RoomTitle(room) вЂ” @room.PricePerNight @T("y.o.","u.o.")
         </option>
         }
     </select>
 
     <div class="grid" style="grid-template-columns:1fr 1fr; gap:16px;">
         <div>
-            <label>@T("Дата заїзду", "Check-in date")</label>
+            <label>@T("Р”Р°С‚Р° Р·Р°С—Р·РґСѓ", "Check-in date")</label>
             <input asp-for="CheckIn" type="date" />
         </div>
 
         <div>
-            <label>@T("Дата виїзду", "Check-out date")</label>
+            <label>@T("Р”Р°С‚Р° РІРёС—Р·РґСѓ", "Check-out date")</label>
             <input asp-for="CheckOut" type="date" />
         </div>
     </div>
 
     <div class="card" style="padding:18px; margin:10px 0 18px;">
-        <div>@T("Ночей", "Nights"): <b id="nightsCount">1</b></div>
-        <div>@T("Ціна номера", "Room total"): <b id="roomTotal">0 @T("y.o.","u.o.")</b></div>
-        <div>@T("Послуги", "Services total"): <b id="servicesTotal">0 @T("y.o.","u.o.")</b></div>
+        <div>@T("РќРѕС‡РµР№", "Nights"): <b id="nightsCount">1</b></div>
+        <div>@T("Р¦С–РЅР° РЅРѕРјРµСЂР°", "Room total"): <b id="roomTotal">0 @T("y.o.","u.o.")</b></div>
+        <div>@T("РџРѕСЃР»СѓРіРё", "Services total"): <b id="servicesTotal">0 @T("y.o.","u.o.")</b></div>
         <hr style="border:none; border-top:1px solid #eee; margin:12px 0;" />
-        <div style="font-size:20px; font-weight:700;">@T("Разом", "Grand total"): <b id="grandTotal">0 @T("y.o.","u.o.")</b></div>
+        <div style="font-size:20px; font-weight:700;">@T("Р Р°Р·РѕРј", "Grand total"): <b id="grandTotal">0 @T("y.o.","u.o.")</b></div>
     </div>
 
-    <h2>@T("Додаткові послуги", "Additional services")</h2>
+    <h2>@T("Р”РѕРґР°С‚РєРѕРІС– РїРѕСЃР»СѓРіРё", "Additional services")</h2>
 
     @if (!services.Any())
     {
-    <p>@T("Послуг поки немає.", "No services available.")</p>
+    <p>@T("РџРѕСЃР»СѓРі РїРѕРєРё РЅРµРјР°С”.", "No services available.")</p>
     }
     else
     {
     <table class="services-table">
         <thead>
             <tr>
-                <th>@T("Послуга", "Service")</th>
-                <th>@T("Опис", "Description")</th>
-                <th>@T("Ціна", "Price")</th>
+                <th>@T("РџРѕСЃР»СѓРіР°", "Service")</th>
+                <th>@T("РћРїРёСЃ", "Description")</th>
+                <th>@T("Р¦С–РЅР°", "Price")</th>
                 <th></th>
             </tr>
         </thead>
@@ -74,7 +74,7 @@
             <tr>
                 <td>@ServiceTitle(s)</td>
                 <td>@ServiceDesc(s)</td>
-                <td>@s.Price @T("у.о.","u.o.")</td>
+                <td>@s.Price @T("Сѓ.Рѕ.","u.o.")</td>
                 <td>
                     <input type="checkbox"
                            class="serviceCheck"
@@ -91,7 +91,7 @@
     }
 
     <div style="margin-top:16px;">
-        <button type="submit" class="btn-primary">@T("Підтвердити бронювання", "Confirm booking")</button>
+        <button type="submit" class="btn-primary">@T("РџС–РґС‚РІРµСЂРґРёС‚Рё Р±СЂРѕРЅСЋРІР°РЅРЅСЏ", "Confirm booking")</button>
     </div>
 </form>
 

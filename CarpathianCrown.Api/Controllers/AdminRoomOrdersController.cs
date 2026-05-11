@@ -1,4 +1,4 @@
-using CarpathianCrown.Api.Data;
+ï»¿using CarpathianCrown.Api.Data;
 using CarpathianCrown.Api.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -79,7 +79,7 @@ public class AdminRoomOrdersController(AppDbContext db) : ControllerBase
                     {
                         Title = i.ServiceItem != null
                             ? (isEn ? i.ServiceItem.NameEn : i.ServiceItem.NameUa)
-                            : "—",
+                            : "â€”",
 
                         Quantity = i.Quantity,
                         UnitPrice = i.UnitPrice,
@@ -93,11 +93,11 @@ public class AdminRoomOrdersController(AppDbContext db) : ControllerBase
                 o.Id,
                 o.BookingId,
 
-                UserEmail = o.User?.Email ?? "—",
+                UserEmail = o.User?.Email ?? "â€”",
 
                 RoomTitle = o.Booking?.Room != null
                     ? (isEn ? o.Booking.Room.NameEn : o.Booking.Room.NameUa)
-                    : "—",
+                    : "â€”",
 
                 o.Status,
                 o.CreatedAt,

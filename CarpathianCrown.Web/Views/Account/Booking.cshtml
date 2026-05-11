@@ -1,4 +1,4 @@
-@model CarpathianCrown.Web.Models.BookingDetailsDto
+п»ї@model CarpathianCrown.Web.Models.BookingDetailsDto
 
 @{
     var lang = Context.GetLang();
@@ -14,17 +14,17 @@
         <p><b>Check-in:</b> @Model.CheckIn</p>
         <p><b>Check-out:</b> @Model.CheckOut</p>
         <p><b>Created:</b> @Model.CreatedAt</p>
-        <p><b>Room total:</b> @Model.RoomTotal @T("у.о.","u.o.")</p>
-        <p><b>Services total:</b> @Model.ServicesTotal @T("у.о.","u.o.")</p>
-        <p><b>Grand total:</b> @Model.GrandTotal @T("у.о.","u.o.")</p>
+        <p><b>Room total:</b> @Model.RoomTotal @T("Сѓ.Рѕ.","u.o.")</p>
+        <p><b>Services total:</b> @Model.ServicesTotal @T("Сѓ.Рѕ.","u.o.")</p>
+        <p><b>Grand total:</b> @Model.GrandTotal @T("Сѓ.Рѕ.","u.o.")</p>
 
         <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn-outline" href="/Account">@T("Назад", "Back")</a>
+            <a class="btn-outline" href="/Account">@T("РќР°Р·Р°Рґ", "Back")</a>
 
             @if (Model.Status == "Confirmed" || Model.Status == "Completed")
              {
             <a class="btn-primary" href="/Account/OrderToRoom?bookingId=@Model.Id">
-                @T("Замовити в номер", "Order to room")
+                @T("Р—Р°РјРѕРІРёС‚Рё РІ РЅРѕРјРµСЂ", "Order to room")
             </a>
              }
         </div>
@@ -39,7 +39,7 @@
         <ul>
             @foreach (var s in Model.Services)
             {
-            <li>@s.Title — Qty: @s.Quantity — @s.LineTotal @T("у.о.","u.o.")</li>
+            <li>@s.Title вЂ” Qty: @s.Quantity вЂ” @s.LineTotal @T("Сѓ.Рѕ.","u.o.")</li>
             }
         </ul>
         }

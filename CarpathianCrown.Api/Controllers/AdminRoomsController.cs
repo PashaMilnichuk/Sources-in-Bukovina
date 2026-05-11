@@ -1,4 +1,4 @@
-using CarpathianCrown.Api.Data;
+﻿using CarpathianCrown.Api.Data;
 using CarpathianCrown.Api.DTOs;
 using CarpathianCrown.Api.Models;
 using Microsoft.AspNetCore.Authorization;

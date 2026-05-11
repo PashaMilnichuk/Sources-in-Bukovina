@@ -1,4 +1,4 @@
-@model CarpathianCrown.Web.Models.LoginViewModel
+п»ї@model CarpathianCrown.Web.Models.LoginViewModel
 @using CarpathianCrown.Web.Models
 
 @{
@@ -8,7 +8,7 @@
 
 <div class="auth-shell">
     <div class="auth-card">
-        <h1>@T("Вхід у систему", "Sign in")</h1>
+        <h1>@T("Р’С…С–Рґ Сѓ СЃРёСЃС‚РµРјСѓ", "Sign in")</h1>
 
         @if (ViewBag.Error != null)
         {
@@ -19,15 +19,15 @@
             <label>Email</label>
             <input asp-for="Identifier" />
 
-            <label>@T("Пароль", "Password")</label>
+            <label>@T("РџР°СЂРѕР»СЊ", "Password")</label>
             <input asp-for="Password" type="password" />
 
-            <button class="btn-primary">@T("Увійти", "Login")</button>
+            <button class="btn-primary">@T("РЈРІС–Р№С‚Рё", "Login")</button>
         </form>
 
         <div class="auth-alt">
-            @T("Немає акаунту?", "No account?")
-            <a href="/Auth/Register">@T("Реєстрація", "Register")</a>
+            @T("РќРµРјР°С” Р°РєР°СѓРЅС‚Сѓ?", "No account?")
+            <a href="/Auth/Register">@T("Р РµС”СЃС‚СЂР°С†С–СЏ", "Register")</a>
         </div>
     </div>
 </div>

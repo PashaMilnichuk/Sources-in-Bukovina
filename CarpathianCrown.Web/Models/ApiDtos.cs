@@ -1,4 +1,4 @@
-namespace CarpathianCrown.Web.Models;
+﻿namespace CarpathianCrown.Web.Models;
 
 using System.Text.Json;
 using System.Text.Json.Serialization;

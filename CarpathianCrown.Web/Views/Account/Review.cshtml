@@ -1,11 +1,11 @@
-@model int
+п»ї@model int
 
 @{
     var lang = Context.GetLang();
     string T(string ua, string en) => lang == "en" ? en : ua;
 }
 
-<h1>@T("Залишити відгук", "Leave review")</h1>
+<h1>@T("Р—Р°Р»РёС€РёС‚Рё РІС–РґРіСѓРє", "Leave review")</h1>
 
 @if (ViewBag.Error != null)
 {
@@ -15,7 +15,7 @@
 <form method="post">
     <input type="hidden" name="bookingId" value="@Model" />
 
-    <label>@T("Оцінка", "Rating")</label>
+    <label>@T("РћС†С–РЅРєР°", "Rating")</label>
     <select name="rating">
         <option value="5">5</option>
         <option value="4">4</option>
@@ -24,8 +24,8 @@
         <option value="1">1</option>
     </select>
 
-    <label>@T("Коментар", "Comment")</label>
+    <label>@T("РљРѕРјРµРЅС‚Р°СЂ", "Comment")</label>
     <textarea name="comment"></textarea>
 
-    <button class="btn-primary" type="submit">@T("Надіслати", "Submit")</button>
+    <button class="btn-primary" type="submit">@T("РќР°РґС–СЃР»Р°С‚Рё", "Submit")</button>
 </form>

@@ -1,4 +1,4 @@
-@model CarpathianCrown.Web.Models.OccupancyCalendarDto
+п»ї@model CarpathianCrown.Web.Models.OccupancyCalendarDto
 @using CarpathianCrown.Web.Models
 
 @{
@@ -7,16 +7,16 @@
     string RoomTitle(OccupancyCalendarRoomDto r) => lang == "en" ? r.NameEn : r.NameUa;
 }
 
-<h1>@T("Календар зайнятості номерів", "Room occupancy calendar")</h1>
+<h1>@T("РљР°Р»РµРЅРґР°СЂ Р·Р°Р№РЅСЏС‚РѕСЃС‚С– РЅРѕРјРµСЂС–РІ", "Room occupancy calendar")</h1>
 
 <form method="get" style="margin-bottom:20px; display:flex; gap:12px; align-items:end; flex-wrap:wrap;">
     <div>
-        <label>@T("Початок", "Start date")</label>
+        <label>@T("РџРѕС‡Р°С‚РѕРє", "Start date")</label>
         <input type="date" name="start" value="@Model.Start.ToString("yyyy-MM-dd")" />
     </div>
 
     <div>
-        <label>@T("Кількість днів", "Days")</label>
+        <label>@T("РљС–Р»СЊРєС–СЃС‚СЊ РґРЅС–РІ", "Days")</label>
         <select name="days">
             <option value="7" selected="@(Model.Days == 7)">7</option>
             <option value="14" selected="@(Model.Days == 14)">14</option>
@@ -25,19 +25,19 @@
         </select>
     </div>
 
-    <button class="btn-primary">@T("Показати", "Show")</button>
+    <button class="btn-primary">@T("РџРѕРєР°Р·Р°С‚Рё", "Show")</button>
 </form>
 
 <div class="occupancy-legend">
-    <div><span class="legend-box free"></span> @T("Вільно", "Free")</div>
-    <div><span class="legend-box busy"></span> @T("Зайнято", "Busy")</div>
+    <div><span class="legend-box free"></span> @T("Р’С–Р»СЊРЅРѕ", "Free")</div>
+    <div><span class="legend-box busy"></span> @T("Р—Р°Р№РЅСЏС‚Рѕ", "Busy")</div>
 </div>
 
 <div class="occupancy-table-wrap">
     <table class="occupancy-table">
         <thead>
             <tr>
-                <th class="sticky-col">@T("Номер", "Room")</th>
+                <th class="sticky-col">@T("РќРѕРјРµСЂ", "Room")</th>
                 @foreach (var d in Model.Dates)
                 {
                 <th>

@@ -1,4 +1,4 @@
-namespace CarpathianCrown.Web.Models;
+﻿namespace CarpathianCrown.Web.Models;
 
 public class RevenueHourlyResponse
 {

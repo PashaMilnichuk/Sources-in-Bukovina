@@ -1,4 +1,4 @@
-@model CarpathianCrown.Web.Models.CreateRoomOrderVm
+п»ї@model CarpathianCrown.Web.Models.CreateRoomOrderVm
 @using CarpathianCrown.Web.Models
 
 @{
@@ -12,8 +12,8 @@
     string ServiceTitle(ServiceItemDto s) => lang == "en" ? s.NameEn : s.NameUa;
     string ServiceDesc(ServiceItemDto s) => lang == "en" ? s.DescriptionEn : s.DescriptionUa;
     var pageTitle = category == "restaurant"
-        ? T("Замовлення з ресторану", "Restaurant order")
-        : T("Замовлення сервісів", "Service order");
+        ? T("Р—Р°РјРѕРІР»РµРЅРЅСЏ Р· СЂРµСЃС‚РѕСЂР°РЅСѓ", "Restaurant order")
+        : T("Р—Р°РјРѕРІР»РµРЅРЅСЏ СЃРµСЂРІС–СЃС–РІ", "Service order");
 }
 
 <h1>@pageTitle</h1>
@@ -26,13 +26,13 @@
 <form method="post" class="card" style="padding:24px;">
     <input type="hidden" name="category" value="@category" />
 
-    <label>@T("Оберіть активне бронювання", "Choose active booking")</label>
+    <label>@T("РћР±РµСЂС–С‚СЊ Р°РєС‚РёРІРЅРµ Р±СЂРѕРЅСЋРІР°РЅРЅСЏ", "Choose active booking")</label>
     <select asp-for="BookingId">
-        <option value="">@T("Оберіть бронювання", "Choose booking")</option>
+        <option value="">@T("РћР±РµСЂС–С‚СЊ Р±СЂРѕРЅСЋРІР°РЅРЅСЏ", "Choose booking")</option>
         @foreach (var b in activeBookings)
         {
         <option value="@b.Id" selected="@(Model.BookingId == b.Id)">
-            #@b.Id — @b.RoomTitle (@b.CheckIn - @b.CheckOut)
+            #@b.Id вЂ” @b.RoomTitle (@b.CheckIn - @b.CheckOut)
         </option>
         }
     </select>
@@ -40,7 +40,7 @@
     @if (!items.Any())
     {
     <div class="empty-state-card">
-        <p>@T("Доступних позицій поки немає.", "No items available yet.")</p>
+        <p>@T("Р”РѕСЃС‚СѓРїРЅРёС… РїРѕР·РёС†С–Р№ РїРѕРєРё РЅРµРјР°С”.", "No items available yet.")</p>
     </div>
     }
     else
@@ -56,13 +56,13 @@
                 <div class="muted">@ServiceDesc(items[i])</div>
 
                 <div class="catalog-order-meta">
-                    <span>@items[i].Price @T("у.о.","u.o.")</span>
+                    <span>@items[i].Price @T("Сѓ.Рѕ.","u.o.")</span>
                     <span>@items[i].Category</span>
                 </div>
 
                 <input type="hidden" name="Lines[@i].ServiceItemId" value="@items[i].Id" />
 
-                <label>@T("Кількість", "Quantity")</label>
+                <label>@T("РљС–Р»СЊРєС–СЃС‚СЊ", "Quantity")</label>
                 <input type="number"
                        name="Lines[@i].Quantity"
                        value="@(Model.Lines.Count > i ? Model.Lines[i].Quantity : 0)"
@@ -74,7 +74,7 @@
     }
 
     <div class="form-actions">
-        <button class="btn-primary" type="submit">@T("Оформити замовлення", "Place order")</button>
-        <a class="btn-outline" href="/Account/RoomOrders">@T("Мої замовлення", "My room orders")</a>
+        <button class="btn-primary" type="submit">@T("РћС„РѕСЂРјРёС‚Рё Р·Р°РјРѕРІР»РµРЅРЅСЏ", "Place order")</button>
+        <a class="btn-outline" href="/Account/RoomOrders">@T("РњРѕС— Р·Р°РјРѕРІР»РµРЅРЅСЏ", "My room orders")</a>
     </div>
 </form>

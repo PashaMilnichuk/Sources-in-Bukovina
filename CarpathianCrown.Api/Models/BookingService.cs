@@ -1,4 +1,4 @@
-namespace CarpathianCrown.Api.Models;
+﻿namespace CarpathianCrown.Api.Models;
 
 public class BookingService
 {

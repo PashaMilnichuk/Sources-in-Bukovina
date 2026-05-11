@@ -1,11 +1,11 @@
-@model CarpathianCrown.Web.Models.MeDto
+п»ї@model CarpathianCrown.Web.Models.MeDto
 
 @{
     var lang = Context.GetLang();
     string T(string ua, string en) => lang == "en" ? en : ua;
 }
 
-<h1>@T("Мій профіль", "My profile")</h1>
+<h1>@T("РњС–Р№ РїСЂРѕС„С–Р»СЊ", "My profile")</h1>
 
 @if (TempData["Success"] != null)
 {
@@ -14,13 +14,13 @@
 
 <div class="card" style="padding:24px;">
     <p><b>Email:</b> @Model.Email</p>
-    <p><b>@T("Ім'я", "First name"):</b> @Model.FirstName</p>
-    <p><b>@T("Прізвище", "Last name"):</b> @Model.LastName</p>
-    <p><b>@T("Телефон", "Phone"):</b> @Model.Phone</p>
-    <p><b>@T("Кількість бронювань", "Bookings count"):</b> @Model.BookingsCount</p>
+    <p><b>@T("Р†Рј'СЏ", "First name"):</b> @Model.FirstName</p>
+    <p><b>@T("РџСЂС–Р·РІРёС‰Рµ", "Last name"):</b> @Model.LastName</p>
+    <p><b>@T("РўРµР»РµС„РѕРЅ", "Phone"):</b> @Model.Phone</p>
+    <p><b>@T("РљС–Р»СЊРєС–СЃС‚СЊ Р±СЂРѕРЅСЋРІР°РЅСЊ", "Bookings count"):</b> @Model.BookingsCount</p>
 
     <div class="form-actions">
-        <a class="btn-outline" href="/Account/ChangePassword">@T("Змінити пароль", "Change password")</a>
-        <a class="btn-danger" href="/Account/DeleteAccount">@T("Видалити акаунт", "Delete account")</a>
+        <a class="btn-outline" href="/Account/ChangePassword">@T("Р—РјС–РЅРёС‚Рё РїР°СЂРѕР»СЊ", "Change password")</a>
+        <a class="btn-danger" href="/Account/DeleteAccount">@T("Р’РёРґР°Р»РёС‚Рё Р°РєР°СѓРЅС‚", "Delete account")</a>
     </div>
 </div>

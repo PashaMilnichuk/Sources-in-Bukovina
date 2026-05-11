@@ -1,4 +1,4 @@
-using CarpathianCrown.Web.Models;
+﻿using CarpathianCrown.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarpathianCrown.Web.Controllers;

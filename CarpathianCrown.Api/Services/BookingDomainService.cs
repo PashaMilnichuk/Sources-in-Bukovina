@@ -1,4 +1,4 @@
-using CarpathianCrown.Api.Data;
+﻿using CarpathianCrown.Api.Data;
 using CarpathianCrown.Api.Models;
 using Microsoft.EntityFrameworkCore;
 

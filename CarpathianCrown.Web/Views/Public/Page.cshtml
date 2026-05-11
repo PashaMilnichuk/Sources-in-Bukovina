@@ -1,4 +1,4 @@
-@model CarpathianCrown.Web.Models.ContentPageDto
+п»ї@model CarpathianCrown.Web.Models.ContentPageDto
 @using CarpathianCrown.Web.Models
 
 @{
@@ -8,11 +8,11 @@
 
     string intro = slug switch
     {
-        "about" => T("Сучасний готельний простір із преміальною атмосферою та увагою до деталей.", "A contemporary hotel space with a premium atmosphere and attention to detail."),
-        "restaurant" => T("Кухня, яка поєднує локальні смаки, сучасну подачу та спокійну елегантність.", "Cuisine that blends local flavors, modern presentation and quiet elegance."),
-        "services" => T("Сервіси, що роблять перебування комфортним, легким і по-справжньому продуманим.", "Services that make every stay comfortable, seamless and truly thoughtful."),
-        "contacts" => T("Уся ключова інформація для бронювання, зв’язку та зручного прибуття до готелю.", "All key information for booking, communication and convenient arrival to the hotel."),
-        _ => T("Буковинські джерела", "Sources in Bukovina")
+        "about" => T("РЎСѓС‡Р°СЃРЅРёР№ РіРѕС‚РµР»СЊРЅРёР№ РїСЂРѕСЃС‚С–СЂ С–Р· РїСЂРµРјС–Р°Р»СЊРЅРѕСЋ Р°С‚РјРѕСЃС„РµСЂРѕСЋ С‚Р° СѓРІР°РіРѕСЋ РґРѕ РґРµС‚Р°Р»РµР№.", "A contemporary hotel space with a premium atmosphere and attention to detail."),
+        "restaurant" => T("РљСѓС…РЅСЏ, СЏРєР° РїРѕС”РґРЅСѓС” Р»РѕРєР°Р»СЊРЅС– СЃРјР°РєРё, СЃСѓС‡Р°СЃРЅСѓ РїРѕРґР°С‡Сѓ С‚Р° СЃРїРѕРєС–Р№РЅСѓ РµР»РµРіР°РЅС‚РЅС–СЃС‚СЊ.", "Cuisine that blends local flavors, modern presentation and quiet elegance."),
+        "services" => T("РЎРµСЂРІС–СЃРё, С‰Рѕ СЂРѕР±Р»СЏС‚СЊ РїРµСЂРµР±СѓРІР°РЅРЅСЏ РєРѕРјС„РѕСЂС‚РЅРёРј, Р»РµРіРєРёРј С– РїРѕ-СЃРїСЂР°РІР¶РЅСЊРѕРјСѓ РїСЂРѕРґСѓРјР°РЅРёРј.", "Services that make every stay comfortable, seamless and truly thoughtful."),
+        "contacts" => T("РЈСЃСЏ РєР»СЋС‡РѕРІР° С–РЅС„РѕСЂРјР°С†С–СЏ РґР»СЏ Р±СЂРѕРЅСЋРІР°РЅРЅСЏ, Р·РІвЂ™СЏР·РєСѓ С‚Р° Р·СЂСѓС‡РЅРѕРіРѕ РїСЂРёР±СѓС‚С‚СЏ РґРѕ РіРѕС‚РµР»СЋ.", "All key information for booking, communication and convenient arrival to the hotel."),
+        _ => T("Р‘СѓРєРѕРІРёРЅСЃСЊРєС– РґР¶РµСЂРµР»Р°", "Sources in Bukovina")
     };
 }
 
@@ -23,19 +23,19 @@
                 @switch (slug)
                 {
                     case "about":
-                @T("Готель та атмосфера", "Hotel & atmosphere")
+                @T("Р“РѕС‚РµР»СЊ С‚Р° Р°С‚РјРѕСЃС„РµСЂР°", "Hotel & atmosphere")
                         break;
                     case "restaurant":
-                @T("Авторська кухня", "Signature cuisine")
+                @T("РђРІС‚РѕСЂСЃСЊРєР° РєСѓС…РЅСЏ", "Signature cuisine")
                         break;
                     case "services":
-                @T("Додатковий комфорт", "Additional comfort")
+                @T("Р”РѕРґР°С‚РєРѕРІРёР№ РєРѕРјС„РѕСЂС‚", "Additional comfort")
                         break;
                     case "contacts":
-                @T("Зв'язок з нами", "Get in touch")
+                @T("Р—РІ'СЏР·РѕРє Р· РЅР°РјРё", "Get in touch")
                         break;
                     default:
-                @T("Буковинські джерела", "Sources in Bukovina")
+                @T("Р‘СѓРєРѕРІРёРЅСЃСЊРєС– РґР¶РµСЂРµР»Р°", "Sources in Bukovina")
                         break;
                 }
             </div>
@@ -49,71 +49,71 @@
     <div class="page-main-card">
         @if (slug == "about")
         {
-        <div class="section-kicker">@T("Про готель", "About the hotel")</div>
+        <div class="section-kicker">@T("РџСЂРѕ РіРѕС‚РµР»СЊ", "About the hotel")</div>
 
         <div class="feature-grid">
             <div class="feature-card">
-                <div class="feature-title">@T("Преміальний комфорт", "Premium comfort")</div>
-                <p>@T("Просторі номери, якісні матеріали, м’які кольори та спокійна атмосфера для повноцінного відпочинку.", "Spacious rooms, quality materials, soft tones and a calm atmosphere for a complete stay.")</p>
+                <div class="feature-title">@T("РџСЂРµРјС–Р°Р»СЊРЅРёР№ РєРѕРјС„РѕСЂС‚", "Premium comfort")</div>
+                <p>@T("РџСЂРѕСЃС‚РѕСЂС– РЅРѕРјРµСЂРё, СЏРєС–СЃРЅС– РјР°С‚РµСЂС–Р°Р»Рё, РјвЂ™СЏРєС– РєРѕР»СЊРѕСЂРё С‚Р° СЃРїРѕРєС–Р№РЅР° Р°С‚РјРѕСЃС„РµСЂР° РґР»СЏ РїРѕРІРЅРѕС†С–РЅРЅРѕРіРѕ РІС–РґРїРѕС‡РёРЅРєСѓ.", "Spacious rooms, quality materials, soft tones and a calm atmosphere for a complete stay.")</p>
             </div>
             <div class="feature-card">
-                <div class="feature-title">@T("Сервіс", "Service")</div>
-                <p>@T("Уважне обслуговування, швидка підтримка та зручні сервіси для різних форматів перебування.", "Attentive hospitality, quick support and convenient services for different types of stays.")</p>
+                <div class="feature-title">@T("РЎРµСЂРІС–СЃ", "Service")</div>
+                <p>@T("РЈРІР°Р¶РЅРµ РѕР±СЃР»СѓРіРѕРІСѓРІР°РЅРЅСЏ, С€РІРёРґРєР° РїС–РґС‚СЂРёРјРєР° С‚Р° Р·СЂСѓС‡РЅС– СЃРµСЂРІС–СЃРё РґР»СЏ СЂС–Р·РЅРёС… С„РѕСЂРјР°С‚С–РІ РїРµСЂРµР±СѓРІР°РЅРЅСЏ.", "Attentive hospitality, quick support and convenient services for different types of stays.")</p>
             </div>
             <div class="feature-card">
-                <div class="feature-title">@T("Локація", "Location")</div>
-                <p>@T("Зручне розташування для відпочинку, ділових поїздок та знайомства з регіоном.", "Convenient location for leisure, business trips and discovering the region.")</p>
+                <div class="feature-title">@T("Р›РѕРєР°С†С–СЏ", "Location")</div>
+                <p>@T("Р—СЂСѓС‡РЅРµ СЂРѕР·С‚Р°С€СѓРІР°РЅРЅСЏ РґР»СЏ РІС–РґРїРѕС‡РёРЅРєСѓ, РґС–Р»РѕРІРёС… РїРѕС—Р·РґРѕРє С‚Р° Р·РЅР°Р№РѕРјСЃС‚РІР° Р· СЂРµРіС–РѕРЅРѕРј.", "Convenient location for leisure, business trips and discovering the region.")</p>
             </div>
         </div>
         }
 
         @if (slug == "restaurant")
         {
-        <div class="section-kicker">@T("Гастрономія", "Gastronomy")</div>
+        <div class="section-kicker">@T("Р“Р°СЃС‚СЂРѕРЅРѕРјС–СЏ", "Gastronomy")</div>
 
         <div class="feature-grid">
             <div class="feature-card">
-                <div class="feature-title">@T("Сніданки", "Breakfast")</div>
-                <p>@T("Різноманітні ранкові страви, гарячі позиції, десерти, фрукти та напої щодня.", "A varied morning selection with hot dishes, desserts, fruits and drinks every day.")</p>
+                <div class="feature-title">@T("РЎРЅС–РґР°РЅРєРё", "Breakfast")</div>
+                <p>@T("Р С–Р·РЅРѕРјР°РЅС–С‚РЅС– СЂР°РЅРєРѕРІС– СЃС‚СЂР°РІРё, РіР°СЂСЏС‡С– РїРѕР·РёС†С–С—, РґРµСЃРµСЂС‚Рё, С„СЂСѓРєС‚Рё С‚Р° РЅР°РїРѕС— С‰РѕРґРЅСЏ.", "A varied morning selection with hot dishes, desserts, fruits and drinks every day.")</p>
             </div>
             <div class="feature-card">
-                <div class="feature-title">@T("Основне меню", "Main menu")</div>
-                <p>@T("Поєднання української та європейської кухні з сучасною подачею та якісними продуктами.", "A combination of Ukrainian and European cuisine with modern presentation and quality ingredients.")</p>
+                <div class="feature-title">@T("РћСЃРЅРѕРІРЅРµ РјРµРЅСЋ", "Main menu")</div>
+                <p>@T("РџРѕС”РґРЅР°РЅРЅСЏ СѓРєСЂР°С—РЅСЃСЊРєРѕС— С‚Р° С”РІСЂРѕРїРµР№СЃСЊРєРѕС— РєСѓС…РЅС– Р· СЃСѓС‡Р°СЃРЅРѕСЋ РїРѕРґР°С‡РµСЋ С‚Р° СЏРєС–СЃРЅРёРјРё РїСЂРѕРґСѓРєС‚Р°РјРё.", "A combination of Ukrainian and European cuisine with modern presentation and quality ingredients.")</p>
             </div>
             <div class="feature-card">
-                <div class="feature-title">@T("Атмосфера", "Atmosphere")</div>
-                <p>@T("Елегантний зал для вечері, неспішних зустрічей та комфортного завершення дня.", "An elegant dining space for dinner, relaxed meetings and a refined end to the day.")</p>
+                <div class="feature-title">@T("РђС‚РјРѕСЃС„РµСЂР°", "Atmosphere")</div>
+                <p>@T("Р•Р»РµРіР°РЅС‚РЅРёР№ Р·Р°Р» РґР»СЏ РІРµС‡РµСЂС–, РЅРµСЃРїС–С€РЅРёС… Р·СѓСЃС‚СЂС–С‡РµР№ С‚Р° РєРѕРјС„РѕСЂС‚РЅРѕРіРѕ Р·Р°РІРµСЂС€РµРЅРЅСЏ РґРЅСЏ.", "An elegant dining space for dinner, relaxed meetings and a refined end to the day.")</p>
             </div>
         </div>
         }
 
         @if (slug == "services")
         {
-        <div class="section-kicker">@T("Доступні сервіси", "Available services")</div>
+        <div class="section-kicker">@T("Р”РѕСЃС‚СѓРїРЅС– СЃРµСЂРІС–СЃРё", "Available services")</div>
 
         <div class="feature-grid">
             <div class="feature-card">
                 <div class="feature-title">@T("Wellness", "Wellness")</div>
-                <p>@T("Басейн, сауна та сервіси для відновлення сил після дороги або активного дня.", "Pool, sauna and recovery services after travel or a busy day.")</p>
+                <p>@T("Р‘Р°СЃРµР№РЅ, СЃР°СѓРЅР° С‚Р° СЃРµСЂРІС–СЃРё РґР»СЏ РІС–РґРЅРѕРІР»РµРЅРЅСЏ СЃРёР» РїС–СЃР»СЏ РґРѕСЂРѕРіРё Р°Р±Рѕ Р°РєС‚РёРІРЅРѕРіРѕ РґРЅСЏ.", "Pool, sauna and recovery services after travel or a busy day.")</p>
             </div>
             <div class="feature-card">
-                <div class="feature-title">@T("Транспорт", "Transport")</div>
-                <p>@T("Паркінг та індивідуальний трансфер для зручного прибуття й пересування.", "Parking and private transfer for convenient arrival and mobility.")</p>
+                <div class="feature-title">@T("РўСЂР°РЅСЃРїРѕСЂС‚", "Transport")</div>
+                <p>@T("РџР°СЂРєС–РЅРі С‚Р° С–РЅРґРёРІС–РґСѓР°Р»СЊРЅРёР№ С‚СЂР°РЅСЃС„РµСЂ РґР»СЏ Р·СЂСѓС‡РЅРѕРіРѕ РїСЂРёР±СѓС‚С‚СЏ Р№ РїРµСЂРµСЃСѓРІР°РЅРЅСЏ.", "Parking and private transfer for convenient arrival and mobility.")</p>
             </div>
             <div class="feature-card">
-                <div class="feature-title">@T("Комфорт побуту", "Everyday comfort")</div>
-                <p>@T("Пральня, хімчистка та інші сервіси, які спрощують тривале перебування.", "Laundry, dry cleaning and extra services that make long stays easier.")</p>
+                <div class="feature-title">@T("РљРѕРјС„РѕСЂС‚ РїРѕР±СѓС‚Сѓ", "Everyday comfort")</div>
+                <p>@T("РџСЂР°Р»СЊРЅСЏ, С…С–РјС‡РёСЃС‚РєР° С‚Р° С–РЅС€С– СЃРµСЂРІС–СЃРё, СЏРєС– СЃРїСЂРѕС‰СѓСЋС‚СЊ С‚СЂРёРІР°Р»Рµ РїРµСЂРµР±СѓРІР°РЅРЅСЏ.", "Laundry, dry cleaning and extra services that make long stays easier.")</p>
             </div>
         </div>
         }
 
         @if (slug == "contacts")
         {
-        <div class="section-kicker">@T("Контактна інформація", "Contact information")</div>
+        <div class="section-kicker">@T("РљРѕРЅС‚Р°РєС‚РЅР° С–РЅС„РѕСЂРјР°С†С–СЏ", "Contact information")</div>
 
         <div class="contact-grid">
             <div class="contact-card">
-                <div class="feature-title">@T("Телефон", "Phone")</div>
+                <div class="feature-title">@T("РўРµР»РµС„РѕРЅ", "Phone")</div>
                 <p>+380 66 381 03 58</p>
             </div>
             <div class="contact-card">
@@ -121,8 +121,8 @@
                 <p>info@sourcesbukovina.com</p>
             </div>
             <div class="contact-card">
-                <div class="feature-title">@T("Локація", "Location")</div>
-                <p>@T("Чернівці, Україна", "Chernivtsi, Ukraine")</p>
+                <div class="feature-title">@T("Р›РѕРєР°С†С–СЏ", "Location")</div>
+                <p>@T("Р§РµСЂРЅС–РІС†С–, РЈРєСЂР°С—РЅР°", "Chernivtsi, Ukraine")</p>
             </div>
         </div>
         }

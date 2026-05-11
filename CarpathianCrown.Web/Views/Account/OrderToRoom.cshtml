@@ -1,4 +1,4 @@
-@model CarpathianCrown.Web.Models.CreateRoomOrderVm
+п»ї@model CarpathianCrown.Web.Models.CreateRoomOrderVm
 @using CarpathianCrown.Web.Models
 
 @{
@@ -12,7 +12,7 @@
     string ServiceDesc(ServiceItemDto s) => lang == "en" ? s.DescriptionEn : s.DescriptionUa;
 }
 
-<h1>@T("Замовлення в номер", "Order to room")</h1>
+<h1>@T("Р—Р°РјРѕРІР»РµРЅРЅСЏ РІ РЅРѕРјРµСЂ", "Order to room")</h1>
 
 @if (ViewBag.Error != null)
 {
@@ -22,9 +22,9 @@
 @if (booking != null)
 {
 <div class="card" style="padding:20px; margin-bottom:20px;">
-    <p><b>@T("Бронювання", "Booking"):</b> #@booking.Id</p>
-    <p><b>@T("Номер", "Room"):</b> @booking.RoomTitle</p>
-    <p><b>@T("Статус", "Status"):</b> @booking.Status</p>
+    <p><b>@T("Р‘СЂРѕРЅСЋРІР°РЅРЅСЏ", "Booking"):</b> #@booking.Id</p>
+    <p><b>@T("РќРѕРјРµСЂ", "Room"):</b> @booking.RoomTitle</p>
+    <p><b>@T("РЎС‚Р°С‚СѓСЃ", "Status"):</b> @booking.Status</p>
 </div>
 }
 
@@ -34,10 +34,10 @@
     <table class="services-table">
         <thead>
             <tr>
-                <th>@T("Послуга / позиція", "Service / item")</th>
-                <th>@T("Опис", "Description")</th>
-                <th>@T("Ціна", "Price")</th>
-                <th>@T("Кількість", "Quantity")</th>
+                <th>@T("РџРѕСЃР»СѓРіР° / РїРѕР·РёС†С–СЏ", "Service / item")</th>
+                <th>@T("РћРїРёСЃ", "Description")</th>
+                <th>@T("Р¦С–РЅР°", "Price")</th>
+                <th>@T("РљС–Р»СЊРєС–СЃС‚СЊ", "Quantity")</th>
             </tr>
         </thead>
         <tbody>
@@ -49,7 +49,7 @@
                     <input type="hidden" name="Lines[@i].ServiceItemId" value="@services[i].Id" />
                 </td>
                 <td>@ServiceDesc(services[i])</td>
-                <td>@services[i].Price @T("у.о.","u.o.")</td>
+                <td>@services[i].Price @T("Сѓ.Рѕ.","u.o.")</td>
                 <td style="width:120px;">
                     <input type="number"
                            name="Lines[@i].Quantity"
@@ -63,7 +63,7 @@
     </table>
 
     <div class="form-actions">
-        <button class="btn-primary" type="submit">@T("Підтвердити замовлення", "Confirm order")</button>
-        <a class="btn-outline" href="/Account/Booking?id=@Model.BookingId">@T("Назад", "Back")</a>
+        <button class="btn-primary" type="submit">@T("РџС–РґС‚РІРµСЂРґРёС‚Рё Р·Р°РјРѕРІР»РµРЅРЅСЏ", "Confirm order")</button>
+        <a class="btn-outline" href="/Account/Booking?id=@Model.BookingId">@T("РќР°Р·Р°Рґ", "Back")</a>
     </div>
 </form>

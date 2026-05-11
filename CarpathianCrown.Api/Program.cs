@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 using CarpathianCrown.Api.Data;
 using CarpathianCrown.Api.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -116,7 +116,7 @@ builder.Services.AddSwaggerGen(c =>
         Scheme = "bearer",
         BearerFormat = "JWT",
         In = ParameterLocation.Header,
-        Description = "Введи JWT токен у форматі: Bearer {token}"
+        Description = "Р’РІРµРґРё JWT С‚РѕРєРµРЅ Сѓ С„РѕСЂРјР°С‚С–: Bearer {token}"
     });
 
     c.AddSecurityRequirement(new OpenApiSecurityRequirement

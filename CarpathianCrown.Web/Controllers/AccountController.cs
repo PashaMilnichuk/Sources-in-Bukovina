@@ -1,4 +1,4 @@
-using CarpathianCrown.Web.Models;
+п»їusing CarpathianCrown.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarpathianCrown.Web.Controllers;
@@ -168,7 +168,7 @@ public class AccountController : Controller
 
         if (string.IsNullOrWhiteSpace(comment))
         {
-            ViewBag.Error = "Поле Коментар порожнє";
+            ViewBag.Error = "РџРѕР»Рµ РљРѕРјРµРЅС‚Р°СЂ РїРѕСЂРѕР¶РЅС”";
             return View(bookingId);
         }
 
@@ -230,13 +230,13 @@ public class AccountController : Controller
             string.IsNullOrWhiteSpace(model.NewPassword) ||
             string.IsNullOrWhiteSpace(model.ConfirmPassword))
         {
-            ViewBag.Error = "Усі поля обов'язкові";
+            ViewBag.Error = "РЈСЃС– РїРѕР»СЏ РѕР±РѕРІ'СЏР·РєРѕРІС–";
             return View(model);
         }
 
         if (model.NewPassword != model.ConfirmPassword)
         {
-            ViewBag.Error = "Нові паролі не співпадають";
+            ViewBag.Error = "РќРѕРІС– РїР°СЂРѕР»С– РЅРµ СЃРїС–РІРїР°РґР°СЋС‚СЊ";
             return View(model);
         }
 
@@ -248,7 +248,7 @@ public class AccountController : Controller
                 newPassword = model.NewPassword
             }, auth.Token);
 
-            TempData["Success"] = "Ваш пароль змінено";
+            TempData["Success"] = "Р’Р°С€ РїР°СЂРѕР»СЊ Р·РјС–РЅРµРЅРѕ";
             return RedirectToAction("Index");
         }
         catch (Exception ex)
@@ -278,7 +278,7 @@ public class AccountController : Controller
 
         if (string.IsNullOrWhiteSpace(model.Password))
         {
-            ViewBag.Error = "Введіть пароль";
+            ViewBag.Error = "Р’РІРµРґС–С‚СЊ РїР°СЂРѕР»СЊ";
             return View(model);
         }
 
@@ -357,7 +357,7 @@ public class AccountController : Controller
                 lines
             }, auth.Token);
 
-            TempData["Success"] = "Замовлення в номер створено";
+            TempData["Success"] = "Р—Р°РјРѕРІР»РµРЅРЅСЏ РІ РЅРѕРјРµСЂ СЃС‚РІРѕСЂРµРЅРѕ";
             return RedirectToAction("RoomOrders");
         }
         catch (Exception ex)
@@ -443,10 +443,10 @@ public class AccountController : Controller
                 .ToList();
 
             if (model.BookingId <= 0)
-                throw new InvalidOperationException("Оберіть бронювання");
+                throw new InvalidOperationException("РћР±РµСЂС–С‚СЊ Р±СЂРѕРЅСЋРІР°РЅРЅСЏ");
 
             if (!lines.Any())
-                throw new InvalidOperationException("Оберіть хоча б одну позицію");
+                throw new InvalidOperationException("РћР±РµСЂС–С‚СЊ С…РѕС‡Р° Р± РѕРґРЅСѓ РїРѕР·РёС†С–СЋ");
 
             await _api.Post("/api/room-orders", new
             {
@@ -454,7 +454,7 @@ public class AccountController : Controller
                 lines
             }, auth.Token);
 
-            TempData["Success"] = "Замовлення створено";
+            TempData["Success"] = "Р—Р°РјРѕРІР»РµРЅРЅСЏ СЃС‚РІРѕСЂРµРЅРѕ";
             return RedirectToAction("RoomOrders");
         }
         catch (Exception ex)
@@ -501,7 +501,7 @@ public class AccountController : Controller
 
         if (booking == null)
         {
-            TempData["Error"] = "Спочатку потрібно забронювати номер";
+            TempData["Error"] = "РЎРїРѕС‡Р°С‚РєСѓ РїРѕС‚СЂС–Р±РЅРѕ Р·Р°Р±СЂРѕРЅСЋРІР°С‚Рё РЅРѕРјРµСЂ";
             return Redirect("/Rooms");
         }
 
@@ -514,7 +514,7 @@ public class AccountController : Controller
         }
         }, auth.Token);
 
-        TempData["Success"] = "Замовлення створено";
+        TempData["Success"] = "Р—Р°РјРѕРІР»РµРЅРЅСЏ СЃС‚РІРѕСЂРµРЅРѕ";
 
         return Redirect(Request.Headers["Referer"].ToString());
     }

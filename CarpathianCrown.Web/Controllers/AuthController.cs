@@ -1,4 +1,4 @@
-using CarpathianCrown.Web.Models;
+п»їusing CarpathianCrown.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarpathianCrown.Web.Controllers;
@@ -61,7 +61,7 @@ public class AuthController : Controller
     {
         if (!model.AcceptPersonalData)
         {
-            ViewBag.Error = "Потрібно погодитись з обробкою персональних даних";
+            ViewBag.Error = "РџРѕС‚СЂС–Р±РЅРѕ РїРѕРіРѕРґРёС‚РёСЃСЊ Р· РѕР±СЂРѕР±РєРѕСЋ РїРµСЂСЃРѕРЅР°Р»СЊРЅРёС… РґР°РЅРёС…";
             return View(model);
         }
         try

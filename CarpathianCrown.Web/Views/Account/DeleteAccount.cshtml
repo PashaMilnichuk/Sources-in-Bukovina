@@ -1,11 +1,11 @@
-@model CarpathianCrown.Web.Models.DeleteAccountVm
+п»ї@model CarpathianCrown.Web.Models.DeleteAccountVm
 
 @{
     var lang = Context.GetLang();
     string T(string ua, string en) => lang == "en" ? en : ua;
 }
 
-<h1>@T("Видалення акаунта", "Delete account")</h1>
+<h1>@T("Р’РёРґР°Р»РµРЅРЅСЏ Р°РєР°СѓРЅС‚Р°", "Delete account")</h1>
 
 @if (ViewBag.Error != null)
 {
@@ -14,18 +14,18 @@
 
 <div class="card" style="padding:24px;">
     <p>
-        <b>@T("Увага! Ця дія незворотна.", "Warning:")</b>
-        @T("Перед видаленням акаунта скасуйте активні бронювання.",
+        <b>@T("РЈРІР°РіР°! Р¦СЏ РґС–СЏ РЅРµР·РІРѕСЂРѕС‚РЅР°.", "Warning:")</b>
+        @T("РџРµСЂРµРґ РІРёРґР°Р»РµРЅРЅСЏРј Р°РєР°СѓРЅС‚Р° СЃРєР°СЃСѓР№С‚Рµ Р°РєС‚РёРІРЅС– Р±СЂРѕРЅСЋРІР°РЅРЅСЏ.",
            "Cancel active bookings before deleting the account.")
     </p>
 
-    <form method="post" onsubmit="return confirm('@T("Ви точно хочете видалити акаунт?", "Are you sure you want to delete the account?")')">
-        <label>@T("Введіть пароль для підтвердження", "Enter password to confirm")</label>
+    <form method="post" onsubmit="return confirm('@T("Р’Рё С‚РѕС‡РЅРѕ С…РѕС‡РµС‚Рµ РІРёРґР°Р»РёС‚Рё Р°РєР°СѓРЅС‚?", "Are you sure you want to delete the account?")')">
+        <label>@T("Р’РІРµРґС–С‚СЊ РїР°СЂРѕР»СЊ РґР»СЏ РїС–РґС‚РІРµСЂРґР¶РµРЅРЅСЏ", "Enter password to confirm")</label>
         <input asp-for="Password" type="password" />
 
         <div class="form-actions">
-            <button class="btn-danger" type="submit">@T("Видалити акаунт", "Delete account")</button>
-            <a class="btn-outline" href="/Account">@T("Скасувати", "Cancel")</a>
+            <button class="btn-danger" type="submit">@T("Р’РёРґР°Р»РёС‚Рё Р°РєР°СѓРЅС‚", "Delete account")</button>
+            <a class="btn-outline" href="/Account">@T("РЎРєР°СЃСѓРІР°С‚Рё", "Cancel")</a>
         </div>
     </form>
 </div>
