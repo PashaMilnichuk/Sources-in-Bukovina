@@ -1,13 +1,10 @@
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 
-COPY ["CarpathianCrown.Api/CarpathianCrown.Api.csproj", "CarpathianCrown.Api/"]
-COPY ["CarpathianCrown.Web/CarpathianCrown.Web.csproj", "CarpathianCrown.Web/"]
+COPY ["CarpathianCrown.Api/CarpathianCrown.Api.csproj", "."]
+RUN dotnet restore "CarpathianCrown.Api.csproj"
 
-RUN dotnet restore "CarpathianCrown.Api/CarpathianCrown.Api.csproj"
-
-COPY . .
-WORKDIR "/src/CarpathianCrown.Api"
+COPY CarpathianCrown.Api/ .
 RUN dotnet publish "CarpathianCrown.Api.csproj" -c Release -o /app/publish --no-restore
 
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS final
