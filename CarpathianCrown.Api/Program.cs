@@ -122,17 +122,10 @@ using (var scope = app.Services.CreateScope())
 
 app.UseSerilogRequestLogging();
 
-var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
-builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+var port = Environment.GetEnvironmentVariable("PORT") ?? "10000";
+app.Urls.Add($"http://0.0.0.0:{port}");
 
 app.UseRouting();
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-
-app.MapDefaultControllerRoute();
-
 app.MapControllers();
 
 app.Run();

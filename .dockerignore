@@ -1,7 +1,9 @@
 .vs
 **/bin
 **/obj
-**/node_modules
-.git
-.github
-*.md
+**/.git
+**/.github
+**/.idea
+CarpathianCrown.Analytics
+**/logs
+*.user
