@@ -25,20 +25,20 @@ builder.Services.AddControllers();
 
 builder.Services.AddTransient<CarpathianCrown.Api.Middleware.ExceptionHandlingMiddleware>();
 
-var rawConnectionString = builder.Configuration.GetValue<string>("DATABASE_URL")
-                       ?? builder.Configuration.GetConnectionString("DefaultConnection");
+var databaseUrl = builder.Configuration.GetValue<string>("DATABASE_URL")
+               ?? builder.Configuration.GetConnectionString("DefaultConnection");
 
-if (string.IsNullOrEmpty(rawConnectionString))
+if (string.IsNullOrEmpty(databaseUrl))
     throw new InvalidOperationException("DATABASE_URL is missing!");
 
-string connectionString;
+var connectionString = databaseUrl;
 
-if (rawConnectionString.StartsWith("postgresql://") || rawConnectionString.StartsWith("postgres://"))
+if (databaseUrl.Contains("://"))
 {
-    var uri = new Uri(rawConnectionString);
-    var userInfo = uri.UserInfo.Split(':');
+    var uri = new Uri(databaseUrl);
+    var userInfo = uri.UserInfo.Split(':', 2);
 
-    connectionString = new Npgsql.NpgsqlConnectionStringBuilder
+    var builder = new NpgsqlConnectionStringBuilder
     {
         Host = uri.Host,
         Port = uri.Port > 0 ? uri.Port : 5432,
@@ -47,11 +47,8 @@ if (rawConnectionString.StartsWith("postgresql://") || rawConnectionString.Start
         Password = userInfo.Length > 1 ? userInfo[1] : "",
         SslMode = SslMode.Require,
         TrustServerCertificate = true
-    }.ToString();
-}
-else
-{
-    connectionString = rawConnectionString;
+    };
+    connectionString = builder.ToString();
 }
 
 builder.Services.AddDbContext<AppDbContext>(options =>
