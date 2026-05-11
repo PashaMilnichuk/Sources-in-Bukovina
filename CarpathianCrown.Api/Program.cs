@@ -31,14 +31,14 @@ var databaseUrl = builder.Configuration.GetValue<string>("DATABASE_URL")
 if (string.IsNullOrEmpty(databaseUrl))
     throw new InvalidOperationException("DATABASE_URL is missing!");
 
-var connectionString = databaseUrl;
+string connectionString;
 
 if (databaseUrl.Contains("://"))
 {
     var uri = new Uri(databaseUrl);
     var userInfo = uri.UserInfo.Split(':', 2);
 
-    var builder = new NpgsqlConnectionStringBuilder
+    var csBuilder = new NpgsqlConnectionStringBuilder
     {
         Host = uri.Host,
         Port = uri.Port > 0 ? uri.Port : 5432,
@@ -48,7 +48,11 @@ if (databaseUrl.Contains("://"))
         SslMode = SslMode.Require,
         TrustServerCertificate = true
     };
-    connectionString = builder.ToString();
+    connectionString = csBuilder.ToString();
+}
+else
+{
+    connectionString = databaseUrl;
 }
 
 builder.Services.AddDbContext<AppDbContext>(options =>
