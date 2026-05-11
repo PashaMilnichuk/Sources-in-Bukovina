@@ -15,51 +15,63 @@ public class AdminController : Controller
     [HttpGet]
     public async Task<IActionResult> Dashboard()
     {
-        var auth = HttpContext.GetAuth();
-        if (auth.Role != "Admin") return Redirect("/");
-
-        var bookingsResponse = await _api.Get<AdminBookingsResponseDto>(
-            "/api/admin/bookings",
-            auth.Token);
-
-        var revenueResponse = await _api.Get<RevenueHourlyResponse>(
-            "/api/admin/reports/revenue-hourly",
-            auth.Token);
-
-        var revenueHourly = revenueResponse.Items;
-
-        var bookings = bookingsResponse.Items;
-
-        var totalBookings = bookingsResponse.Total;
-        var activeBookings = bookings.Count(x => x.Status == "Pending" || x.Status == "Confirmed");
-        var completedBookings = bookings.Count(x => x.Status == "Completed");
-        var totalRevenue = bookings
-            .Where(x => x.Status == "Completed")
-            .Sum(x => x.GrandTotal);
-
-        ViewBag.Auth = auth;
-        ViewBag.Chart = revenueHourly;
-        ViewBag.Chart = revenueResponse.Items;
-        ViewBag.MaxRevenue = revenueResponse.MaxRevenue;
-
-        var topRooms = await _api.Get<List<TopRoomDto>>(
-            "/api/admin/reports/top-rooms",
-            auth.Token);
-
-        var occupancy = await _api.Get<OccupancyDto>(
-            "/api/admin/reports/occupancy",
-            auth.Token);
-
-        ViewBag.TopRooms = topRooms;
-        ViewBag.Occupancy = occupancy;
-
-        return View(new AdminDashboardDto
+        try
         {
-            TotalBookings = totalBookings,
-            ActiveBookings = activeBookings,
-            CompletedBookings = completedBookings,
-            TotalRevenue = totalRevenue
-        });
+            var auth = HttpContext.GetAuth();
+
+            if (auth.Role != "Admin")
+                return Redirect("/");
+
+            var bookingsResponse = await _api.Get<AdminBookingsResponseDto>(
+                "/api/admin/bookings",
+                auth.Token);
+
+            var revenueResponse = await _api.Get<RevenueHourlyResponse>(
+                "/api/admin/reports/revenue-hourly",
+                auth.Token);
+
+            var revenueHourly = revenueResponse.Items;
+
+            var bookings = bookingsResponse.Items;
+
+            var totalBookings = bookingsResponse.Total;
+            var activeBookings = bookings.Count(x =>
+                x.Status == "Pending" || x.Status == "Confirmed");
+
+            var completedBookings = bookings.Count(x =>
+                x.Status == "Completed");
+
+            var totalRevenue = bookings
+                .Where(x => x.Status == "Completed")
+                .Sum(x => x.GrandTotal);
+
+            ViewBag.Auth = auth;
+            ViewBag.Chart = revenueHourly;
+            ViewBag.MaxRevenue = revenueResponse.MaxRevenue;
+
+            var topRooms = await _api.Get<List<TopRoomDto>>(
+                "/api/admin/reports/top-rooms",
+                auth.Token);
+
+            var occupancy = await _api.Get<OccupancyDto>(
+                "/api/admin/reports/occupancy",
+                auth.Token);
+
+            ViewBag.TopRooms = topRooms;
+            ViewBag.Occupancy = occupancy;
+
+            return View(new AdminDashboardDto
+            {
+                TotalBookings = totalBookings,
+                ActiveBookings = activeBookings,
+                CompletedBookings = completedBookings,
+                TotalRevenue = totalRevenue
+            });
+        }
+        catch (Exception ex)
+        {
+            return Content(ex.ToString());
+        }
     }
 
     [HttpGet]
