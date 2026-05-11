@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using Npgsql;
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
@@ -24,23 +25,37 @@ builder.Services.AddControllers();
 
 builder.Services.AddTransient<CarpathianCrown.Api.Middleware.ExceptionHandlingMiddleware>();
 
-var connectionString = builder.Configuration.GetValue<string>("DATABASE_URL");
+var rawConnectionString = builder.Configuration.GetValue<string>("DATABASE_URL")
+                       ?? builder.Configuration.GetConnectionString("DefaultConnection");
 
-if (string.IsNullOrEmpty(connectionString))
+if (string.IsNullOrEmpty(rawConnectionString))
+    throw new InvalidOperationException("DATABASE_URL is missing!");
+
+string connectionString;
+
+if (rawConnectionString.StartsWith("postgresql://") || rawConnectionString.StartsWith("postgres://"))
 {
-    connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    var uri = new Uri(rawConnectionString);
+    var userInfo = uri.UserInfo.Split(':');
+
+    connectionString = new Npgsql.NpgsqlConnectionStringBuilder
+    {
+        Host = uri.Host,
+        Port = uri.Port > 0 ? uri.Port : 5432,
+        Database = uri.AbsolutePath.Trim('/'),
+        Username = userInfo[0],
+        Password = userInfo.Length > 1 ? userInfo[1] : "",
+        SslMode = SslMode.Require,
+        TrustServerCertificate = true
+    }.ToString();
+}
+else
+{
+    connectionString = rawConnectionString;
 }
 
-if (string.IsNullOrEmpty(connectionString))
-    throw new InvalidOperationException("DATABASE_URL or DefaultConnection is missing!");
-
 builder.Services.AddDbContext<AppDbContext>(options =>
-{
-    options.UseNpgsql(connectionString);
-});
-
-builder.Services.AddDbContext<AppDbContext>(opt =>
-    opt.UseNpgsql(connectionString));
+    options.UseNpgsql(connectionString));
 
 builder.Services.AddScoped<JwtService>();
 builder.Services.AddScoped<BookingDomainService>();
