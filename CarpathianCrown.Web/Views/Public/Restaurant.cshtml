@@ -1,4 +1,4 @@
-@model List<CarpathianCrown.Web.Models.ServiceItemDto>
+п»ї@model List<CarpathianCrown.Web.Models.ServiceItemDto>
     @using CarpathianCrown.Web.Models
 
     @{
@@ -17,11 +17,11 @@
     <section class="page-hero fade-up" style="background-image:url('@pageData.HeroImageUrl')">
         <div class="page-hero-inner">
             <div class="public-hero-overlay-card">
-                <div class="hero-badge">@T("Ресторан", "Restaurant")</div>
+                <div class="hero-badge">@T("Р РµСЃС‚РѕСЂР°РЅ", "Restaurant")</div>
                 <h1>@pageData.Title</h1>
                 <p>
                     @T(
-                        "Меню з вишуканими стравами, напоями та атмосферою для повноцінного відпочинку.",
+                        "РњРµРЅСЋ Р· РІРёС€СѓРєР°РЅРёРјРё СЃС‚СЂР°РІР°РјРё, РЅР°РїРѕСЏРјРё С‚Р° Р°С‚РјРѕСЃС„РµСЂРѕСЋ РґР»СЏ РїРѕРІРЅРѕС†С–РЅРЅРѕРіРѕ РІС–РґРїРѕС‡РёРЅРєСѓ.",
                         "A refined menu with signature dishes, drinks and a relaxing dining atmosphere."
                     )
                 </p>
@@ -32,11 +32,11 @@
 
     <section class="page-shell fade-up">
         <div class="page-main-card">
-            <div class="section-kicker">@T("Меню", "Menu")</div>
-            <h2>@T("Популярні страви та напої", "Popular dishes and drinks")</h2>
+            <div class="section-kicker">@T("РњРµРЅСЋ", "Menu")</div>
+            <h2>@T("РџРѕРїСѓР»СЏСЂРЅС– СЃС‚СЂР°РІРё С‚Р° РЅР°РїРѕС—", "Popular dishes and drinks")</h2>
             <p class="muted">
                 @T(
-                    "Орієнтовні ціни та позиції ресторану для гостей готелю.",
+                    "РћСЂС–С”РЅС‚РѕРІРЅС– С†С–РЅРё С‚Р° РїРѕР·РёС†С–С— СЂРµСЃС‚РѕСЂР°РЅСѓ РґР»СЏ РіРѕСЃС‚РµР№ РіРѕС‚РµР»СЋ.",
                     "Indicative menu items and pricing for hotel guests."
                 )
             </p>
@@ -54,7 +54,7 @@
                         <div class="muted">@ServiceDesc(item)</div>
 
                         <div class="price">
-                            @T("Ціна:", "Price:") <b>@item.Price @T("у.о.","u.o.")</b>
+                            @T("Р¦С–РЅР°:", "Price:") <b>@item.Price @T("Сѓ.Рѕ.","u.o.")</b>
                         </div>
 
                         @if (Context.GetAuth().IsAuthed && auth.Role != "Admin")
@@ -65,17 +65,17 @@
                             <div class="order-row">
                                 <input type="number" name="quantity" value="1" min="1" />
 
-                                <button class="btn-primary order-btn" type="submit">@T("Замовити", "Order")</button>
+                                <button class="btn-primary order-btn" type="submit">@T("Р—Р°РјРѕРІРёС‚Рё", "Order")</button>
                             </div>
                         </form>
                             }
                             else if (!auth.IsAuthed)
                             {
-                        <a href="/Auth/Login" class="btn-outline">@T("Увійти", "Login")</a>
+                        <a href="/Auth/Login" class="btn-outline">@T("РЈРІС–Р№С‚Рё", "Login")</a>
                     }
                     else
                     {
-                        <div class="muted">@T("Недоступно для адміністратора", "Not available to the administrator")</div>
+                        <div class="muted">@T("РќРµРґРѕСЃС‚СѓРїРЅРѕ РґР»СЏ Р°РґРјС–РЅС–СЃС‚СЂР°С‚РѕСЂР°", "Not available to the administrator")</div>
                     }
                     </div>
 
