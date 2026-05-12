@@ -47,7 +47,7 @@ public static class SeedData
                 {
                     NameUa = "Standard Single",
                     NameEn = "Standard Single",
-                    DescriptionUa = "Р—Р°С‚РёС€РЅРёР№ РѕРґРЅРѕРјС–СЃРЅРёР№ РЅРѕРјРµСЂ РґР»СЏ РєРѕСЂРѕС‚РєРѕРіРѕ Р°Р±Рѕ РґС–Р»РѕРІРѕРіРѕ РїРµСЂРµР±СѓРІР°РЅРЅСЏ.",
+                    DescriptionUa = "Затишний одномісний номер для короткого або ділового перебування.",
                     DescriptionEn = "A cozy single room for short or business stays.",
                     PricePerNight = 2200,
                     Capacity = 1,
@@ -61,7 +61,7 @@ new Room
 {
     NameUa = "Standard Double",
     NameEn = "Standard Double",
-    DescriptionUa = "РљРѕРјС„РѕСЂС‚РЅРёР№ РґРІРѕРјС–СЃРЅРёР№ РЅРѕРјРµСЂ Р· РјвЂ™СЏРєРёРј РѕСЃРІС–С‚Р»РµРЅРЅСЏРј С‚Р° СЃСѓС‡Р°СЃРЅРёРј С–РЅС‚РµСЂвЂ™С”СЂРѕРј.",
+    DescriptionUa = "Комфортний двомісний номер з м’яким освітленням та сучасним інтер’єром.",
     DescriptionEn = "Comfortable double room with soft lighting and modern interior.",
     PricePerNight = 2800,
     Capacity = 2,
@@ -75,7 +75,7 @@ new Room
 {
     NameUa = "Standard Twin",
     NameEn = "Standard Twin",
-    DescriptionUa = "РќРѕРјРµСЂ Р· РґРІРѕРјР° РѕРєСЂРµРјРёРјРё Р»С–Р¶РєР°РјРё РґР»СЏ РґСЂСѓР·С–РІ Р°Р±Рѕ РєРѕР»РµРі.",
+    DescriptionUa = "Номер з двома окремими ліжками для друзів або колег.",
     DescriptionEn = "A room with two separate beds for friends or colleagues.",
     PricePerNight = 2900,
     Capacity = 2,
@@ -89,7 +89,7 @@ new Room
 {
     NameUa = "Superior Double",
     NameEn = "Superior Double",
-    DescriptionUa = "РџРѕРєСЂР°С‰РµРЅРёР№ РЅРѕРјРµСЂ Р· Р±С–Р»СЊС€РѕСЋ РїР»РѕС‰РµСЋ С‚Р° РµР»РµРіР°РЅС‚РЅРёРј РґРёР·Р°Р№РЅРѕРј.",
+    DescriptionUa = "Покращений номер з більшою площею та елегантним дизайном.",
     DescriptionEn = "Superior room with extra space and elegant design.",
     PricePerNight = 3400,
     Capacity = 2,
@@ -103,7 +103,7 @@ new Room
 {
     NameUa = "Superior Twin",
     NameEn = "Superior Twin",
-    DescriptionUa = "РџСЂРѕСЃС‚РѕСЂРёР№ РЅРѕРјРµСЂ Р· РґРІРѕРјР° Р»С–Р¶РєР°РјРё С‚Р° РїРѕРєСЂР°С‰РµРЅРёРј РєРѕРјС„РѕСЂС‚РѕРј.",
+    DescriptionUa = "Просторий номер з двома ліжками та покращеним комфортом.",
     DescriptionEn = "Spacious twin room with improved comfort.",
     PricePerNight = 3500,
     Capacity = 2,
@@ -117,7 +117,7 @@ new Room
 {
     NameUa = "Deluxe Double",
     NameEn = "Deluxe Double",
-    DescriptionUa = "Deluxe РЅРѕРјРµСЂ Р· РїСЂРµРјС–Р°Р»СЊРЅРёРј РѕР·РґРѕР±Р»РµРЅРЅСЏРј С‚Р° Р·РѕРЅРѕСЋ РІС–РґРїРѕС‡РёРЅРєСѓ.",
+    DescriptionUa = "Deluxe номер з преміальним оздобленням та зоною відпочинку.",
     DescriptionEn = "Deluxe room with premium finishing and lounge area.",
     PricePerNight = 4200,
     Capacity = 2,
@@ -131,7 +131,7 @@ new Room
 {
     NameUa = "Deluxe Mountain View",
     NameEn = "Deluxe Mountain View",
-    DescriptionUa = "РќРѕРјРµСЂ Р· РІРёРґРѕРј РЅР° РіРѕСЂРё С‚Р° РїР°РЅРѕСЂР°РјРЅРёРјРё РІС–РєРЅР°РјРё.",
+    DescriptionUa = "Номер з видом на гори та панорамними вікнами.",
     DescriptionEn = "A room with mountain view and panoramic windows.",
     PricePerNight = 4800,
     Capacity = 2,
@@ -145,7 +145,7 @@ new Room
 {
     NameUa = "Junior Suite",
     NameEn = "Junior Suite",
-    DescriptionUa = "РќР°РїС–РІР»СЋРєСЃ С–Р· РґРѕРґР°С‚РєРѕРІРѕСЋ Р·РѕРЅРѕСЋ РІС–РґРїРѕС‡РёРЅРєСѓ С‚Р° РїРѕРєСЂР°С‰РµРЅРёРј РїСЂРѕСЃС‚РѕСЂРѕРј.",
+    DescriptionUa = "Напівлюкс із додатковою зоною відпочинку та покращеним простором.",
     DescriptionEn = "Junior suite with extra lounge zone and extended space.",
     PricePerNight = 5600,
     Capacity = 3,
@@ -159,7 +159,7 @@ new Room
 {
     NameUa = "Family Room",
     NameEn = "Family Room",
-    DescriptionUa = "РЎС–РјРµР№РЅРёР№ РЅРѕРјРµСЂ РґР»СЏ РєРѕРјС„РѕСЂС‚РЅРѕРіРѕ РїСЂРѕР¶РёРІР°РЅРЅСЏ Р· РґС–С‚СЊРјРё.",
+    DescriptionUa = "Сімейний номер для комфортного проживання з дітьми.",
     DescriptionEn = "Family room for comfortable stay with children.",
     PricePerNight = 6200,
     Capacity = 4,
@@ -173,7 +173,7 @@ new Room
 {
     NameUa = "Family Suite",
     NameEn = "Family Suite",
-    DescriptionUa = "РџСЂРѕСЃС‚РѕСЂРёР№ СЃС–РјРµР№РЅРёР№ Р»СЋРєСЃ С–Р· РѕРєСЂРµРјРёРјРё Р·РѕРЅР°РјРё РґР»СЏ СЃРЅСѓ С‚Р° РІС–РґРїРѕС‡РёРЅРєСѓ.",
+    DescriptionUa = "Просторий сімейний люкс із окремими зонами для сну та відпочинку.",
     DescriptionEn = "Spacious family suite with separate sleep and lounge areas.",
     PricePerNight = 7600,
     Capacity = 4,
@@ -187,7 +187,7 @@ new Room
 {
     NameUa = "Executive Suite",
     NameEn = "Executive Suite",
-    DescriptionUa = "РџСЂРµРґСЃС‚Р°РІРЅРёС†СЊРєРёР№ Р»СЋРєСЃ РґР»СЏ РіРѕСЃС‚РµР№, СЏРєС– С†С–РЅСѓСЋС‚СЊ СЃС‚Р°С‚СѓСЃ С– РїСЂРѕСЃС‚С–СЂ.",
+    DescriptionUa = "Представницький люкс для гостей, які цінують статус і простір.",
     DescriptionEn = "Executive suite for guests who value prestige and space.",
     PricePerNight = 9800,
     Capacity = 4,
@@ -201,7 +201,7 @@ new Room
 {
     NameUa = "Presidential Suite",
     NameEn = "Presidential Suite",
-    DescriptionUa = "РќР°Р№РїСЂРѕСЃС‚РѕСЂС–С€РёР№ Р»СЋРєСЃ С–Р· РїСЂРµРјС–Р°Р»СЊРЅРёРј РґРёР·Р°Р№РЅРѕРј С‚Р° РјР°РєСЃРёРјР°Р»СЊРЅРёРј РєРѕРјС„РѕСЂС‚РѕРј.",
+    DescriptionUa = "Найпросторіший люкс із преміальним дизайном та максимальним комфортом.",
     DescriptionEn = "The most spacious suite with premium design and maximum comfort.",
     PricePerNight = 14500,
     Capacity = 4,
@@ -217,9 +217,9 @@ new Room
                 new ServiceItem
                 {
                     Category = "Restaurant",
-                    NameUa = "РЎРЅС–РґР°РЅРѕРє Сѓ СЂРµСЃС‚РѕСЂР°РЅС–",
+                    NameUa = "Сніданок у ресторані",
                     NameEn = "Restaurant Breakfast",
-                    DescriptionUa = "Р РѕР·С€РёСЂРµРЅРёР№ СЃРЅС–РґР°РЅРѕРє С€РІРµРґСЃСЊРєРѕС— Р»С–РЅС–С— Р· РіР°СЂСЏС‡РёРјРё СЃС‚СЂР°РІР°РјРё, РґРµСЃРµСЂС‚Р°РјРё С‚Р° РЅР°РїРѕСЏРјРё.",
+                    DescriptionUa = "Розширений сніданок шведської лінії з гарячими стравами, десертами та напоями.",
                     DescriptionEn = "Extended buffet breakfast with hot dishes, desserts, and drinks.",
                     Price = 450,
                     IsActive = true,
@@ -228,10 +228,10 @@ new Room
                 new ServiceItem
                 {
                     Category = "Restaurant",
-                    NameUa = "Р’РµС‡РµСЂСЏ РІ СЂРµСЃС‚РѕСЂР°РЅС–",
+                    NameUa = "Вечеря в ресторані",
                     NameEn = "Restaurant Dinner",
-                    DescriptionUa = "Р¤С–РєСЃРѕРІР°РЅРёР№ СЃРµС‚ РІРµС‡РµСЂС– РІ Р°РІС‚РѕСЂСЃСЊРєРѕРјСѓ СЂРµСЃС‚РѕСЂР°РЅС– РіРѕС‚РµР»СЋ.",
-                    DescriptionEn = "Fixed dinner set in the hotelвЂ™s signature restaurant.",
+                    DescriptionUa = "Фіксований сет вечері в авторському ресторані готелю.",
+                    DescriptionEn = "Fixed dinner set in the hotel’s signature restaurant.",
                     Price = 950,
                     IsActive = true,
                     ImageUrl = "https://images.unsplash.com/photo-1414235077428-338989a2e8c0"
@@ -239,9 +239,9 @@ new Room
                 new ServiceItem
                 {
                     Category = "Transport",
-                    NameUa = "РџР°СЂРєС–РЅРі",
+                    NameUa = "Паркінг",
                     NameEn = "Parking",
-                    DescriptionUa = "РћС…РѕСЂРѕРЅСЋРІР°РЅРµ РјС–СЃС†Рµ РЅР° РїР°СЂРєС–РЅРіСѓ Р±С–Р»СЏ РіРѕС‚РµР»СЋ.",
+                    DescriptionUa = "Охоронюване місце на паркінгу біля готелю.",
                     DescriptionEn = "Secured parking place near the hotel.",
                     Price = 250,
                     IsActive = true,
@@ -250,9 +250,9 @@ new Room
                 new ServiceItem
                 {
                     Category = "Care",
-                    NameUa = "РџСЂР°Р»СЊРЅСЏ",
+                    NameUa = "Пральня",
                     NameEn = "Laundry",
-                    DescriptionUa = "РџСЂРѕС„РµСЃС–Р№РЅРµ РїСЂР°РЅРЅСЏ С‚Р° Р±Р°Р·РѕРІРёР№ РґРѕРіР»СЏРґ Р·Р° РѕРґСЏРіРѕРј.",
+                    DescriptionUa = "Професійне прання та базовий догляд за одягом.",
                     DescriptionEn = "Professional laundry service and basic garment care.",
                     Price = 400,
                     IsActive = true,
@@ -261,9 +261,9 @@ new Room
                 new ServiceItem
                 {
                     Category = "Care",
-                    NameUa = "РҐС–РјС‡РёСЃС‚РєР°",
+                    NameUa = "Хімчистка",
                     NameEn = "Dry Cleaning",
-                    DescriptionUa = "Р”РµР»С–РєР°С‚РЅР° С…С–РјС‡РёСЃС‚РєР° РґР»СЏ РґС–Р»РѕРІРѕРіРѕ С‚Р° СЃРІСЏС‚РєРѕРІРѕРіРѕ РѕРґСЏРіСѓ.",
+                    DescriptionUa = "Делікатна хімчистка для ділового та святкового одягу.",
                     DescriptionEn = "Delicate dry cleaning for business and formal clothing.",
                     Price = 650,
                     IsActive = true,
@@ -272,9 +272,9 @@ new Room
                 new ServiceItem
                 {
                     Category = "Wellness",
-                    NameUa = "Р‘Р°СЃРµР№РЅ",
+                    NameUa = "Басейн",
                     NameEn = "Swimming Pool",
-                    DescriptionUa = "Р Р°Р·РѕРІРёР№ РґРѕСЃС‚СѓРї РґРѕ Р±Р°СЃРµР№РЅСѓ РіРѕС‚РµР»СЋ Р· СЂСѓС€РЅРёРєР°РјРё С‚Р° Р·РѕРЅРѕСЋ РІС–РґРїРѕС‡РёРЅРєСѓ.",
+                    DescriptionUa = "Разовий доступ до басейну готелю з рушниками та зоною відпочинку.",
                     DescriptionEn = "One-time access to the hotel swimming pool with towels and lounge area.",
                     Price = 500,
                     IsActive = true,
@@ -283,9 +283,9 @@ new Room
                 new ServiceItem
                 {
                     Category = "Wellness",
-                    NameUa = "РЎР°СѓРЅР°",
+                    NameUa = "Сауна",
                     NameEn = "Sauna",
-                    DescriptionUa = "РћРєСЂРµРјРёР№ РґРѕСЃС‚СѓРї РґРѕ СЃР°СѓРЅРё С‚Р° wellness-Р·РѕРЅРё.",
+                    DescriptionUa = "Окремий доступ до сауни та wellness-зони.",
                     DescriptionEn = "Private access to sauna and wellness zone.",
                     Price = 700,
                     IsActive = true,
@@ -294,9 +294,9 @@ new Room
                 new ServiceItem
                 {
                     Category = "Transport",
-                    NameUa = "РўСЂР°РЅСЃС„РµСЂ Р· РІРѕРєР·Р°Р»Сѓ",
+                    NameUa = "Трансфер з вокзалу",
                     NameEn = "Railway Station Transfer",
-                    DescriptionUa = "Р†РЅРґРёРІС–РґСѓР°Р»СЊРЅРёР№ С‚СЂР°РЅСЃС„РµСЂ РґРѕ Р°Р±Рѕ Р· РІРѕРєР·Р°Р»Сѓ.",
+                    DescriptionUa = "Індивідуальний трансфер до або з вокзалу.",
                     DescriptionEn = "Private transfer to or from the railway station.",
                     Price = 900,
                     IsActive = true,
@@ -309,18 +309,18 @@ new Room
             new ContentPage
             {
                 Slug = "about",
-                TitleUa = "РџСЂРѕ РЅР°СЃ",
+                TitleUa = "Про нас",
                 TitleEn = "About",
                 HeroImageUrl = "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4",
                 HtmlUa = """
                     <section>
-                        <p><b>Sources in Bukovina</b> вЂ” СЃСѓС‡Р°СЃРЅРёР№ РїСЂРµРјС–Р°Р»СЊРЅРёР№ РіРѕС‚РµР»СЊ Сѓ Р§РµСЂРЅС–РІС†СЏС…, СЃС‚РІРѕСЂРµРЅРёР№ РґР»СЏ РіРѕСЃС‚РµР№, СЏРєС– С†С–РЅСѓСЋС‚СЊ РєРѕРјС„РѕСЂС‚, СЃРµСЂРІС–СЃ С– Р°С‚РјРѕСЃС„РµСЂСѓ СЃРїРѕРєРѕСЋ.</p>
-                        <p>Р“РѕС‚РµР»СЊ РїРѕС”РґРЅСѓС” СЃС‚РёР»СЊРЅС– РЅРѕРјРµСЂРё, Р°РІС‚РѕСЂСЃСЊРєРёР№ СЂРµСЃС‚РѕСЂР°РЅ, wellness-Р·РѕРЅСѓ С‚Р° РІРёСЃРѕРєРёР№ СЂС–РІРµРЅСЊ РіРѕСЃС‚РёРЅРЅРѕСЃС‚С–.</p>
+                        <p><b>Sources in Bukovina</b> — сучасний преміальний готель у Чернівцях, створений для гостей, які цінують комфорт, сервіс і атмосферу спокою.</p>
+                        <p>Готель поєднує стильні номери, авторський ресторан, wellness-зону та високий рівень гостинності.</p>
                         <ul>
-                            <li>12 РЅРѕРјРµСЂС–РІ СЂС–Р·РЅРёС… РєР°С‚РµРіРѕСЂС–Р№</li>
-                            <li>Р РµСЃС‚РѕСЂР°РЅ СѓРєСЂР°С—РЅСЃСЊРєРѕС— С‚Р° С”РІСЂРѕРїРµР№СЃСЊРєРѕС— РєСѓС…РЅС–</li>
-                            <li>Р‘Р°СЃРµР№РЅ, СЃР°СѓРЅР°, РїР°СЂРєС–РЅРі, РїСЂР°Р»СЊРЅСЏ</li>
-                            <li>Р¦С–Р»РѕРґРѕР±РѕРІР° СЂРµС†РµРїС†С–СЏ С‚Р° С€РІРёРґРєРёР№ Wi-Fi</li>
+                            <li>12 номерів різних категорій</li>
+                            <li>Ресторан української та європейської кухні</li>
+                            <li>Басейн, сауна, паркінг, пральня</li>
+                            <li>Цілодобова рецепція та швидкий Wi-Fi</li>
                         </ul>
                     </section>
                     """,
@@ -340,17 +340,17 @@ new Room
             new ContentPage
             {
                 Slug = "restaurant",
-                TitleUa = "Р РµСЃС‚РѕСЂР°РЅ",
+                TitleUa = "Ресторан",
                 TitleEn = "Restaurant",
                 HeroImageUrl = "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba",
                 HtmlUa = """
                     <section>
-                        <p>Р РµСЃС‚РѕСЂР°РЅ Sources in Bukovina РїСЂРѕРїРѕРЅСѓС” СЃС‚СЂР°РІРё СѓРєСЂР°С—РЅСЃСЊРєРѕС— С‚Р° С”РІСЂРѕРїРµР№СЃСЊРєРѕС— РєСѓС…РЅС– Сѓ СЃСѓС‡Р°СЃРЅРѕРјСѓ Р°РІС‚РѕСЂСЃСЊРєРѕРјСѓ РІРёРєРѕРЅР°РЅРЅС–.</p>
-                        <p>Р”Р»СЏ РіРѕСЃС‚РµР№ РґРѕСЃС‚СѓРїРЅС– СЃРЅС–РґР°РЅРєРё, Р±С–Р·РЅРµСЃ-Р»Р°РЅС‡С– С‚Р° РІРµС‡С–СЂРЅС” РјРµРЅСЋ Р· РІРёРЅРЅРѕСЋ РєР°СЂС‚РѕСЋ.</p>
+                        <p>Ресторан Sources in Bukovina пропонує страви української та європейської кухні у сучасному авторському виконанні.</p>
+                        <p>Для гостей доступні сніданки, бізнес-ланчі та вечірнє меню з винною картою.</p>
                         <ul>
-                            <li>РЎРЅС–РґР°РЅРєРё С‰РѕРґРЅСЏ Р· 07:00 РґРѕ 10:30</li>
-                            <li>РћР±С–РґРё С‚Р° РІРµС‡РµСЂС– РїРѕ РјРµРЅСЋ</li>
-                            <li>РЎРµР·РѕРЅРЅС– Р»РѕРєР°Р»СЊРЅС– РїСЂРѕРґСѓРєС‚Рё</li>
+                            <li>Сніданки щодня з 07:00 до 10:30</li>
+                            <li>Обіди та вечері по меню</li>
+                            <li>Сезонні локальні продукти</li>
                         </ul>
                     </section>
                     """,
@@ -369,17 +369,17 @@ new Room
             new ContentPage
             {
                 Slug = "services",
-                TitleUa = "РЎРµСЂРІС–СЃРё",
+                TitleUa = "Сервіси",
                 TitleEn = "Services",
                 HeroImageUrl = "https://images.unsplash.com/photo-1551887373-6c5bd05a07bb",
                 HtmlUa = """
                     <section>
-                        <p>Р“РѕС‚РµР»СЊ РїСЂРѕРїРѕРЅСѓС” РґРѕРґР°С‚РєРѕРІС– СЃРµСЂРІС–СЃРё РґР»СЏ РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ РєРѕРјС„РѕСЂС‚Сѓ РіРѕСЃС‚РµР№.</p>
+                        <p>Готель пропонує додаткові сервіси для максимального комфорту гостей.</p>
                         <ul>
-                            <li>РџР°СЂРєС–РЅРі</li>
-                            <li>РџСЂР°Р»СЊРЅСЏ С‚Р° С…С–РјС‡РёСЃС‚РєР°</li>
-                            <li>Р‘Р°СЃРµР№РЅ С– СЃР°СѓРЅР°</li>
-                            <li>Р†РЅРґРёРІС–РґСѓР°Р»СЊРЅРёР№ С‚СЂР°РЅСЃС„РµСЂ</li>
+                            <li>Паркінг</li>
+                            <li>Пральня та хімчистка</li>
+                            <li>Басейн і сауна</li>
+                            <li>Індивідуальний трансфер</li>
                         </ul>
                     </section>
                     """,
@@ -398,15 +398,15 @@ new Room
             new ContentPage
             {
                 Slug = "contacts",
-                TitleUa = "РљРѕРЅС‚Р°РєС‚Рё",
+                TitleUa = "Контакти",
                 TitleEn = "Contacts",
                 HeroImageUrl = "https://images.unsplash.com/photo-1484154218962-a197022b5858",
                 HtmlUa = """
                     <section>
-                        <p><b>РђРґСЂРµСЃР°:</b> Рј. Р§РµСЂРЅС–РІС†С–, РЈРєСЂР°С—РЅР°</p>
-                        <p><b>РўРµР»РµС„РѕРЅ:</b> +380 66 381 03 58</p>
+                        <p><b>Адреса:</b> м. Чернівці, Україна</p>
+                        <p><b>Телефон:</b> +380 66 381 03 58</p>
                         <p><b>Email:</b> info@sourcesbukovina.com</p>
-                        <p><b>Р РµС†РµРїС†С–СЏ:</b> 24/7</p>
+                        <p><b>Рецепція:</b> 24/7</p>
                     </section>
                     """,
                 HtmlEn = """
