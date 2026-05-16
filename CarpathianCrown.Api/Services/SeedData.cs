@@ -24,26 +24,26 @@ public static class SeedData
             });
         }
 
-        var hasBookings = await db.Bookings.AnyAsync();
+            var hasBookings = await db.Bookings.AnyAsync();
 
-        if (!hasBookings)
-        {
-            if (await db.Rooms.AnyAsync())
-                db.Rooms.RemoveRange(await db.Rooms.ToListAsync());
+            if (!hasBookings)
+            {
+                if (await db.Rooms.AnyAsync())
+                    db.Rooms.RemoveRange(await db.Rooms.ToListAsync());
 
-            if (await db.ServiceItems.AnyAsync())
-                db.ServiceItems.RemoveRange(await db.ServiceItems.ToListAsync());
-        }
+                if (await db.ServiceItems.AnyAsync())
+                    db.ServiceItems.RemoveRange(await db.ServiceItems.ToListAsync());
+            }
 
-        if (await db.ContentPages.AnyAsync())
-            db.ContentPages.RemoveRange(await db.ContentPages.ToListAsync());
+            if (await db.ContentPages.AnyAsync())
+                db.ContentPages.RemoveRange(await db.ContentPages.ToListAsync());
 
-        await db.SaveChangesAsync();
+            await db.SaveChangesAsync();
 
-        if (!hasBookings)
-        {
-            db.Rooms.AddRange(
-                new Room
+            if (!hasBookings)
+            {
+                db.Rooms.AddRange(
+                    new Room
                 {
                     NameUa = "Standard Single",
                     NameEn = "Standard Single",
@@ -314,7 +314,7 @@ new Room
                 HeroImageUrl = "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4",
                 HtmlUa = """
                     <section>
-                        <p><b>Sources in Bukovina</b> — сучасний преміальний готель у Чернівцях, створений для гостей, які цінують комфорт, сервіс і атмосферу спокою.</p>
+                        <p><b>Bukovyna Spring 55</b> — сучасний преміальний готель у Чернівцях, створений для гостей, які цінують комфорт, сервіс і атмосферу спокою.</p>
                         <p>Готель поєднує стильні номери, авторський ресторан, wellness-зону та високий рівень гостинності.</p>
                         <ul>
                             <li>12 номерів різних категорій</li>
@@ -326,7 +326,7 @@ new Room
                     """,
                 HtmlEn = """
                     <section>
-                        <p><b>Sources in Bukovina</b> is a modern premium hotel in Chernivtsi created for guests who value comfort, service, and a calm atmosphere.</p>
+                        <p><b>Bukovyna Spring 55</b> is a modern premium hotel in Chernivtsi created for guests who value comfort, service, and a calm atmosphere.</p>
                         <p>The hotel combines stylish rooms, a signature restaurant, a wellness area, and a high level of hospitality.</p>
                         <ul>
                             <li>12 rooms of different categories</li>
@@ -345,7 +345,7 @@ new Room
                 HeroImageUrl = "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba",
                 HtmlUa = """
                     <section>
-                        <p>Ресторан Sources in Bukovina пропонує страви української та європейської кухні у сучасному авторському виконанні.</p>
+                        <p>Ресторан Bukovyna Spring 55 пропонує страви української та європейської кухні у сучасному авторському виконанні.</p>
                         <p>Для гостей доступні сніданки, бізнес-ланчі та вечірнє меню з винною картою.</p>
                         <ul>
                             <li>Сніданки щодня з 07:00 до 10:30</li>
@@ -356,7 +356,7 @@ new Room
                     """,
                 HtmlEn = """
                     <section>
-                        <p>The Sources in Bukovina restaurant offers Ukrainian and European cuisine in a refined contemporary interpretation.</p>
+                        <p>The Bukovyna Spring 55 restaurant offers Ukrainian and European cuisine in a refined contemporary interpretation.</p>
                         <p>Guests can enjoy breakfast, business lunches, and an evening menu with a wine selection.</p>
                         <ul>
                             <li>Breakfast daily from 07:00 to 10:30</li>
@@ -405,7 +405,7 @@ new Room
                     <section>
                         <p><b>Адреса:</b> м. Чернівці, Україна</p>
                         <p><b>Телефон:</b> +380 66 381 03 58</p>
-                        <p><b>Email:</b> info@sourcesbukovina.com</p>
+                        <p><b>Email:</b> info@BukovynaSpring55.com</p>
                         <p><b>Рецепція:</b> 24/7</p>
                     </section>
                     """,
@@ -413,7 +413,7 @@ new Room
                     <section>
                         <p><b>Address:</b> Chernivtsi, Ukraine</p>
                         <p><b>Phone:</b> +380 66 381 03 58</p>
-                        <p><b>Email:</b> info@sourcesbukovina.com</p>
+                        <p><b>Email:</b> info@BukovynaSpring55.com</p>
                         <p><b>Reception:</b> 24/7</p>
                     </section>
                     """
